@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass'
 
+ruby '2.0.0'
+
 group :development, :test do
   gem 'rspec-rails', '>= 2.14.0'
   gem 'guard-rspec', '>= 4.2.0'
@@ -47,7 +49,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2', :require => "bcrypt"
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -59,7 +61,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
-
-ruby '2.0.0'
 
 gem 'unicorn'
