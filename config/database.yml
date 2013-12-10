@@ -56,12 +56,12 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  host: ec2-54-235-156-5.compute-1.amazonaws.com
+  host: localhost
   port: 5432
-  database: d4g1m5dcmn52kp
+  database: fambridge_test 
   pool: 5
-  username: gkzxslyzmmxgwd   
-  password: 6WaIWSggAeHTPguRBC9buJ3UwG
+  username: postgres 
+  password: 
 
 #production:
 #  adapter: postgresql

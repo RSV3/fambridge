@@ -22,6 +22,12 @@ end
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# For file uploading
+gem 'carrierwave'
+gem 'fog'
+gem 'unf'
+gem 'mini_magick'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -49,7 +55,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.1.2', :require => "bcrypt"
+gem 'bcrypt-ruby', :require => "bcrypt"
 
 # Use unicorn as the app server
 # gem 'unicorn'
