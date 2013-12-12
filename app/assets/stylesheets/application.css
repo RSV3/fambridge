@@ -12,6 +12,8 @@
  *= require_tree .
  */
 
-.content {
-  margin-top: 60px;
+
+#content {
+  padding-top: 60px;
 }
+

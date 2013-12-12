@@ -1,2 +1,37 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<%= render 'layouts/header_unauthenticated' %>
+
+
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-3">
+    <h1 class="text-center">Sign up for your free account</h1>
+    <%= form_for(@user) do |f| %>
+
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :first_name, class: "control-label" %>
+      <%= f.text_field :first_name, class: "form-control" %> 
+
+      <%= f.label :email, class: "control-label" %>
+      <%= f.text_field :email, class: "form-control" %>
+
+      <%= f.label :password, class: "control-label" %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <%= f.label :password_confirmation, class: "control-label" %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+
+      <%= f.label :profile_photo, class: "control-label" %> (from your computer)
+      <%= f.file_field :profile_photo, class: "form-control" %> 
+
+      <%= check_box_tag(:send_weekly_report, class: "form-control") %>
+      <%= label_tag(:send_weekly_report, "Send me a weekly report", class: "control-label") %>
+
+      <%= check_box_tag(:agree_terms, class: "form-control") %>
+      <%= label_tag(:agree_terms, "I agree to terms and conditions", class: "control-label") %>
+
+      <%= f.submit "Create my account", class: "btn btn-lg btn-primary" %>
+
+    <% end %>
+  </div>
+</div>

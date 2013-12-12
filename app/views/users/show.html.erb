@@ -1,0 +1,15 @@
+<% provide(:title, @user.first_name) %>
+<%= render 'layouts/header_unauthenticated' %>
+
+<div class="row">
+  <aside class="col-sm-12 col-md-6 col-lg-4">
+    <section>
+    <h1><%= @user.first_name %></h1>
+
+    <div>
+      <%= gravatar_for @user %>
+    </div>
+    <%= @user.email %>
+    </section>
+  </aside>
+</div>
