@@ -44,9 +44,9 @@ describe 'User pages'  do
       visit signup_path
 
       fill_in "First name", with: "Janet Jackson"
-      fill_in "Email", with: ""
-      fill_in "Password", with: ""
-      fill_in "Password confirmation", with: ""
+      fill_in "Email", with: "jackson@gmail.com"
+      fill_in "Password", with: "janetjack"
+      fill_in "Password confirmation", with: "janetjack"
       
     end
 
