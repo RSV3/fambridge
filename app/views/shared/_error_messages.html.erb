@@ -1,10 +1,21 @@
-<% if @user.errors.any? %>
+<% if @user and @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
       The form contains <%= pluralize(@user.errors.count, 'error') %>
     </div>
     <ul>
       <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% elsif @session and @session.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@session.errors.count, 'error') %>
+    </div>
+    <ul>
+      <% @session.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

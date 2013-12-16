@@ -7,7 +7,7 @@ describe "AuthenticationPages" do
   describe "show signin page" do
     before { visit signin_path }
 
-    describe "invalid signin" do
+    describe "with invalid signin information" do
       before { click_button "Sign in"}
 
       it { should have_content('Sign in') }
@@ -15,12 +15,12 @@ describe "AuthenticationPages" do
       it { should have_selector('div.alert.alert-danger', text: 'Invalid') }
 
       describe "after visiting another page" do
-        before { click_link "Home" }
+        before { click_link "FamilyBridge" }
         it { should_not have_selector('div.alert.alert-danger') }
       end
     end
 
-    describe "with invalid information" do
+    describe "with valid siginin information" do
       let(:user) { FactoryGirl.create(:user) }
 
       before do
@@ -35,6 +35,10 @@ describe "AuthenticationPages" do
       it { should have_link('Sign out', href: signout_path) }
       it { should_not have_link('Sign in', href: signin_path) }
 
+      describe "followed by signout" do
+        before { click_link "Sign out" }
+        it { should have_link('Sign in')}
+      end
     end
 
 

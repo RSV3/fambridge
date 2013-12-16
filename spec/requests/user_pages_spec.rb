@@ -40,11 +40,12 @@ describe 'User pages'  do
   describe "signup valid user data" do
 
     let(:submit) {"Create my account"}
+
     before do
       visit signup_path
 
       fill_in "First name", with: "Janet Jackson"
-      fill_in "Email", with: "jackson@gmail.com"
+      fill_in "Email", with: "user@example.com"
       fill_in "Password", with: "janetjack"
       fill_in "Password confirmation", with: "janetjack"
       
@@ -54,6 +55,15 @@ describe 'User pages'  do
       expect do
         click_button submit 
       end.to change(User, :count).by(1)
+    end
+
+    describe "after saving the user" do
+      before { click_button submit }
+      let(:user) { User.find_by(email: "user@example.com") }
+
+      it { should have_link('Sign out') }
+      it { should have_title(user.first_name) }
+      it { should have_selector('div.alert.alert-success', text: 'Welcome') }
     end
   end
 end

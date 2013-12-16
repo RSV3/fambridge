@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # handle successful user save
+      sign_in @user
       flash[:success] = "Your account has been created successfully. Welcome to Family Bridge!"
       redirect_to @user
     else
