@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  before_action :signed_in_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+
   # signup_path
   def new
     @user = User.new
@@ -23,6 +26,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Your profile has been successfully updated."
+      redirect_to @user
+    else
+      flash.now[:danger] = "Enter valid values"
+      render 'edit'
+    end
+  end
+
   private
 
     def user_params
@@ -31,4 +47,12 @@ class UsersController < ApplicationController
                                   :send_weekly_report, :agree_terms)
     end
 
+    def signed_in_user
+      redirect_to signin_url, warning: "Please sign in first to access the page." unless signed_in?
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
 end

@@ -31,7 +31,7 @@
               <%= link_to "Profile", current_user, role: "menuitem" %>
             </li>     
             <li role='presentation'>
-              <%= link_to "Settings", "#", role: "menuitem" %>
+              <%= link_to "Settings", edit_user_path(current_user), role: "menuitem" %>
             </li>
             <li class="divider"></li>
             <li role='presentation'>
