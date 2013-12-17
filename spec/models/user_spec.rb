@@ -16,10 +16,10 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
-  it { should respond_to(:admin)}
+  it { should respond_to(:primary)}
 
   it { should be_valid }
-  it { should_not be_admin }
+  it { should_not be_super_admin }
 
   describe "remember token" do
     before { @user.save }
@@ -29,10 +29,11 @@ describe User do
   describe "with admin attribute set to 'true'" do
     before do
       @user.save!
-      @user.toggle!(:admin)
+      @user.toggle!(:super_admin)
     end
 
-    it { should be_admin }
+    it { should respond_to(:super_admin)}
+    it { should be_super_admin }
   end
 
   describe "when email format is invalid" do

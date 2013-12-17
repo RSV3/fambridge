@@ -1,0 +1,14 @@
+<%= render "layouts/header" %>
+<% provide(:title, 'Family Members') %>
+
+<div class="row">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <h1>Your Family Members</h1>
+
+    <ul class="users">
+      <%= render @users %>
+    </ul>
+  </div>
+</div>
+
+<%= render "layouts/footer_authenticated" %>

@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
 
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :update, :destroy, :family]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
-
+  before_action :admin_user, only: [:index, :destroy]
 
   def index
     @users = User.paginate(page: params[:page])
+  end
+
+  def family
+    # show users who are same family members
+    @users = [current_user] 
   end
 
   # signup_path
@@ -62,7 +66,7 @@ class UsersController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, warning: "Please sign in first to access the page."
+        redirect_to signin_url, flash: { warning: "Please sign in first to access the page." }
       end
     end
 
@@ -72,7 +76,7 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      redirect_to(root_url) unless current_user.super_admin?
+      redirect_to(root_url, flash: { warning: "You are not authorized." }) unless current_user && current_user.super_admin?
     end
 
 end
