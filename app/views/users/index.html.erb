@@ -1,0 +1,15 @@
+<% provide(:title, 'User management') %>
+
+<div class="row">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <h1>All users</h1>
+
+    <%= will_paginate %>
+
+    <ul class="users">
+      <%= render @users %>
+    </ul>
+
+    <%= will_paginate %>
+  </div>
+</div>
