@@ -1,0 +1,10 @@
+<% provide(:title, @page_title) %>
+<%= render "layouts/header" %>
+<%= render 'shared/error_messages', object: @session %>
+
+<div class="row">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <h1><%= @page_title %></h1>
+  </div>
+</div>
+<%= render "layouts/footer_unauthenticated" %>

@@ -74,11 +74,26 @@ describe 'User pages'  do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
+    let!(:m1) { FactoryGirl.create(:feed, author: user, title: "Great by John", 
+                                          content: "Fooleo barlio") }
+    let!(:m2) { FactoryGirl.create(:feed, author: user, title: "Barlio foolea",
+                                          content: "Barrilo fooleate") }
+
+    before do
+      # made profile page only accessible after sign in
+      sign_in user
+      visit user_path(user)
+    end
 
     it { should have_content(user.first_name) }
     it { should have_title(user.first_name) }
-  end
+
+    describe "feeds" do
+      it { should have_content(m1.content) }
+      it { should have_content(m2.content) }
+      it { should have_content(user.feeds.count) }
+    end
+  end  
 
   describe "signup invalid user data" do
 

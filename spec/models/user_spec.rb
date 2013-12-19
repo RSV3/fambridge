@@ -17,6 +17,8 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:primary)}
+  it { should respond_to(:super_admin) }
+  it { should respond_to(:feeds) }
 
   it { should be_valid }
   it { should_not be_super_admin }
@@ -68,4 +70,41 @@ describe User do
   end
 
   
+  describe "feed associations" do
+    before { @user.save }
+    let!(:older_feed) do
+      FactoryGirl.create(:feed, author: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_feed) do
+      FactoryGirl.create(:feed, author: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right feeds in the right order" do
+      expect(@user.feeds.to_a).to eq [newer_feed, older_feed]
+    end
+
+    it "should destroy associated feeds" do
+      # copy the feeds 
+      feeds = @user.feeds.to_a
+      # destroy user
+      @user.destroy
+      expect(feeds).not_to be_empty
+      feeds.each do |feed|
+        expect(Feed.where(id: feed.id)).to be_empty
+      end
+    end   
+
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:feed, author: FactoryGirl.create(:user))
+      end
+
+      # uses User.feed action
+      its(:myfeed) { should include(newer_feed) }
+      its(:myfeed) { should include(older_feed) }
+      its(:myfeed) { should_not include(unfollowed_post)}
+    end
+  end
+
+
 end

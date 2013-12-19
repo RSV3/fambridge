@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :signed_in_user, only: [:edit, :update, :destroy, :family]
+  before_action :signed_in_user, only: [:show, :edit, :update, :destroy, :family]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:index, :destroy]
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       flash[:success] = "Your account has been created successfully. Welcome to Family Bridge!"
       redirect_to @user
     else
-      flash[:danger] = "Your account failed to be created."
+      flash.now[:danger] = "Your account failed to be created."
       render 'new'
     end
   end
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   # public view of the user
   def show
     @user = User.find(params[:id])
+    @feeds = @user.feeds.paginate(page: params[:page])
   end
 
   def edit
@@ -61,13 +62,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :email, :password,
                                   :password_confirmation, :profile_photo,
                                   :send_weekly_report, :agree_terms)
-    end
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, flash: { warning: "Please sign in first to access the page." }
-      end
     end
 
     def correct_user

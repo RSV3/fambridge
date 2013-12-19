@@ -1,0 +1,21 @@
+<% provide(:title, "#{current_user.first_name}'s Home") %>
+<%= render "layouts/header" %>
+<%= render 'shared/error_messages', object: @session %>
+
+<div class="row">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+  </div>
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <section>
+      <%= render 'shared/feed_form' %>
+    </section> 
+  </div>
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <h3>Personal Feeds</h3>
+    <%= render 'shared/myfeed' %>
+  </div>
+</div>
+<%= render "layouts/footer_authenticated" %>

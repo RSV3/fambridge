@@ -2,14 +2,29 @@
 <%= render 'layouts/header' %>
 
 <div class="row">
-  <aside class="col-sm-12 col-md-6 col-lg-4">
+  <aside class="col-xs-12 col-md-6 col-lg-4">
     <section>
-    <h1><%= @user.first_name %></h1>
+      <h1><%= @user.first_name %></h1>
 
-    <div>
-      <%= gravatar_for @user %>
-    </div>
-    <%= @user.email %>
+      <div>
+        <%= link_to gravatar_for(@user, size: "52x52"), @user %>
+      </div>
+      <span>
+      <%= @user.email %>
+      </span>
+      <span>
+        <%= pluralize(@user.feeds.count, "feed") %>
+      </span>    
     </section>
   </aside>
+  <!-- recent feeds -->
+  <div class="col-xs-12 col-md-6 col-lg-8">
+    <% if @user.feeds.any? %>
+      <h3>Feeds (<%= @user.feeds.count %>)</h3>
+      <ol class="feeds">
+        <%= render @feeds %>
+      </ol>
+      <%= will_paginate @feeds %>
+    <% end %>
+  </div>
 </div>

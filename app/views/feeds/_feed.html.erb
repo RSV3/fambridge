@@ -1,0 +1,12 @@
+<li>
+  <span class="feed-title"><%= feed.title %></span>
+  <span class="content"><%= feed.content %></span>
+  <% if current_user?(feed.author) %>
+    <span><%= link_to "delete", feed, method: :delete,
+                                      data: { confirm: "You sure?" },
+                                      title: feed.content %>
+  <% end %>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(feed.created_at) %> ago.
+  </span>
+</li>

@@ -78,6 +78,16 @@ describe "AuthenticationPages" do
         end
       end
 
+      describe "submitting to the create action" do
+        before { post feeds_path }
+        specify { expect(response).to redirect_to(signin_path) }
+      end
+
+      describe "submitting to the destroy action" do
+        before { delete feed_path(FactoryGirl.create(:feed)) }
+        specify { expect(response).to redirect_to(signin_path) }
+      end
+
     end
 
     describe "as wrong user" do
@@ -109,7 +119,6 @@ describe "AuthenticationPages" do
         specify { expect(response).to redirect_to(root_url) }
       end
     end
-
 
   end #describe "authorization"
 

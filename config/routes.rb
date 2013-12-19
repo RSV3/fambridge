@@ -4,6 +4,13 @@ Fambridge::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main#index'
+  match '/home', to: 'main#home', via: 'get'
+  match '/about', to: 'main#about', via: 'get'
+  match '/privacy', to: 'main#privacy', via: 'get'
+  match '/contact', to: 'main#contact', via: 'get'
+  match '/help', to: 'main#help', via: 'get'
+  match '/terms', to: 'main#terms', via: 'get'
+  match '/tour', to: 'main#tour', via: 'get'
 
   resources :users
   match '/signup', to: 'users#new', via: 'get'
@@ -13,6 +20,7 @@ Fambridge::Application.routes.draw do
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
+  resources :feeds, only: [:create, :destroy]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

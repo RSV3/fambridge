@@ -20,3 +20,9 @@ $grayLighter: #e0e0e0;
   margin-top: 45px;
   @include box-sizing;
 }
+
+
+.field_with_errors {
+  @extend .form-group;
+  @extend .has-error;
+}

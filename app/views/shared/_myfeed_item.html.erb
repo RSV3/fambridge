@@ -1,0 +1,17 @@
+<li id="<%= myfeed_item.id %>">
+  <%= link_to gravatar_for(myfeed_item.author), myfeed_item.author %>
+  <span class="user">
+    <%= link_to myfeed_item.author.first_name, myfeed_item.author %>
+  </span>
+  <span class="content"><%= myfeed_item.content %></span>
+
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(myfeed_item.created_at) %> ago.
+  </span>
+
+  <% if current_user?(myfeed_item.author) %>
+    <%= link_to "delete", myfeed_item, method: :delete,
+                                      data: { confirm: "You sure?" },
+                                      title: myfeed_item.content %>
+  <% end %>
+</li>

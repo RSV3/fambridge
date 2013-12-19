@@ -1,0 +1,11 @@
+<h1><%= current_user.first_name %></h1>
+
+<div>
+  <%= link_to gravatar_for(current_user, size: "52x52"), current_user %>
+</div>
+<span>
+<%= current_user.email %>
+</span>
+<span>
+  <%= pluralize(current_user.feeds.count, "feed") %>
+</span>
