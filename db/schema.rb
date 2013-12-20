@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218154156) do
+ActiveRecord::Schema.define(version: 20131220211516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "care_receivers", force: true do |t|
+    t.string   "name"
+    t.integer  "creator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "care_receivers", ["name", "creator_id"], name: "index_care_receivers_on_name_and_creator_id", unique: true, using: :btree
+
+  create_table "care_relationships", force: true do |t|
+    t.integer  "giver_id"
+    t.integer  "receiver_id"
+    t.boolean  "primary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "care_relationships", ["giver_id", "receiver_id"], name: "index_care_relationships_on_giver_id_and_receiver_id", unique: true, using: :btree
+  add_index "care_relationships", ["giver_id"], name: "index_care_relationships_on_giver_id", using: :btree
+  add_index "care_relationships", ["receiver_id"], name: "index_care_relationships_on_receiver_id", using: :btree
 
   create_table "feeds", force: true do |t|
     t.string   "title"
@@ -30,6 +51,19 @@ ActiveRecord::Schema.define(version: 20131218154156) do
   add_index "feeds", ["author_id", "created_at"], name: "index_feeds_on_author_id_and_created_at", using: :btree
   add_index "feeds", ["content_type"], name: "index_feeds_on_content_type", using: :btree
   add_index "feeds", ["created_at"], name: "index_feeds_on_created_at", using: :btree
+
+  create_table "invitations", force: true do |t|
+    t.string   "email"
+    t.string   "personal_msg"
+    t.integer  "giver_id"
+    t.integer  "receiver_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invitations", ["email"], name: "index_invitations_on_email", using: :btree
+  add_index "invitations", ["giver_id"], name: "index_invitations_on_giver_id", using: :btree
+  add_index "invitations", ["receiver_id"], name: "index_invitations_on_receiver_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"

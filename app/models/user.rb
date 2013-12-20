@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
 
   has_many :feeds, foreign_key: "author_id", dependent: :destroy
+  has_many :care_receivers, foreign_key: "creator_id", dependent: :destroy
+  has_many :care_relationships, foreign_key: "giver_id", dependent: :destroy
+  has_many :comments, foreign_key: "writer_id", dependent: :destroy
+
   before_create :create_remember_token
 
   before_save do

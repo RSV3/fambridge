@@ -106,5 +106,20 @@ describe User do
     end
   end
 
+  describe "has care receiver" do
+  end
 
+  describe "has secondary care givers" do
+  end
+
+  describe "is the secondary care giver, refer to care receiver" do
+  end
+
+  describe "is the secondary care giver, refer to primary care giver" do
+  end
+
+  describe "comments" do
+    it "should destroy associated comments" do
+    end
+  end
 end

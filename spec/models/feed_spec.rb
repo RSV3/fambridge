@@ -35,4 +35,7 @@ describe Feed do
     before { @feed.title = "a" * 201 }
     it { should_not be_valid }
   end
+
+  describe "destroy associated comments" do
+  end
 end
