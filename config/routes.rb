@@ -12,6 +12,13 @@ Fambridge::Application.routes.draw do
   match '/terms', to: 'main#terms', via: 'get'
   match '/tour', to: 'main#tour', via: 'get'
 
+  match '/calculator', to: 'micro#guidance', via: 'get'
+  match '/reversemort', to: 'micro#guidance', via: 'get'
+  match '/savingstool', to: 'micro#guidance', via: 'get'
+  match '/tracking', to: 'micro#tracking', via: 'get'
+  match '/caretool', to: 'micro#tracking', via: 'get'
+  match '/social', to: 'micro#social', via: 'get'
+
   resources :users
   match '/signup', to: 'users#new', via: 'get'
   match '/family', to: 'users#family', via: 'get'

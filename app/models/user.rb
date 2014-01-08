@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :care_relationships, foreign_key: "giver_id", dependent: :destroy
   has_many :comments, foreign_key: "writer_id", dependent: :destroy
 
+  has_many :invitations, foreign_key: "giver_id", dependent: :destroy
+
   before_create :create_remember_token
 
   before_save do

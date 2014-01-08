@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220211516) do
+ActiveRecord::Schema.define(version: 20140108154856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20131220211516) do
   add_index "care_relationships", ["giver_id", "receiver_id"], name: "index_care_relationships_on_giver_id_and_receiver_id", unique: true, using: :btree
   add_index "care_relationships", ["giver_id"], name: "index_care_relationships_on_giver_id", using: :btree
   add_index "care_relationships", ["receiver_id"], name: "index_care_relationships_on_receiver_id", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.integer  "writer_id"
+    t.integer  "feed_id"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "feeds", force: true do |t|
     t.string   "title"
@@ -78,6 +86,7 @@ ActiveRecord::Schema.define(version: 20131220211516) do
     t.string   "remember_token"
     t.boolean  "super_admin",        default: false
     t.boolean  "primary",            default: false
+    t.boolean  "virtual",            default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
