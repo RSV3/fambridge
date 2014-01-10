@@ -1,10 +1,59 @@
 <% provide(:title, @page_title) %>
-<%= render "layouts/header" %>
-<%= render 'shared/error_messages', object: @session %>
+<%= render "micro/header" %>
 
-<div class="row">
-  <div class="col-xs-12 col-md-12 col-lg-12">
-    <h1><%= @page_title %></h1>
-  </div>
-</div>
-<%= render "layouts/footer_unauthenticated" %>
+<% content_for :micro_body do %>
+  <div class="social-background">
+
+    <div class="micro-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-6 col-md-offset-6 col-lg-offset-6">
+            <div class="text-center">
+              <h1><%= @page_title %></h1>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="text-center stay-tuned">
+                  Stay tuned, Family Bridge is launching soon.
+              </div>
+            </div>
+
+            <%= form_for(@user) do |f| %>
+              <%= render 'shared/error_messages', object: f.object %>
+
+              <%= f.text_field :first_name, class: "form-control", placeholder: "Your Name" %>
+
+              <%= f.text_field :email, class: "form-control", placeholder: "Your Email" %>
+
+              <%= f.submit "Notify me!", class: "btn btn-lg btn-primary" %>
+            <% end %>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+            <div class="stay-tuned">
+              <ul>
+                <li><i class="fa fa-check"></i> Keep everyone connected.</li>
+                <li><i class="fa fa-check"></i> Share what's going on with parents care.</li>
+                <li><i class="fa fa-check"></i> Collaborate as a family on financial and caregiving issues.</li>
+                <li><i class="fa fa-check"></i> Transparency: no more suspicion and family fights!</li>
+              </ul>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div> <!-- .micro-content -->
+  </div> <!-- .guidance-background -->
+
+  <%= render "layouts/footer_unauthenticated" %>
+<% end %>

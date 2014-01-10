@@ -1,3 +1,105 @@
 // Place all the styles related to the micro controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  width: 100%;
+}
+
+.top-menu-item {
+  text-align: center;
+}
+
+.top-menu-icon {
+}
+
+.top-menu-label {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.top-menu-description {
+  font-size: 0.8em;
+}
+
+.micro-content {
+  padding-top: 100px;
+}
+
+.guidance-background {
+  background-image: image-url('shutterstock_144623909.jpg');
+  background-size: cover;
+  max-height: 800px; 
+  height: 800px; 
+}
+
+.tracking-background {
+  background-image: image-url('shutterstock_98074517.jpg');
+  background-size: cover;
+  max-height: 800px; 
+  height: 800px;  
+}
+
+.social-background {
+  background-image: image-url('shutterstock_47941273.jpg');
+  background-size: cover;
+  max-height: 800px; 
+  height: 800px;   
+}
+
+.stay-tuned {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 20px 0px 20px 0px;
+  margin-bottom: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+.app-choice-container {
+  margin-top: 50px;
+}
+
+.app-choices {
+  padding-left: 20px;
+}
+
+.app-choice-vertical-space-10 {
+  margin-bottom: 10px;
+}
+
+.app-choice-vertical-space-5 {
+  margin-bottom: 5px;
+}
+
+.app-choice-vertical-space-2 {
+  margin-bottom: 2px;
+}
+
+.app-choice {
+  float: left;
+  width: 180px;
+  padding-top: 25px;
+  margin: 0 10px 0 10px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: yellow; 
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  height: 180px;
+  max-height: 180px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.app-choice-label {
+  font-weight: bold;
+}
+
+ul
+{
+    list-style-type: none;
+    margin-right: 20px;
+}

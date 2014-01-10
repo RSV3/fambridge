@@ -1,10 +1,90 @@
 <% provide(:title, @page_title) %>
-<%= render "layouts/header" %>
-<%= render 'shared/error_messages', object: @session %>
+<%= render "micro/header" %>
 
-<div class="row">
-  <div class="col-xs-12 col-md-12 col-lg-12">
-    <h1><%= @page_title %></h1>
-  </div>
-</div>
-<%= render "layouts/footer_unauthenticated" %>
+<% content_for :micro_body do %>
+  <div class="tracking-background">
+
+    <div class="micro-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-6 col-md-offset-6 col-lg-offset-6">
+            <div class="text-center">
+              <h1><%= @page_title %></h1>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="text-center stay-tuned">
+                  Stay tuned, Family Bridge is launching soon.
+              </div>
+            </div>
+
+            <%= form_for(@user) do |f| %>
+              <%= render 'shared/error_messages', object: f.object %>
+
+              <%= f.text_field :first_name, class: "form-control", placeholder: "Your Name" %>
+
+              <%= f.text_field :email, class: "form-control", placeholder: "Your Email" %>
+
+              <%= f.submit "Notify me!", class: "btn btn-lg btn-primary" %>
+            <% end %>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+            <div class="stay-tuned">
+              <ul>
+                <li><i class="fa fa-check"></i> Understand the financial picture and know how money is being spent.</li>
+                <li><i class="fa fa-check"></i> Find ways to save -- make the most of your assets.</li>
+                <li><i class="fa fa-check"></i> Catch fraud before it's too late!</li>
+              </ul>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="app-choice-container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+            <div class="app-choices text-center">
+              <div class="app-choice text-center">
+                <div class="app-choice-img">
+                  <%= image_tag "bar5.png", {width: 100} %>
+                </div>
+                <div class="app-choice-label">
+                  Account Summaries
+                </div>
+              </div>
+              <div class="app-choice text-center">
+                <div class="app-choice-img">
+                  <%= image_tag "spreadsheet.png", {width: 100} %>
+                </div>
+                <div class="app-choice-label">
+                  Expense Itemization
+                </div>
+              </div>           
+              <div class="app-choice text-center">
+                <div class="app-choice-img">
+                  <%= image_tag "increasing5.png", {width: 100} %>
+                </div>
+                <div class="app-choice-label">
+                 Spending Trends
+                </div>
+              </div>           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .micro-content -->
+  </div> <!-- .guidance-background -->
+
+  <%= render "layouts/footer_unauthenticated" %>
+<% end %>
