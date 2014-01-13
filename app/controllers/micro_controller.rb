@@ -19,7 +19,7 @@ class MicroController < ApplicationController
     @user = LeadUser.new
   end
 
-  def guidance_save
+  def save_lead 
     first_name = first_name lead_user_params[:name]
     last_name = last_name lead_user_params[:name]
 
@@ -29,37 +29,7 @@ class MicroController < ApplicationController
       flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
       redirect_to request.referrer 
     else
-      flash[:danger] = "Email is not valid!"
-      redirect_to request.referrer 
-    end
-  end
-
-  def tracking_save
-    first_name = first_name lead_user_params[:name]
-    last_name = last_name lead_user_params[:name]
-
-    lead = LeadUser.new(first_name: first_name, last_name: last_name, email: lead_user_params[:email],
-                  referrer: request.referrer)
-    if lead.save
-      flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
-      redirect_to request.referrer 
-    else
-      flash[:danger] = "Email is not valid!"
-      redirect_to request.referrer 
-    end
-  end
-
-  def social_save
-    first_name = first_name lead_user_params[:name]
-    last_name = last_name lead_user_params[:name]
-
-    lead = LeadUser.new(first_name: first_name, last_name: last_name, email: lead_user_params[:email],
-                  referrer: request.referrer)
-    if lead.save
-      flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
-      redirect_to request.referrer 
-    else
-      flash[:danger] = "Email is not valid!"
+      flash[:danger] = "Email is not valid or you have already registered!"
       redirect_to request.referrer 
     end
   end
