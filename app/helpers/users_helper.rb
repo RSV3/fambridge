@@ -8,4 +8,16 @@ module UsersHelper
     options[:class] = "gravatar"
     image_tag(gravatar_url, options)
   end
+
+  def first_name(full_name)
+    full_name.blank? ? "" : full_name.split(" ")[0]
+  end
+
+  def last_name(full_name)
+    if full_name.split(" ").length >= 2
+      full_name.split(" ")[-1]
+    else
+      ""
+    end
+  end
 end

@@ -19,6 +19,13 @@ Fambridge::Application.routes.draw do
   match '/caretool', to: 'micro#tracking', via: 'get'
   match '/social', to: 'micro#social', via: 'get'
 
+  match '/calculator', to: 'micro#guidance_save', via: 'post'
+  match '/reversemort', to: 'micro#guidance_save', via: 'post'
+  match '/savingstool', to: 'micro#guidance_save', via: 'post'
+  match '/tracking', to: 'micro#tracking_save', via: 'post'
+  match '/caretool', to: 'micro#tracking_save', via: 'post'
+  match '/social', to: 'micro#social_save', via: 'post'
+
   resources :users
   match '/signup', to: 'users#new', via: 'get'
   match '/family', to: 'users#family', via: 'get'
