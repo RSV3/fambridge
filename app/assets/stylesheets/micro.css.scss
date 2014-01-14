@@ -57,12 +57,27 @@
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
+.stay-tuned-success {
+  background-color: rgba(62, 162, 254, 1);
+  font-weight: bold;
+  padding: 20px 5px 20px 5px;
+  margin-bottom: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
 .app-choice-container {
   margin-top: 50px;
 }
 
 .app-choices {
-  padding-left: 20px;
+  margin: 0px auto; width: 600px;
+  a:link { color: #000; }
+  a:visited { color: #000; }
+  a:hover { color: #000; }
+  a:active { color: #000; }
 }
 
 .app-choice-vertical-space-10 {
