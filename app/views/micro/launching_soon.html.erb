@@ -45,7 +45,7 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <%= form_tag do %>
+              <%= form_tag(lead_saved_path) do %>
                 <div class="form-group">
                   <%= text_field_tag :name, nil, class: "form-control", placeholder: "Your Name" %>
                 </div>
@@ -64,5 +64,4 @@
     </div> <!-- .micro-content -->
   </div> <!-- .guidance-background -->
 
-  <%= render "layouts/footer_unauthenticated" %>
 <% end %>

@@ -22,9 +22,7 @@ Fambridge::Application.routes.draw do
   match '/interest/savingstool', to: 'micro#launching_soon', via: 'get'
   match '/interest/assisted', to: 'micro#launching_soon', via: 'get'
 
-  match '/interest/reversemort', to: 'micro#lead_saved', via: 'post'
-  match '/interest/savingstool', to: 'micro#lead_saved', via: 'post'
-  match '/interest/assisted', to: 'micro#lead_saved', via: 'post'
+  match '/will/notify', to: 'micro#lead_saved', via: 'post', as: :lead_saved
 
   resources :users
   match '/signup', to: 'users#new', via: 'get'

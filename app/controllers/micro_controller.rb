@@ -1,5 +1,7 @@
 class MicroController < ApplicationController
 
+  layout 'micro_landing'
+
   include UsersHelper
 
   # need to use form helper to handle name (first name, last name), email submits
