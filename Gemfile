@@ -73,6 +73,6 @@ gem 'bootstrap-will_paginate'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: [:staging, :production]
 
 gem 'unicorn'
