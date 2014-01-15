@@ -28,45 +28,128 @@
       <div class="app-choice-container">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
-            <div class="app-choices">
-              <%= link_to "/interest/reversemort" do %>
-                <div class="app-choice text-center">
-                  <div class="app-choice-img">
-                    <%= image_tag "house13.png", {width: 100} %>
+            <% if @choice_layout == 1 %>
+              <div class="app-choices">
+                <%= link_to "/interest/reversemort", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Reverse Mortgage']);" do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-img">
+                      <%= image_tag "house13.png", {width: 100} %>
+                    </div>
+                    <div class="app-choice-label">
+                      Is a reverse mortgage right for your parents? 
+                    </div>
                   </div>
-                  <div class="app-choice-label">
-                    Is a reverse mortgage right for your parents? 
+                <% end %>
+                <%= link_to "/interest/savingstool", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Calculator']);" do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-img">
+                      <%= image_tag "moneybox1.png", {width: 100} %>
+                    </div>
+                    <div class="app-choice-label">
+                      How long will savings last?
+                    </div>
+                  </div>           
+                <% end %>
+                <%= link_to "/interest/assisted", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Assisted Living']);"  do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-vertical-space-10">
+                      &nbsp;
+                    </div>
+                    <div class="app-choice-img">
+                      <%= image_tag "visit.png", {width: 50} %> VS
+                      <%= image_tag "nurse2.png", {width: 50} %>
+                    </div>
+                    <div class="app-choice-vertical-space-2">
+                      &nbsp;
+                    </div>             
+                    <div class="app-choice-label">
+                      Costs of Assisted Living vs. Home Health Aid
+                    </div>
+                  </div>           
+                <% end %>
+              </div>
+            <% elsif @choice_layout == 2 %>
+              <div class="app-choices">
+                <%= link_to "/interest/savingstool", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Calculator']);" do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-img">
+                      <%= image_tag "moneybox1.png", {width: 100} %>
+                    </div>
+                    <div class="app-choice-label">
+                      How long will savings last?
+                    </div>
+                  </div>           
+                <% end %>
+                <%= link_to "/interest/assisted", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Assisted Living']);"  do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-vertical-space-10">
+                      &nbsp;
+                    </div>
+                    <div class="app-choice-img">
+                      <%= image_tag "visit.png", {width: 50} %> VS
+                      <%= image_tag "nurse2.png", {width: 50} %>
+                    </div>
+                    <div class="app-choice-vertical-space-2">
+                      &nbsp;
+                    </div>             
+                    <div class="app-choice-label">
+                      Costs of Assisted Living vs. Home Health Aid
+                    </div>
+                  </div>           
+                <% end %>
+                <%= link_to "/interest/reversemort", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Reverse Mortgage']);" do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-img">
+                      <%= image_tag "house13.png", {width: 100} %>
+                    </div>
+                    <div class="app-choice-label">
+                      Is a reverse mortgage right for your parents? 
+                    </div>
                   </div>
-                </div>
-              <% end %>
-              <%= link_to "/interest/savingstool" do %>
-                <div class="app-choice text-center">
-                  <div class="app-choice-img">
-                    <%= image_tag "moneybox1.png", {width: 100} %>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="app-choices">
+                <%= link_to "/interest/assisted", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Assisted Living']);"  do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-vertical-space-10">
+                      &nbsp;
+                    </div>
+                    <div class="app-choice-img">
+                      <%= image_tag "visit.png", {width: 50} %> VS
+                      <%= image_tag "nurse2.png", {width: 50} %>
+                    </div>
+                    <div class="app-choice-vertical-space-2">
+                      &nbsp;
+                    </div>             
+                    <div class="app-choice-label">
+                      Costs of Assisted Living vs. Home Health Aid
+                    </div>
+                  </div>           
+                <% end %>
+                <%= link_to "/interest/reversemort", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Reverse Mortgage']);" do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-img">
+                      <%= image_tag "house13.png", {width: 100} %>
+                    </div>
+                    <div class="app-choice-label">
+                      Is a reverse mortgage right for your parents? 
+                    </div>
                   </div>
-                  <div class="app-choice-label">
-                    How long will savings last?
-                  </div>
-                </div>           
-              <% end %>
-              <%= link_to "/interest/assisted" do %>
-                <div class="app-choice text-center">
-                  <div class="app-choice-vertical-space-10">
-                    &nbsp;
-                  </div>
-                  <div class="app-choice-img">
-                    <%= image_tag "visit.png", {width: 50} %> VS
-                    <%= image_tag "nurse2.png", {width: 50} %>
-                  </div>
-                  <div class="app-choice-vertical-space-2">
-                    &nbsp;
-                  </div>             
-                  <div class="app-choice-label">
-                    Costs of Assisted Living vs. Home Health Aid
-                  </div>
-                </div>           
-              <% end %>
-            </div>
+                <% end %>
+                <%= link_to "/interest/savingstool", :onClick => "_gaq.push(['_trackEvent', 'Micro Site One', 'Tools', 'Calculator']);" do %>
+                  <div class="app-choice text-center">
+                    <div class="app-choice-img">
+                      <%= image_tag "moneybox1.png", {width: 100} %>
+                    </div>
+                    <div class="app-choice-label">
+                      How long will savings last?
+                    </div>
+                  </div>           
+                <% end %>
+              </div>
+            <% end %>
+
           </div>
         </div>
       </div>

@@ -39,6 +39,7 @@ class MicroController < ApplicationController
   # January 14, 2014 landing page test
   def tools_landing
     @page_title = "Tools for Elderly Care"
+    @choice_layout = 1+rand(3)
   end
 
   def launching_soon
