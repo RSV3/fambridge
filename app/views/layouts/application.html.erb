@@ -20,6 +20,8 @@
   </div>
   <%= yield :micro_body %>
 
-  <%= render :partial => 'layouts/google_analytics' if Rails.env.production? %>
+  <%= render :partial => 'layouts/google_analytics_production' if Rails.env.production? %>
+  <%= render :partial => 'layouts/google_analytics_staging' if Rails.env.staging? %>
+
 </body>
 </html>
