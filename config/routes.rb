@@ -4,6 +4,7 @@ Fambridge::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'micro#tools_landing'
+
   match '/start', to: 'main#index', via: 'get'
   match '/home', to: 'main#home', via: 'get'
   match '/about', to: 'main#about', via: 'get'
@@ -24,6 +25,8 @@ Fambridge::Application.routes.draw do
   match '/interest/assisted', to: 'micro#launching_soon', via: 'get'
 
   match '/will/notify', to: 'micro#lead_saved', via: 'post', as: :lead_saved
+
+  resources :content, only: [:index, :show]
 
   resources :users
   match '/signup', to: 'users#new', via: 'get'
