@@ -3,7 +3,8 @@ Fambridge::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'main#index'
+  root 'micro#tools_landing'
+  match '/start', to: 'main#index', via: 'get'
   match '/home', to: 'main#home', via: 'get'
   match '/about', to: 'main#about', via: 'get'
   match '/privacy', to: 'main#privacy', via: 'get'
