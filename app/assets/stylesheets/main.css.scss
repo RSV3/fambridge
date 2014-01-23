@@ -27,3 +27,9 @@ $grayLighter: #e0e0e0;
   @extend .form-group;
   @extend .has-error;
 }
+
+// overrides bootstrap body - for content site
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #DCDEE2;
+}

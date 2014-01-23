@@ -1,0 +1,35 @@
+quit_job:
+  title: "Should I quit my job to take care of my elderly parent?"
+  summary: "Who in their right minds survives working two full time jobs? According to research done by Metlife, the answer is...(drum roll)... you and 15.9 million other caregivers who are working full time while caring for their aging parents"
+  url: "http://carecents.co/2013/09/24/choosing-between-work-and-caregiving/"
+
+financial_assisted:
+  title: "5 Personal Finance Gurus to Follow On Twitter"
+  summary: "Jane is a personal finance writer who frequently contributes to CBS Moneywatch and AARP. She’s an expert in more than just finance and you’ll often find her commenting on public policy ranging from healthcare to social security."
+  url: "http://carecents.co/2013/11/15/5-personal-finance-gurus-to-follow-on-twitter/"
+
+defense_assisted:
+  title: "In defense of assisted living"
+  summary: "I didn’t know my grandparents very well until they could no longer drive, until they needed the assistance of a retirement community"
+  url: "http://carecents.co/2013/09/13/in-defense-of-assisted-living/"
+
+irrational_caregiving:
+  title: "Irrational caregiving"
+  summary: "As a caregiver you are obligated to always act in your loved one’s best interests. But sometimes that’s not as clear-cut as it seems."
+  url: "http://carecents.co/2013/11/14/irrational-caregiving/"
+  recent: true
+  important: false
+
+math_caregiving:
+  title: "The math behind caregiving"
+  summary: "It’s a sticky area.  The space between caring for a loved one and trying to make rational choices based on your financial situation."
+  url: "http://carecents.co/2013/10/22/the-math-behind-caregiving/"
+  recent: true
+  important: false
+
+free_guide:
+  title: "Free Guide for Caregivers: The legal documents you need to help manage your parent’s finances"
+  summary: "Caregiving can quickly become a  complicated task when your responsibilities grow from daily care to taking on legal and financial issues."
+  url: "http://carecents.co/2013/10/16/free-guide-for-caregivers-legal-documents/"
+  recent: false
+  important: true

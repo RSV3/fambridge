@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121212102) do
+ActiveRecord::Schema.define(version: 20140122215342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20140121212102) do
   add_index "care_relationships", ["giver_id"], name: "index_care_relationships_on_giver_id", using: :btree
   add_index "care_relationships", ["receiver_id"], name: "index_care_relationships_on_receiver_id", using: :btree
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", force: true do |t|
     t.integer  "writer_id"
     t.integer  "feed_id"
@@ -49,8 +55,15 @@ ActiveRecord::Schema.define(version: 20140121212102) do
     t.string   "title"
     t.text     "summary"
     t.string   "url"
+    t.boolean  "recent"
+    t.boolean  "important"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "contents_categories", force: true do |t|
+    t.integer "content_id"
+    t.integer "category_id"
   end
 
   create_table "feeds", force: true do |t|

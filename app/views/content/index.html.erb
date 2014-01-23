@@ -1,19 +1,128 @@
 <% provide(:title, @page_title) %>
+<%= render "content/header" %>
 
-<div id="remote-article">
-  <div id="remote-article-header">
-    <!-- where header goes to move to different sections -->
-    Family Bridge Header
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+    <!-- main articles -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!-- main article -->
+        <div class="article-box">
+          <div class="article-category">
+            Care Decisions
+          </div>
+          <div class="article-title">
+            <h1>Should I quit my job to take care of my elderly parent?</h1>
+          </div>
+          <div class="article-summary">
+            Who in their right minds survives working two full time jobs? According to research done by Metlife, the answer is...(drum roll)... you and 15.9 million other caregivers who are working full time while caring for their aging parents... <%= link_to "Read more >", "#" %>
+          </div>
+          <div class="article-share">
+            <%= image_tag "facebook_25.png" %> &nbsp;
+            <%= image_tag "twitter_25.png" %> &nbsp;
+            <%= image_tag "linkedin_25.png" %> &nbsp;
+            <%= image_tag "emailshare_25.png" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!-- main article -->
+        <div class="article-box">
+          <div class="article-category">
+            Care Decisions, Financial Matters
+          </div>
+          <div class="article-title">
+            <h1>10 financial questions to ask when choosing an assisted living facility</h1>
+          </div>
+          <div class="article-summary">
+            As a caregiver, we know that you’re worried about dealing with that emotional conversation with your parents and haven’t had time to think about all the financial details of choosing an assisted living facility... <%= link_to "Read more >", "#" %>
+          </div>
+          <div class="article-share">
+            <%= image_tag "facebook_25.png" %> &nbsp;
+            <%= image_tag "twitter_25.png" %> &nbsp;
+            <%= image_tag "linkedin_25.png" %> &nbsp;
+            <%= image_tag "emailshare_25.png" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-      <h1>Elder Care Finance</h1>
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 side-bar">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="recent-box">
+          <!-- Recent articles -->
+          <h3>Recent Articles</h3>
+          <div class="article-link">
+            Tips for Hiring an In-Home Health Aid
+          </div>
+          <hr class="sidebar-hr">
+          <div class="article-link">
+            3 Must-Have Legal Documents for Caregivers
+          </div>
+          <hr class="sidebar-hr">
+          <div class="article-link">
+            5 Places to Make a Power of Attorney Online
+          </div>
+          <hr class="sidebar-hr">
+          <div class="article-link">
+            Investment Tips for People Over 75
+          </div>
+          <hr class="sidebar-hr">
+          <div class="article-link">
+            A Basic Guide to Trusts for Families
+          </div>
+          <div class="article-more-link">
+            <%= link_to "more articles", "#" %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-      <h1>Elder Care Legal</h1>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-      <h1>Senior Living</h1>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="dont-miss-box">
+          <!-- Recent articles -->
+          <h3>Don't Miss</h3>
+          <div class="article-link">
+            3 Government Benefits Your Parents Might Qualify For
+          </div>
+          <hr class="sidebar-hr">
+          <div class="article-link">
+            10 Tax Tips for Caregivers to Make the Most of 2014
+          </div>
+        </div>
+      </div>
     </div>   
   </div>
 </div>
+
+<div class="highlight-article-box">
+  <div class="row">
+    <!-- Bottom article -->
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+      <div class="article-category">
+        Care Decisions
+      </div>   
+      <div class="article-title">
+        <h1>In defense of assited living</h1>
+      </div>
+      <div class="article-summary">
+        I didn’t know my grandparents very well until they could no longer drive, until they needed the assistance of a retirement community...<%= link_to "Read more >", "#" %>
+      </div>
+      <div class="article-share">
+        <%= image_tag "facebook_25.png" %> &nbsp;
+        <%= image_tag "twitter_25.png" %> &nbsp;
+        <%= image_tag "linkedin_25.png" %> &nbsp;
+        <%= image_tag "emailshare_25.png" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="article-pic thumbnail">
+        <img data-src="holder.js/400x200" alt="placeholder image">
+      </div>
+    </div>
+  </div>
+</div>
+
