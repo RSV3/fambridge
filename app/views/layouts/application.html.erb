@@ -24,5 +24,6 @@
   <%= render :partial => 'layouts/google_analytics_production' if Rails.env.production? %>
   <%= render :partial => 'layouts/google_analytics_staging' if Rails.env.staging? %>
 
+  <%= yield :custom_footer %>
 </body>
 </html>
