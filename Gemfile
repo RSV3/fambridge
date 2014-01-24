@@ -5,7 +5,7 @@ gem 'rails', '4.0.2'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 
-ruby '2.0.0'
+ruby '2.1.0'
 
 group :development, :test do
   gem 'rspec-rails', '>= 2.14.0'
