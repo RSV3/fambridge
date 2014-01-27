@@ -1,4 +1,4 @@
-class CreateContentsAndCategories < ActiveRecord::Migration
+class CreateCategoriesAndContents < ActiveRecord::Migration
   def change
     create_table :contents do |t|
       t.string :title
@@ -16,9 +16,9 @@ class CreateContentsAndCategories < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :contents_categories do |t|
-      t.belongs_to :content
+    create_table :categories_contents do |t|
       t.belongs_to :category
+      t.belongs_to :content
     end
   end
 end

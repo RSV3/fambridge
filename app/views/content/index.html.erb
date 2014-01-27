@@ -4,18 +4,26 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
     <!-- main articles -->
+    <% @articles.each do |a| %>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <!-- main article -->
         <div class="article-box">
           <div class="article-category">
-            Care Decisions
+            <% len = a.categories.size %>
+            <% a.categories.each_with_index do |c, index| %>
+              <% if index == len-1 %>
+                <%= link_to c.name, "category/#{c.id}" %>
+              <% else %>
+                <%= link_to c.name, "category/#{c.id}" %>,
+              <% end %>
+            <% end %>
           </div>
           <div class="article-title">
-            <h1>Should I quit my job to take care of my elderly parent?</h1>
+            <h1><%= a.title %></h1>
           </div>
           <div class="article-summary">
-            Who in their right minds survives working two full time jobs? According to research done by Metlife, the answer is...(drum roll)... you and 15.9 million other caregivers who are working full time while caring for their aging parents... <%= link_to "Read more >", "#" %>
+            <%= a.summary %> 
           </div>
           <div class="article-share">
             <%= image_tag "twitter_25.png" %> &nbsp;
@@ -24,26 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <!-- main article -->
-        <div class="article-box">
-          <div class="article-category">
-            Care Decisions, Financial Matters
-          </div>
-          <div class="article-title">
-            <h1>10 financial questions to ask when choosing an assisted living facility</h1>
-          </div>
-          <div class="article-summary">
-            As a caregiver, we know that you’re worried about dealing with that emotional conversation with your parents and haven’t had time to think about all the financial details of choosing an assisted living facility... <%= link_to "Read more >", "#" %>
-          </div>
-          <div class="article-share">
-            <%= image_tag "twitter_25.png" %> &nbsp;
-            <%= image_tag "facebook_25.png" %> 
-          </div>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
   <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 side-bar">
     <div class="row">

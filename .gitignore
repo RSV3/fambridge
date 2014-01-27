@@ -29,4 +29,5 @@ rerun.txt
 pickle-email-*.html
 .project
 .env
+local.env
 .secret

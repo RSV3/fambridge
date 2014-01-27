@@ -1,7 +1,0 @@
-quit_job_for_care_decision:
-  content_id: quit_job
-  category_id: care_decision
-
-financial_assisted_for_care_decision:
-  content_id: financial_assisted
-  category_id: financial_matters

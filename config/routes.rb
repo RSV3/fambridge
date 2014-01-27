@@ -27,6 +27,8 @@ Fambridge::Application.routes.draw do
   match '/will/notify', to: 'micro#lead_saved', via: 'post', as: :lead_saved
 
   resources :content, only: [:index, :show]
+  # display articles
+  get '/content/:category/:id', to: 'content#show', constraints: { id: /[a-z0-9\-]+/ }
 
   resources :users
   match '/signup', to: 'users#new', via: 'get'

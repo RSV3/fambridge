@@ -52,7 +52,7 @@
                 <div class="form-group">
                   <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
                 </div>
-                <%= submit_tag("Notify me!", class: "btn btn-lg btn-primary", onClick: "ga('send', 'event', 'Micro Site One', 'Submit Email');") %>
+                <%= submit_tag("Notify me!", class: "btn btn-lg btn-primary", id: "notify-me") %>
               <% end %>
             </div>
 
@@ -64,4 +64,9 @@
     </div> <!-- .micro-content -->
   </div> <!-- .guidance-background -->
 
+  <script type="text/javascript">
+    $('#notify-me').on('click', function() {
+      ga('send', 'event', 'Micro Site One', 'Submit Email');
+    });
+  </script>
 <% end %>

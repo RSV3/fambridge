@@ -1,17 +1,51 @@
+guide_to_legal_documents:
+  title: "A Guide to the Legal Documents You Need to Act on Your Parent's Behalf"
+  summary: "Caregiving can quickly become a complicated task when your responsibilities grow from daily care to taking on legal, financial, and healthcare issues. This guide will help you save time by giving you the most important legal information you need to know as a caregiver."
+  slug: "guide-to-legal-documents"
+  categories: elder_law
+
+places_to_make_poa:
+  title: "5 Places to Make Your Own Power of Attorney"
+  summary: "Creating a POA is relatively simple. In fact, the hardest part may be deciding who the agent should be and thinking about one’s end of life care. You do not need a lawyer to create a POA. However, you may want to consult a lawyer or your local area agency on aging for advice for your specific situation."
+  slug: "5-places-to-make-poa"
+  url: "http://www.nolo.com/legal-encyclopedia/how-write-living-will.html"
+  categories: elder_law
+
+basic_info_poa:
+  title: "Basic Information about Power of Attorney"
+  summary: "A Power of Attorney(POA) is a legal document that authorizes a selected person (“agent”) to act on the behalf another person(“ principal“).  The principal decides under what circumstances the POA will take effect and the specific areas which the agent has the authority to make a decision."
+  slug: "basic-information-about-poa"
+  categories: "elder_law"
+
+important_documents:
+  title: "List of Important Documents to Gather as a Caregiver"
+  summary: "The DPOA, Advanced Directive, and the Will are the most important documents to have on hand but here is a list of all the other documents"
+  slug: "list-of-important-documents-caregiver"
+  categories: "elder_law"
+
+conversation_your_aging_parent:
+  title: "How do you have a conversation with your aging parent about getting a Durable Power Of Attorney?"
+  summary: "This conversation can be a very difficult conversation for many families, both between siblings and between parents and their adult children. For aging parents, this conversation can signify a loss of independence(whether this is true or not) or admitting a weakness. Between siblings, it can bring up many petty relationship issues of the past or even current financial situations--always a touchy subject."
+  slug: "conversation-with-parents-about-dpoa"
+  categories: "elder_law"
+
 quit_job:
   title: "Should I quit my job to take care of my elderly parent?"
   summary: "Who in their right minds survives working two full time jobs? According to research done by Metlife, the answer is...(drum roll)... you and 15.9 million other caregivers who are working full time while caring for their aging parents"
   url: "http://carecents.co/2013/09/24/choosing-between-work-and-caregiving/"
+  categories: care_decisions
 
 financial_assisted:
   title: "5 Personal Finance Gurus to Follow On Twitter"
   summary: "Jane is a personal finance writer who frequently contributes to CBS Moneywatch and AARP. She’s an expert in more than just finance and you’ll often find her commenting on public policy ranging from healthcare to social security."
   url: "http://carecents.co/2013/11/15/5-personal-finance-gurus-to-follow-on-twitter/"
+  categories: financial_matters
 
 defense_assisted:
   title: "In defense of assisted living"
   summary: "I didn’t know my grandparents very well until they could no longer drive, until they needed the assistance of a retirement community"
   url: "http://carecents.co/2013/09/13/in-defense-of-assisted-living/"
+  categories: care_decisions
 
 irrational_caregiving:
   title: "Irrational caregiving"
@@ -19,6 +53,7 @@ irrational_caregiving:
   url: "http://carecents.co/2013/11/14/irrational-caregiving/"
   recent: true
   important: false
+  categories: care_decisions
 
 math_caregiving:
   title: "The math behind caregiving"
@@ -26,6 +61,7 @@ math_caregiving:
   url: "http://carecents.co/2013/10/22/the-math-behind-caregiving/"
   recent: true
   important: false
+  categories: care_decisions, financial_matters
 
 free_guide:
   title: "Free Guide for Caregivers: The legal documents you need to help manage your parent’s finances"
@@ -33,3 +69,4 @@ free_guide:
   url: "http://carecents.co/2013/10/16/free-guide-for-caregivers-legal-documents/"
   recent: false
   important: true
+  categories: elder_law
