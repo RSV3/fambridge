@@ -1,25 +1,28 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="navbar-header">
-    <%= link_to "FAMILY BRIDGE", root_path, class: "navbar-brand" %>
+  <div class="container">
+    <div class="nav-menu-container">
+      <div class="navbar-header">
+        <%= link_to "FAMILY BRIDGE", root_path, class: "navbar-brand" %>
+      </div>
+      <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-6" style="height: 1px;">
+        <ul class="nav navbar-nav pull-right">
+          <li>
+            <%= link_to "Caregiver Starter Kit", "#" %>
+          </li>            
+          <li>
+            <%= link_to "Elder Law", category_path(:slug => "elder-law") %>
+          </li>            
+          <li>
+            <%= link_to "Financial Matters", category_path(:slug => "financial-matters") %>
+          </li>
+          <li>
+            <%= link_to "Care Decisions", category_path(:slug => "care-decisions") %>
+          </li>
+          <li>
+            <%= link_to "Blog", "#" %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-6" style="height: 1px;">
-    <ul class="nav navbar-nav pull-right">
-      <li>
-        <%= link_to "Caregiver Starter Kit", "#" %>
-      </li>            
-      <li>
-        <%= link_to "Elder Law", "#" %>
-      </li>            
-      <li>
-        <%= link_to "Financial Matters", "#" %>
-      </li>
-      <li>
-        <%= link_to "Care Decisions", "#" %>
-      </li>
-      <li>
-        <%= link_to "Blog", "#" %>
-      </li>
-    </ul>
-  </div>
-
 </nav>

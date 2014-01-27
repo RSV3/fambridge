@@ -3,9 +3,13 @@ class ContentController < ApplicationController
   include ApplicationHelper
 
   def index
-    # landing page for content for now
-    @articles = Content.all
-    @categories = Category.all
+    # landing page defaults to elder-law content for now 
+    default_slug = params[:slug]
+    if default_slug
+      @articles = Content.includes(:categories).where(categories: { slug: default_slug })
+    else
+      @articles = Content.includes(:categories).where(categories: { slug: "elder-law" })
+    end
   end
 
   def show 
@@ -18,4 +22,8 @@ class ContentController < ApplicationController
     end
   end
 
+  def category
+    # show articles in a particular category
+    @articles = Content.includes(:categories).where(categories: { slug: params[:slug] })
+  end
 end

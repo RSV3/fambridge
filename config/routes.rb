@@ -28,6 +28,7 @@ Fambridge::Application.routes.draw do
 
   resources :content, only: [:index, :show]
   # display articles
+  get '/content/category/:slug', to: 'content#index', constraints: { slug: /[a-z0-9\-]+/ }, as: :category
   get '/content/:category/:id', to: 'content#show', constraints: { id: /[a-z0-9\-]+/ }
 
   resources :users

@@ -1,99 +1,103 @@
 <% provide(:title, @page_title) %>
 <%= render "content/header" %>
 
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-    <!-- main articles -->
-    <% @articles.each do |a| %>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <!-- main article -->
-        <div class="article-box">
-          <div class="article-category">
-            <% len = a.categories.size %>
-            <% a.categories.each_with_index do |c, index| %>
-              <% if index == len-1 %>
-                <%= link_to c.name, "category/#{c.id}" %>
-              <% else %>
-                <%= link_to c.name, "category/#{c.id}" %>,
-              <% end %>
-            <% end %>
-          </div>
-          <div class="article-title">
-            <h1><%= a.title %></h1>
-          </div>
-          <div class="article-summary">
-            <%= a.summary %> 
-          </div>
-          <div class="article-share">
-            <%= image_tag "twitter_25.png" %> &nbsp;
-            <%= image_tag "facebook_25.png" %> 
-          </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 side-bar">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="recent-box">
-          <!-- Recent articles -->
-          <h3>RECENT ARTICLES</h3>
-          <div class="article-link">
-            Tips for Hiring an In-Home Health Aid
-          </div>
-          <hr class="sidebar-hr">
-          <div class="article-link">
-            3 Must-Have Legal Documents for Caregivers
-          </div>
-          <hr class="sidebar-hr">
-          <div class="article-link">
-            5 Places to Make a Power of Attorney Online
-          </div>
-          <hr class="sidebar-hr">
-          <div class="article-link">
-            Investment Tips for People Over 75
-          </div>
-          <hr class="sidebar-hr">
-          <div class="article-link">
-            A Basic Guide to Trusts for Families
-          </div>
-          <div class="article-more-link">
-            <%= link_to "more articles", "#" %>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    </div>   
-  </div>
-</div>
-
-<div class="highlight-article-box">
+<div class="fb-content-container">
   <div class="row">
-    <!-- Bottom article -->
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-      <div class="article-category">
-        Care Decisions
-      </div>   
-      <div class="article-title">
-        <h1>In defense of assited living</h1>
-      </div>
-      <div class="article-summary">
-        I didn’t know my grandparents very well until they could no longer drive, until they needed the assistance of a retirement community...<%= link_to "Read more >", "#" %>
-      </div>
-      <div class="article-share">
-        <%= image_tag "twitter_25.png" %> &nbsp;
-            <%= image_tag "facebook_25.png" %>
+    <div class="main-articles-container">
+      <div class="col-xs-12 col-md-8 col-lg-8">
+        <!-- main articles -->
+        <% @articles.each do |a| %>
+          <div class="row">
+            <div class="col-xs-12">
+              <!-- main article -->
+              <div class="article-box">
+                <div class="article-category">
+                  <% len = a.categories.size %>
+                  <% a.categories.each_with_index do |c, index| %>
+                    <% if index == len-1 %>
+                      <%= link_to c.name, "#{c.slug}" %>
+                    <% else %>
+                      <%= link_to c.name, "#{c.slug}" %>,
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="article-title">
+                  <h1><%= a.title %></h1>
+                </div>
+                <div class="article-summary">
+                  <%= a.summary %> 
+                </div>
+                <div class="article-share">
+                  <%= image_tag "twitter_25.png" %> &nbsp;
+                  <%= image_tag "facebook_25.png" %> 
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-      <div class="article-pic thumbnail">
-        <img data-src="holder.js/400x200" alt="placeholder image">
+
+    <div class="col-xs-12 col-md-4 col-lg-4 side-bar">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="recent-box">
+            <!-- Recent articles -->
+            <h3>RECENT ARTICLES</h3>
+            <div class="article-link">
+              Tips for Hiring an In-Home Health Aid
+            </div>
+            <hr class="sidebar-hr">
+            <div class="article-link">
+              3 Must-Have Legal Documents for Caregivers
+            </div>
+            <hr class="sidebar-hr">
+            <div class="article-link">
+              5 Places to Make a Power of Attorney Online
+            </div>
+            <hr class="sidebar-hr">
+            <div class="article-link">
+              Investment Tips for People Over 75
+            </div>
+            <hr class="sidebar-hr">
+            <div class="article-link">
+              A Basic Guide to Trusts for Families
+            </div>
+            <div class="article-more-link">
+              <%= link_to "more articles", "#" %>
+            </div>
+          </div>
+        </div>
+      </div>   
+    </div>
+  </div> <!-- row for first part of content includes two columns -->
+
+  <div class="highlight-article-box">
+    <div class="row">
+      <!-- Bottom article -->
+      <div class="col-xs-12 col-md-8">
+        <div class="article-category">
+          Care Decisions
+        </div>   
+        <div class="article-title">
+          <h1>In defense of assited living</h1>
+        </div>
+        <div class="article-summary">
+          I didn’t know my grandparents very well until they could no longer drive, until they needed the assistance of a retirement community...<%= link_to "Read more >", "#" %>
+        </div>
+        <div class="article-share">
+          <%= image_tag "twitter_25.png" %> &nbsp;
+          <%= image_tag "facebook_25.png" %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="article-pic thumbnail">
+          <img data-src="holder.js/400x200" alt="placeholder image">
+        </div>
       </div>
     </div>
   </div>
+
 </div>
 
 <%= render "content/footer" %>

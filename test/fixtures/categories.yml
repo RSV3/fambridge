@@ -1,8 +1,11 @@
 care_decisions:
   name: "Care Decisions"
+  slug: "care-decisions"
 
 financial_matters:
   name: "Financial Matters"
+  slug: "financial-matters"
 
 elder_law:
   name: "Elder Law"
+  slug: "elder-law"
