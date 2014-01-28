@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .side-bar .article-link {
-  color: #2c99a9;
+  a {
+    color: #2c99a9;
+  }
 }
 
 .nav {

@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20140127223109) do
     t.text     "summary"
     t.string   "slug"
     t.string   "url"
-    t.boolean  "recent"
-    t.boolean  "important"
+    t.boolean  "recent",     default: false
+    t.boolean  "important",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

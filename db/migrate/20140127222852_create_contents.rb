@@ -5,8 +5,8 @@ class CreateContents < ActiveRecord::Migration
       t.text :summary
       t.string :slug
       t.string :url
-      t.boolean :recent
-      t.boolean :important
+      t.boolean :recent, :default => false
+      t.boolean :important, :default => false
 
       t.timestamps
     end

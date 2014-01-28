@@ -4,7 +4,7 @@
 <div class="fb-content-container">
   <div class="row">
     <div class="main-articles-container">
-      <div class="col-xs-12 col-md-8 col-lg-8">
+      <div class="col-xs-12 col-md-8">
         <!-- main articles -->
         <% @articles.each do |a| %>
           <div class="row">
@@ -38,33 +38,23 @@
       </div>
     </div>
 
-    <div class="col-xs-12 col-md-4 col-lg-4 side-bar">
+    <div class="col-xs-12 col-md-4 side-bar">
       <div class="row">
         <div class="col-xs-12">
           <div class="recent-box">
             <!-- Recent articles -->
             <h3>RECENT ARTICLES</h3>
-            <div class="article-link">
-              Tips for Hiring an In-Home Health Aid
-            </div>
-            <hr class="sidebar-hr">
-            <div class="article-link">
-              3 Must-Have Legal Documents for Caregivers
-            </div>
-            <hr class="sidebar-hr">
-            <div class="article-link">
-              5 Places to Make a Power of Attorney Online
-            </div>
-            <hr class="sidebar-hr">
-            <div class="article-link">
-              Investment Tips for People Over 75
-            </div>
-            <hr class="sidebar-hr">
-            <div class="article-link">
-              A Basic Guide to Trusts for Families
-            </div>
+            <% len = @recent_articles.size %>
+            <% @recent_articles.each_with_index do |r, index| %>
+              <div class="article-link">
+                <%= link_to r.title, article_path(:id => r.slug, :category => r.categories[0].slug) %>
+              </div>
+              <% if index != len-1 %>
+                <hr class="sidebar-hr">
+              <% end %>
+            <% end %>
             <div class="article-more-link">
-              <%= link_to "more articles", "#" %>
+              <%= link_to "more articles", recent_content_index_path %>
             </div>
           </div>
         </div>

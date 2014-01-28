@@ -21,6 +21,7 @@ important_documents:
   title: "List of Important Documents to Gather as a Caregiver"
   summary: "The DPOA, Advanced Directive, and the Will are the most important documents to have on hand but here is a list of all the other documents"
   slug: "list-of-important-documents-caregiver"
+  recent: true
   categories: elder_law
 
 conversation_your_aging_parent:
@@ -39,6 +40,7 @@ financial_questions_living_facility:
   title: "Financial Questions to Ask When Considering an Assisted Living Facility"
   summary: "Here’s the scene:  You, saint-like child and caregiver of lovable but stubborn mom, are trying to figure out the best way to bring up the conversation of maybe, just maybe, leaving the house and moving to an assisted living facility.  Mom, who has been living in the same home for 40 years, wants no part of any conversation that involves her leaving that home."
   slug: "considering-assisted-living-facility"
+  recent: true
   categories: financial_matters
 
 financial_matters_organized:
@@ -59,6 +61,7 @@ quit_job:
   summary: "Who in their right minds survives working two full time jobs? According to research done by Metlife, the answer is...(drum roll)... you and 15.9 million other caregivers who are working full time while caring for their aging parents"
   url: "http://carecents.co/2013/09/24/choosing-between-work-and-caregiving/"
   slug: "quit-job-care-aging-parents"
+  recent: true 
   categories: financial_matters
 
 different_long_term_care:
@@ -93,6 +96,7 @@ caregiving_across_countries:
   title: "Caregiving Across Countries"
   summary: "There were whirlwind visits once or twice a year from my father's brother and his family.  They would come into town and, for three days, every need that my grandparent's had was answered immediately."
   slug: "caregiving-across-countries"
+  recent: true
   categories: care_decisions
 
 approach_funding_care:

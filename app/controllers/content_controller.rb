@@ -12,6 +12,8 @@ class ContentController < ApplicationController
     end
     @highlight = @articles[-1]
     @articles = @articles[0..-2]
+
+    @recent_articles = Content.where(recent: true)
   end
 
   def show 
@@ -29,5 +31,12 @@ class ContentController < ApplicationController
     @articles = Content.includes(:categories).where(categories: { slug: params[:slug] })
     @highlight = @articles[-1]
     @articles = @articles[0..-2]
+
+    @recent_articles = Content.where(recent: true)
+  end
+
+  def recent
+    # show articles ordered by recency
+    @articles = Content.order(created_at: :desc )
   end
 end

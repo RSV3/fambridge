@@ -1,0 +1,40 @@
+<% provide(:title, @page_title) %>
+<%= render "content/header" %>
+
+  <div class="row">
+    <div class="main-articles-container">
+      <div class="col-xs-12">
+        <!-- main articles -->
+        <% @articles.each do |a| %>
+          <div class="row">
+            <div class="col-xs-12">
+              <!-- main article -->
+              <div class="article-box">
+                <div class="article-category">
+                  <% len = a.categories.size %>
+                  <% a.categories.each_with_index do |c, index| %>
+                    <% if index == len-1 %>
+                      <%= link_to c.name, "#{c.slug}" %>
+                    <% else %>
+                      <%= link_to c.name, "#{c.slug}" %>,
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="article-title">
+                  <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.categories[0].slug) %></h1>
+                </div>
+                <div class="article-summary">
+                  <%= a.summary %> 
+                </div>
+                <div class="article-share">
+                  <%= image_tag "twitter_25.png" %> &nbsp;
+                  <%= image_tag "facebook_25.png" %> 
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<%= render "content/footer" %>
