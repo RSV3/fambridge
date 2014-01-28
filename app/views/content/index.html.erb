@@ -22,7 +22,7 @@
                   <% end %>
                 </div>
                 <div class="article-title">
-                  <h1><%= a.title %></h1>
+                  <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.categories[0].slug) %></h1>
                 </div>
                 <div class="article-summary">
                   <%= a.summary %> 
@@ -77,13 +77,20 @@
       <!-- Bottom article -->
       <div class="col-xs-12 col-md-8">
         <div class="article-category">
-          Care Decisions
+          <% len = @highlight.categories.size %>
+          <% @highlight.categories.each_with_index do |c, index| %>
+            <% if index == len-1 %>
+              <%= link_to c.name, "#{c.slug}" %>
+            <% else %>
+              <%= link_to c.name, "#{c.slug}" %>,
+            <% end %>
+          <% end %>
         </div>   
         <div class="article-title">
-          <h1>In defense of assited living</h1>
+          <h1><%= link_to @highlight.title, article_path(:id => @highlight.slug, :category => @highlight.categories[0].slug) %></h1>
         </div>
         <div class="article-summary">
-          I didn’t know my grandparents very well until they could no longer drive, until they needed the assistance of a retirement community...<%= link_to "Read more >", "#" %>
+          <%= @highlight.summary %> 
         </div>
         <div class="article-share">
           <%= image_tag "twitter_25.png" %> &nbsp;

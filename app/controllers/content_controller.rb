@@ -10,6 +10,8 @@ class ContentController < ApplicationController
     else
       @articles = Content.includes(:categories).where(categories: { slug: "elder-law" })
     end
+    @highlight = @articles[-1]
+    @articles = @articles[0..-2]
   end
 
   def show 
@@ -25,5 +27,7 @@ class ContentController < ApplicationController
   def category
     # show articles in a particular category
     @articles = Content.includes(:categories).where(categories: { slug: params[:slug] })
+    @highlight = @articles[-1]
+    @articles = @articles[0..-2]
   end
 end
