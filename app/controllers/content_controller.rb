@@ -20,7 +20,7 @@ class ContentController < ApplicationController
     # show particular article page
     c = Content.find_by_slug(params[:id])
     if c
-      render "content/#{params[:category]}/#{c.slug}"
+      render "content/#{params[:category]}/#{c.slug}", :layout => "content_article"
     else
       not_found
     end

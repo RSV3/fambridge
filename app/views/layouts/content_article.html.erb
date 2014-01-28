@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900|Alegreya+Sans:300,400' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= render :partial => 'layouts/google_analytics_production' if Rails.env.production? %>
+  <%= render :partial => 'layouts/google_analytics_staging' if Rails.env.staging? %>
+
+  <style type="text/css">
+    ul {
+      list-style-type: square;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+  </div>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %> 
+
+    <% provide(:title, @page_title) %>
+    <%= render "content/header" %>
+  
+    <div class="fb-content-container">
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+          <%= yield %>
+          <div class="article-share">
+            <%= image_tag "twitter_25.png" %> &nbsp;
+            <%= image_tag "facebook_25.png" %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4 side-bar">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="content-form-label">
+              Are you interested in further updates?
+              </div>
+              <%= form_tag(lead_saved_path) do %>
+                <div class="form-group">
+                  <%= text_field_tag :name, nil, class: "form-control", placeholder: "Your Name" %>
+                </div>
+                <div class="form-group">
+                  <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
+                </div>
+                <%= submit_tag("Notify me!", class: "btn btn-lg btn-primary", id: "notify-me") %>
+              <% end %>
+            </div>
+          </div>   
+        </div>
+      </div> <!-- row for first part of content includes two columns -->
+
+    </div>
+
+    <%= debug(params) if Rails.env.development? %>
+  </div>
+
+  <footer>
+  <div class="footer-container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <span class="contact-us-footer">Contact us:</span> email address
+        </div>
+      </div>
+  </div>
+  </footer>
+
+  <script type="text/javascript">
+    $('#notify-me').on('click', function() {
+      ga('send', 'event', 'Content Article', 'Submit Email');
+    });
+  </script>
+</body>
+</html>
