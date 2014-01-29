@@ -1,6 +1,7 @@
 class ContentController < ApplicationController
 
   include ApplicationHelper
+  include UsersHelper
 
   def index
     # landing page defaults to elder-law content for now 
@@ -17,12 +18,26 @@ class ContentController < ApplicationController
   end
 
   def show 
-    # show particular article page
     c = Content.find_by_slug(params[:id])
-    if c
+    if request.get?
+      # show particular article page
+      if c
+        render "content/#{params[:category]}/#{c.slug}", :layout => "content_article"
+      else
+        not_found
+      end
+    elsif request.post?
+      first_name = first_name lead_user_params[:name]
+      last_name = last_name lead_user_params[:name]
+
+      lead = LeadUser.new(first_name: first_name, last_name: last_name, email: lead_user_params[:email],
+                    referrer: request.referrer)
+      if lead.save
+        flash.now[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
+      else
+        flash.now[:danger] = "Email is not valid or you have already registered!"
+      end
       render "content/#{params[:category]}/#{c.slug}", :layout => "content_article"
-    else
-      not_found
     end
   end
 
@@ -39,4 +54,9 @@ class ContentController < ApplicationController
     # show articles ordered by recency
     @articles = Content.order(created_at: :desc )
   end
+
+  private
+    def lead_user_params
+      params.permit(:name, :email)
+    end
 end
