@@ -53,7 +53,7 @@ development:
 #  username: fambridge
 #  password:
 
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
   host: localhost

@@ -28,7 +28,10 @@
                   <%= a.summary %> 
                 </div>
                 <div class="article-share">
-                  <%= image_tag "twitter_25.png" %> &nbsp;
+                  <% tweet_url = "#{request.original_url}" + article_path(:id => a.slug, :category => a.categories[0].slug) %>
+                  <% tweet_text = "#{a.title} #{tweet_url} @Family_Bridge" %>
+                  <a href="https://twitter.com/share?url=<%=u tweet_url %>&text=<%= tweet_text %>" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-size="large" data-count="none">Tweet</a> &nbsp;
+
                   <%= image_tag "facebook_25.png" %> 
                 </div>
               </div>
@@ -83,7 +86,12 @@
           <%= @highlight.summary %> 
         </div>
         <div class="article-share">
-          <%= image_tag "twitter_25.png" %> &nbsp;
+
+          <% tweet_url = "#{request.original_url}" + article_path(:id => @highlight.slug, :category => @highlight.categories[0].slug) %>
+          <% tweet_body = truncate(@highlight.title, length:30) %>
+          <% tweet_text = "#{tweet_body} #{tweet_url} @Family_Bridge" %>
+          <a href="https://twitter.com/share?url=<%=u tweet_url %>&text=<%= tweet_text %>" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-size="large" data-count="none">Tweet</a>
+          &nbsp;
           <%= image_tag "facebook_25.png" %>
         </div>
       </div>
@@ -96,6 +104,9 @@
   </div>
 
 </div>
+
+                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 
 <%= render "content/footer" %>
 
