@@ -65,8 +65,10 @@
   </div> <!-- .guidance-background -->
 
   <script type="text/javascript">
-    $('#notify-me').on('click', function() {
-      ga('send', 'event', 'Micro Site One', 'Submit Email');
+    $(document).ready(function() {
+      $('#notify-me').on('click', function() {
+        ga('send', 'event', 'Micro Site One', 'Submit Email');
+      });
     });
   </script>
 <% end %>

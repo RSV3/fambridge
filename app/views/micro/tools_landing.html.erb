@@ -158,14 +158,16 @@
 
 
   <script type="text/javascript">
-    $("#reverse-mort-link").on('click', function() {
-      ga('send', 'event', 'Micro Site One', 'Tools', 'Reverse Mortgage');
+    $(document).ready(function() {
+      $("#reverse-mort-link").on('click', function() {
+        ga('send', 'event', 'Micro Site One', 'Tools', 'Reverse Mortgage');
+      });
+      $("#savings-tool-link").on('click', function() {
+        ga('send', 'event', 'Micro Site One', 'Tools', 'Calculator');
+      });   
+      $("#assisted-living-link").on('click', function() {
+        ga('send', 'event', 'Micro Site One', 'Tools', 'Assisted Living');
+      });    
     });
-    $("#savings-tool-link").on('click', function() {
-      ga('send', 'event', 'Micro Site One', 'Tools', 'Calculator');
-    });   
-    $("#assisted-living-link").on('click', function() {
-      ga('send', 'event', 'Micro Site One', 'Tools', 'Assisted Living');
-    });    
   </script>
 <% end %>

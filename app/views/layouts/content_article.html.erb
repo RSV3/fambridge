@@ -8,7 +8,8 @@
   <%= csrf_meta_tags %>
   <%= render :partial => 'layouts/google_analytics_production' if Rails.env.production? %>
   <%= render :partial => 'layouts/google_analytics_staging' if Rails.env.staging? %>
-
+  <%= render :partial => 'layouts/segment_io_production' if Rails.env.production? %>
+  <%= render :partial => 'layouts/segment_io_staging' if Rails.env.staging? %>
   <style type="text/css">
     ul {
       list-style-type: square;
@@ -73,8 +74,10 @@
   </footer>
 
   <script type="text/javascript">
-    $('#notify-me').on('click', function() {
-      ga('send', 'event', 'Content Article', 'Submit Email');
+    $(document).ready(function() {
+      $('#notify-me').on('click', function() {
+        ga('send', 'event', 'Content Article', 'Submit Email');
+      });
     });
   </script>
 </body>
