@@ -1,4 +1,4 @@
-<% provide(:title, @page_title) %>
+<% provide(:title, @content.title) %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +16,22 @@
       list-style-type: square;
     }
   </style>
+
+  <meta property="og:title" content="<%= @content.title %>" />
+  <meta property="og:site_name" content="Family Bridge" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:description" content="<%= @content.summary %>" />
 </head>
 <body>
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=147240776490";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
   <!-- For content site -->
   <div id="content">
   </div>
@@ -29,8 +43,10 @@
         <div class="col-xs-12 col-md-8">
           <%= yield %>
           <div class="article-share">
-            <a href="https://twitter.com/share?text=<%= @page_title %> <%= @short_url %> @Family_Bridge" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-size="large" data-count="none">Tweet</a> &nbsp;
-            <%= image_tag "facebook_25.png" %>
+            <a href="https://twitter.com/share?text=<%= @page_title %> @Family_Bridge" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-size="large" data-count="none"><%= image_tag "twitter_25.png" %></a> &nbsp;
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank">
+              <%= image_tag "facebook_25.png" %>
+            </a>
           </div>
         </div>
 
