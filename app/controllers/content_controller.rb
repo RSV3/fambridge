@@ -18,7 +18,16 @@ class ContentController < ApplicationController
   end
 
   def show 
+    client = Bitly.client
     c = Content.find_by_slug(params[:id])
+    @page_title = c.title
+    if Rails.env.development?
+      @short_url = request.original_url
+    else
+      long_url = request.original_url
+      @short_url = client.shorten(long_url).short_url
+    end
+
     if request.get?
       # show particular article page
       if c

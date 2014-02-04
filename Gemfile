@@ -76,3 +76,4 @@ gem 'bootstrap-will_paginate'
 gem 'rails_12factor', group: [:staging, :production]
 
 gem 'unicorn'
+gem 'bitly'
