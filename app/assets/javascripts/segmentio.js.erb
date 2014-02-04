@@ -1,4 +1,4 @@
-<% if Rails.env.staging? && Rails.env.production? %>
+<% if Rails.env.staging? || Rails.env.production? %>
 // Create a queue, but don't obliterate an existing one!
 window.analytics || (window.analytics = []);
 
