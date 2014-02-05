@@ -27,7 +27,7 @@ loadFacebookSDK = ->
   window.fbAsyncInit = initializeFacebookSDK
   $.getScript("//connect.facebook.net/en_US/all.js#xfbml=1")
 
-<% if Rails.env.development? %>
+<% if Rails.env == "development" %>
 initializeFacebookSDK = ->
   FB.init
     appId     : '214170542109506'
@@ -37,7 +37,7 @@ initializeFacebookSDK = ->
     xfbml     : true
 <% end %>
 
-<% if Rails.env.staging? %>
+<% if Rails.env == "staging" %>
 initializeFacebookSDK = ->
   FB.init
     appId     : '212076018987557'
@@ -47,7 +47,7 @@ initializeFacebookSDK = ->
     xfbml     : true
 <% end %>
 
-<% if Rails.env.production? %>
+<% if Rails.env == "production" %>
 initializeFacebookSDK = ->
   FB.init
     appId     : '1401559350101344'

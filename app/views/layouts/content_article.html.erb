@@ -56,7 +56,7 @@
               <div class="content-form-label">
                 Are you interested in further updates?
               </div>
-              <%= form_tag({:action => "show", :controller => "content"}, {:class => "email-submit-form"}) do %>
+              <%= form_tag({:action => "show", :controller => "content"}, {:id => "email-submit-form"}) do %>
                 <div class="form-group">
                   <%= text_field_tag :name, nil, class: "form-control", placeholder: "Your Name" %>
                 </div>

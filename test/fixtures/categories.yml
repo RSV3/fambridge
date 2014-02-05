@@ -9,3 +9,7 @@ financial_matters:
 elder_law:
   name: "Elder Law"
   slug: "elder-law"
+
+blog:
+  name: "Blog"
+  slug: "blog"

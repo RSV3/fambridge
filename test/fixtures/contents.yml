@@ -6,9 +6,15 @@ guide_to_legal_documents:
 
 places_to_make_poa:
   title: "5 Places to Make Your Own Power of Attorney"
-  summary: "Creating a POA is relatively simple. In fact, the hardest part may be deciding who the agent should be and thinking about one’s end of life care. You do not need a lawyer to create a POA. However, you may want to consult a lawyer or your local area agency on aging for advice for your specific situation."
+  summary: "You can find free forms on your state government website (if not online, they will certainly have one in the local government office), local senior centers, hospitals, your physician, or other local aging agencies."
   slug: "5-places-to-make-poa"
   url: "http://www.nolo.com/legal-encyclopedia/how-write-living-will.html"
+  categories: elder_law
+
+how_to_poa:
+  title: "How Do You Get a Power of Attorney?"
+  summary: "Creating a POA is relatively simple. In fact the hardest part may be deciding who the agent should be and thinking about one’s end of life care. "
+  slug: "how-to-get-poa"
   categories: elder_law
 
 basic_info_poa:
@@ -30,10 +36,16 @@ conversation_your_aging_parent:
   slug: "conversation-with-parents-about-dpoa"
   categories: elder_law
 
+legal_guardian_work:
+  title: "How Does Legal Guardianship Work?"
+  summary: "In an ideal world, families would prepare for the inevitable needs that come with age, such as determining who will make medical and financial decisions when a loved one becomes incapacitated. But we live in the real world, where the urge to delay thinking about an unpleasant topic is strong." 
+  slug: "how-does-legal-guardian-work"
+  categories: elder_law
+
 taxes_money_go_further:
-  title: "Part One: Taxes - Tips to Make Your Money Go Further"
+  title: "How to Deduct Caregiving Expenses on your Taxes"
   summary: "Many people procrastinate on their taxes.  Admit it! You have done it too! But as a caregiver, tax write-offs can be an underutilized method of recouping your care costs over the course of the year.  Every case is different, but, by exploring some of the insights below and consulting a certified tax advisor, you may discover potential savings and look forward to your next tax day!"
-  slug: "tips-to-make-your-money-go-further"
+  slug: "deduct-caregiving-expenses-taxes"
   categories: financial_matters
 
 financial_questions_living_facility:
@@ -43,11 +55,6 @@ financial_questions_living_facility:
   recent: true
   categories: financial_matters
 
-financial_matters_organized:
-  title: "List of Financial Matters to Get Organized"
-  summary: "Get a handle of your financial situation and help organize your parents financial situation."
-  slug: "financial-matters-to-get-organized"
-  categories: financial_matters
 
 financial_gurus:
   title: "5 Personal Finance Gurus to Follow On Twitter"
@@ -57,18 +64,12 @@ financial_gurus:
   categories: financial_matters
 
 quit_job:
-  title: "Should I quit my job to take care of my aging parents?"
+  title: "Choosing Between Work and Caregiving"
   summary: "Who in their right minds survives working two full time jobs? According to research done by Metlife, the answer is...(drum roll)... you and 15.9 million other caregivers who are working full time while caring for their aging parents"
   url: "http://carecents.co/2013/09/24/choosing-between-work-and-caregiving/"
   slug: "quit-job-care-aging-parents"
   recent: true 
   categories: financial_matters
-
-different_long_term_care:
-  title: "Different Types of Long Term Care"
-  summary: "Home care can be given in your own home by family members, friends, volunteers, and/or paid professionals. This type of care can range from help with shopping to nursing care."
-  slug: "different-type-of-care-options" 
-  categories: care_decisions
 
 irrational_caregiving:
   title: "Irrational Caregiving"
@@ -77,20 +78,20 @@ irrational_caregiving:
   slug: "irrational-caregiving"
   recent: true
   important: false
-  categories: care_decisions
+  categories: blog 
 
 longdistance_caregiving:
   title: "3 ways a Geriatric Care Manager Can Help You Survive Long-distance Caregiving"
   summary: "My adventure in long-distance caregiving began after my mom’s traumatic brain injury in 2008. My parents lived in Pennsylvania, far from myself and my two sisters. My father was in the later stages of early onset dementia and had been cared for by my mother."
   slug: "long-distance-caregiving"
-  categories: care_decisions
+  categories: blog 
 
 defense_assisted:
   title: "In Defense of Assisted Living"
   summary: "I didn’t know my grandparents very well until they could no longer drive, until they needed the assistance of a retirement community"
   url: "http://carecents.co/2013/09/13/in-defense-of-assisted-living/"
   slug: "defense-of-assisted-living"
-  categories: care_decisions
+  categories: blog 
 
 caregiving_across_countries:
   title: "Caregiving Across Countries"

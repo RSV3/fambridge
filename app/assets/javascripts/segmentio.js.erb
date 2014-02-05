@@ -46,10 +46,10 @@ window.analytics.SNIPPET_VERSION = '2.0.8';
 
 // Load analytics.js with your API key, which will automatically load all of the
 // analytics integrations you've turned on for your account. Boosh!
-<% if Rails.env.staging? %>
+<% if Rails.env == "staging" %>
   window.analytics.load("gd7nxnf15t");
 <% end %>
-<% if Rails.env.production? %>
+<% if Rails.env == "production" %>
   window.analytics.load("m08ijqhdht");
 <% end %>
 
