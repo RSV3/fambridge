@@ -2,7 +2,7 @@
 <%= render "content/header" %>
 
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  
+
   <div class="row">
     <div class="main-articles-container">
       <div class="col-xs-12">
@@ -29,10 +29,14 @@
                   <%= a.summary %> 
                 </div>
                 <div class="article-share">
-                  <% tweet_url = "#{request.original_url}" + article_path(:id => a.slug, :category => a.categories[0].slug) %>
-                  <% tweet_text = "#{a.title} @Family_Bridge" %>
-                  <a href="//twitter.com/share?url=<%=u tweet_url %>&text=<%= tweet_text %>" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Share</a> &nbsp;
-                  <div class="fb-share-button" data-href="<%=u tweet_url %>" data-type="button_count"></div>
+                  <div class="share-button tweet-share-adjust">
+                    <% tweet_url = article_path(:id => a.slug, :category => a.categories[0].slug) %>
+                    <% tweet_text = "#{a.title} @Family_Bridge" %>
+                    <a href="//twitter.com/share?url=<%=u tweet_url %>&text=<%= tweet_text %>" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Tweet</a>
+                  </div>
+                  <div>
+                    <div class="fb-share-button" data-href="<%=u tweet_url %>" data-type="button_count"></div>
+                  </div>
                 </div>
               </div>
             </div>

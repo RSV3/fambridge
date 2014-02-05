@@ -89,12 +89,15 @@
           <%= @highlight.summary %> 
         </div>
         <div class="article-share">
-          <% tweet_url = root_url + article_path(:id => @highlight.slug, :category => @highlight.categories[0].slug) %>
-          <% tweet_body = truncate(@highlight.title, length:50) %>
-          <% tweet_text = "#{tweet_body} @Family_Bridge" %>
-          <a href="https://twitter.com/share?url=<%=u tweet_url %>&text=<%= tweet_text %>" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Share</a>
-          &nbsp;
-          <div class="fb-share-button" data-href="<%=u tweet_url %>" data-type="button_count"></div>
+          <div class="share-button tweet-share-adjust">
+            <% tweet_url = article_path(:id => @highlight.slug, :category => @highlight.categories[0].slug) %>
+            <% tweet_body = truncate(@highlight.title, length:50) %>
+            <% tweet_text = "#{tweet_body} @Family_Bridge" %>
+            <a href="https://twitter.com/share?url=<%=u tweet_url %>&text=<%= tweet_text %>" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Tweet</a>
+          </div>
+          <div class="share-button">
+            <div class="fb-share-button" data-href="<%=u tweet_url %>" data-type="button_count"></div>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-md-4">
