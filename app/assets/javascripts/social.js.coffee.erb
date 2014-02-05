@@ -27,10 +27,32 @@ loadFacebookSDK = ->
   window.fbAsyncInit = initializeFacebookSDK
   $.getScript("//connect.facebook.net/en_US/all.js#xfbml=1")
 
+<% if Rails.env.production? %>
 initializeFacebookSDK = ->
   FB.init
-    appId     : '214170542109506'
+    appId     : '1401559350101344'
     channelUrl: '//family-bridge.com/channel.html'
     status    : true
     cookie    : true
     xfbml     : true
+<% end %>
+
+<% if Rails.env.staging? %>
+initializeFacebookSDK = ->
+  FB.init
+    appId     : '212076018987557'
+    channelUrl: '//staging.family-bridge.com/channel.html'
+    status    : true
+    cookie    : true
+    xfbml     : true
+<% end %>
+
+<% if Rails.env.development? %>
+initializeFacebookSDK = ->
+  FB.init
+    appId     : '214170542109506'
+    channelUrl: '//localhost:5000/channel.html'
+    status    : true
+    cookie    : true
+    xfbml     : true
+<% end %>

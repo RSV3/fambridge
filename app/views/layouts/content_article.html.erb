@@ -21,13 +21,9 @@
 <body>
 
   <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=214170542109506";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- twitter js -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
   <!-- For content site -->
   <div id="content">
@@ -40,8 +36,12 @@
         <div class="col-xs-12 col-md-8">
           <%= yield %>
           <div class="article-share">
-            <a href="https://twitter.com/share?text=<%= @page_title %> @Family_Bridge" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Share</a> &nbsp;
-            <div class="fb-share-button" data-href="<%= request.original_url %>" data-type="button_count"></div>
+            <div class="share-button">
+              <a href="https://twitter.com/share?text=<%= @content.title %> @Family_Bridge" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Share</a>
+            </div>
+            <div class="share-button">
+              <div class="fb-share-button" data-href="<%= request.original_url %>" data-type="button_count"></div>
+            </div>
           </div>
         </div>
 
@@ -56,7 +56,7 @@
               <div class="content-form-label">
                 Are you interested in further updates?
               </div>
-              <%= form_tag do %>
+              <%= form_tag({:action => "show", :controller => "content"}, {:class => "email-submit-form"}) do %>
                 <div class="form-group">
                   <%= text_field_tag :name, nil, class: "form-control", placeholder: "Your Name" %>
                 </div>
@@ -85,7 +85,6 @@
   </div>
   </footer>
 
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 </body>
 </html>
