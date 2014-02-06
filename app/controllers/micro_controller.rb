@@ -4,19 +4,20 @@ class MicroController < ApplicationController
 
   include UsersHelper
 
-  # need to use form helper to handle name (first name, last name), email submits
-  # and track the request.referrer url.  Set virtual == true.
-  def guidance 
+  def guidance
+    # deprecated 
     @page_title = "Guidance"
     @user = LeadUser.new
   end
 
   def tracking
+    # deprecated 
     @page_title = "Tracking"
     @user = LeadUser.new
   end
 
   def social
+    # deprecated 
     @page_title = "Social"
     @user = LeadUser.new
   end
@@ -57,6 +58,15 @@ class MicroController < ApplicationController
     else
       flash[:danger] = "Email is not valid or you have already registered!"
     end
+  end
+
+  def guide_download
+    # download a report
+  end
+
+  def tax_guide_landing
+    # elder law guide landing
+    @page_title = "Your Guide to Elderly Care Law"
   end
 
   private
