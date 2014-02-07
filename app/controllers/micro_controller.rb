@@ -48,6 +48,7 @@ class MicroController < ApplicationController
   end
 
   def lead_saved 
+
     first_name = first_name lead_user_params[:name]
     last_name = last_name lead_user_params[:name]
 
@@ -62,21 +63,29 @@ class MicroController < ApplicationController
 
   def guide_download
     # download a report
-    @first_name = first_name lead_user_params[:name]
-    @last_name = last_name lead_user_params[:name]
+    if !lead_user_params[:email].empty?
+      @first_name = first_name lead_user_params[:name]
+      @last_name = last_name lead_user_params[:name]
 
-    @lead_user = LeadUser.new(first_name: first_name, last_name: last_name, email: lead_user_params[:email],
-                  referrer: request.referrer)
-    if @lead_user.save
-      flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
+      @lead_user = LeadUser.new(first_name: @first_name, last_name: @last_name, email: lead_user_params[:email],
+                    referrer: request.referrer)
+      if @lead_user.save
+        flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
+      else
+        flash[:danger] = "Email is not valid or you have already registered!"
+      end
     else
       flash[:danger] = "Email is not valid or you have already registered!"
+      redirect_to tax_guide_landing_path
     end
   end
 
   def tax_guide_landing
     # elder law guide landing
     @page_title = "Your Guide to Elderly Care Law"
+    require 'securerandom'
+
+    @access = SecureRandom.hex(32)
   end
 
   private
