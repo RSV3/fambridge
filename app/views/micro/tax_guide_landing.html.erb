@@ -27,12 +27,35 @@
         Landing page teaser content
       </div>
       <div class="col-xs-12 col-sm-4">
-        Form for collecting email address
+        <%= form_tag(lead_saved_path, {:id => "email-submit-form"}) do %>
+          <div class="form-group">
+            <%= text_field_tag :name, nil, id: "contact-name", class: "form-control", placeholder: "Your Name" %>
+          </div>
+          <div class="form-group">
+            <%= text_field_tag :email, nil, id: "contact-email", class: "form-control", placeholder: "Your Email" %>
+          </div>
+          <%= submit_tag("Download", class: "btn btn-lg btn-primary", id: "notify-me") %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
 <%= render "micro/footer" %>
+
+<% if Rails.env.staging? or Rails.env.production? %>
+<script type="text/javascript">
+  $("#email-submit-form").submit( function( event ) ) {
+    analytics.identify($("#contact-email").val(), {
+      email: $("#contact-email").val(),
+      first_name: $("#contact-name").val(),
+      created_at: $.now(),
+      plan_name: 'elder law',
+      page_location: 'form-submitted'
+    });
+    return;
+  }
+</script>
+<% end %>
 
 <% end %>

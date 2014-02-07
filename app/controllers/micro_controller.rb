@@ -62,6 +62,16 @@ class MicroController < ApplicationController
 
   def guide_download
     # download a report
+    @first_name = first_name lead_user_params[:name]
+    @last_name = last_name lead_user_params[:name]
+
+    @lead_user = LeadUser.new(first_name: first_name, last_name: last_name, email: lead_user_params[:email],
+                  referrer: request.referrer)
+    if @lead_user.save
+      flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
+    else
+      flash[:danger] = "Email is not valid or you have already registered!"
+    end
   end
 
   def tax_guide_landing

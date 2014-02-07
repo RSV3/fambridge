@@ -1,0 +1,35 @@
+<% content_for :micro_body do %>
+
+<% provide(:title, @page_title) %>
+
+<%= render "micro/landing_header" %>
+
+<!-- downloaded confirmation -->
+<div id="content">
+</div>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Click the download button</h1>
+    <p>To download the guide</p>
+
+    <p><a class="btn btn-primary btn-lg">Download</a></p>
+  </div>
+</div>
+
+<%= render "micro/footer" %>
+
+
+<% if Rails.env.staging? or Rails.env.production? %>
+<script type="text/javascript">
+  analytics.identify( <%= @lead_user.id %>, {
+    email: <%= @lead_user.email %>,
+    first_name: <%= @lead_user.first_name %>,
+    last_name: <%= @lead_user.last_name %>,
+    created_at: $.now(),
+    plan_name: 'elder law',
+    page_location: 'download'
+  });
+</script>
+<% end %>
+
+<% end %>
