@@ -1,0 +1,99 @@
+<%= content_for :custom_upper_margin do %>
+  <div id="category-page-upper-margin">
+  </div>
+<% end %>
+
+<% provide(:title, @page_title) %>
+<%= render "content/header" %>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="category-header">
+          <div class="<%= @category.slug %>">
+            <%= @category.name %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- main articles -->
+    <% alen = @articles.size %>
+    <% @articles.each_with_index do |a, aindex| %>
+      <% if cycle('odd', 'even') == 'odd' %>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <!-- main article -->
+            <div class="category-article-box">
+              <div class="article-img-border-<%= a.categories[0].slug %>">
+                <a href="#" class="thumbnail">
+                  <img data-src="holder.js/285x130" alt="placeholder image">
+                </a>
+              </div>
+              <div class="category-article-title">
+                <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.categories[0].slug) %></h1>
+              </div>
+              <div class="category-article-type-label">
+                ARTICLE // <%= l a.created_at, format: :long %>
+              </div> 
+            </div>
+          </div>
+        <% if aindex == alen-1 %>
+          </div> <!-- if last odd element end of row -->
+        <% end %>
+      <% else %>
+          <div class="col-xs-12 col-sm-6">
+            <!-- main article -->
+            <div class="category-article-box">
+              <div class="article-img-border-<%= a.categories[0].slug %>">
+                <a href="#" class="thumbnail">
+                  <img data-src="holder.js/285x130" alt="placeholder image">
+                </a>
+              </div>
+              <div class="category-article-title">
+                <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.categories[0].slug) %></h1>
+              </div>
+              <div class="category-article-type-label">
+                ARTICLE // <%= l a.created_at, format: :long %>
+              </div> 
+            </div>
+          </div>
+        </div> <!-- row -->
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-md-4">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="sidebar">
+          <!-- Recent articles -->
+          <h3 class="uppercase">Get Started</h3>
+          <hr class="sidebar-hr">
+          <% @recent_articles.each_with_index do |r, index| %>
+            <div class="article-link">
+              <%= link_to r.title, article_path(:id => r.slug, :category => r.categories[0].slug) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="sidebar">
+          <h3 class="uppercase">Stay Updated</h3>
+          <hr class="sidebar-hr">
+          <%= form_tag do %>
+            <div class="form-group">
+              <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
+            </div>
+            <%= submit_tag("SUBSCRIBE", class: "btn-fb-subscribe", id: "notify-me") %>
+          <% end %>
+        </div>
+      </div>
+    </div>   
+  </div>
+</div> <!-- row for first part of content includes two columns -->
+
+
+<%= content_for :custom_footer do %>
+  <%= render "content/footer" %>
+<% end %>

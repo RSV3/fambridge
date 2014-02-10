@@ -6,18 +6,13 @@
 <% provide(:title, @page_title) %>
 <%= render "content/header" %>
 
-<div id="fb-root"></div>
-<% if not Rails.env.development? %>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-<% end %>
-
 <div class="fb-content-container">
   <div class="row">
     <div class="jumbotron">
       <div class="jumbotron-title">
         Three Ways a Geriatric Care Manager Can Help You Survive Long-Distance Caregiving"
       </div>
-      <div class="article-date-label">
+      <div class="article-type-label">
         ARTICLE // February 5, 2014
       </div>
     </div>
@@ -58,7 +53,7 @@
                         </div>
                       <% end %>
                     </div>
-                    <div class="article-date-label">
+                    <div class="article-type-label">
                       ARTICLE // <%= l a.created_at, format: :long %>
                     </div>                   
                   </div>
@@ -130,7 +125,7 @@
             </div>
           <% end %>
         </div>   
-        <div class="article-date-label">
+        <div class="article-type-label">
           ARTICLE // <%= l @highlight.created_at, format: :long %>
         </div>    
       </div>

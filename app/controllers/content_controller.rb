@@ -52,6 +52,8 @@ class ContentController < ApplicationController
     @articles = @articles[0..-2]
 
     @recent_articles = Content.where(recent: true)
+    @category = Category.find_by_slug(params[:slug])
+    render :layout => "custom_application"
   end
 
   def recent
