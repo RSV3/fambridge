@@ -15,6 +15,8 @@ class ContentController < ApplicationController
     @articles = @articles[0..-2]
 
     @recent_articles = Content.where(recent: true)
+
+    render :layout => "custom_application"
   end
 
   def show 

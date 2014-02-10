@@ -1,71 +1,102 @@
+<%= content_for :custom_upper_margin do %>
+  <div id="content-upper-margin">
+  </div>
+<% end %>
+
 <% provide(:title, @page_title) %>
 <%= render "content/header" %>
 
 <div id="fb-root"></div>
+<% if not Rails.env.development? %>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
+<% end %>
 
 <div class="fb-content-container">
+  <div class="row">
+    <div class="jumbotron">
+      <div class="jumbotron-title">
+        Three Ways a Geriatric Care Manager Can Help You Survive Long-Distance Caregiving"
+      </div>
+      <div class="article-date-label">
+        ARTICLE // February 5, 2014
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="main-articles-container">
       <div class="col-xs-12 col-md-8">
         <!-- main articles -->
-        <% @articles.each do |a| %>
+        <% alen = @articles.size %>
+        <% @articles.each_with_index do |a, aindex| %>
           <div class="row">
             <div class="col-xs-12">
               <!-- main article -->
               <div class="article-box">
-                <div class="article-category">
-                  <% len = a.categories.size %>
-                  <% a.categories.each_with_index do |c, index| %>
-                    <% if index == len-1 %>
-                      <%= link_to c.name, "#{c.slug}" %>
-                    <% else %>
-                      <%= link_to c.name, "#{c.slug}" %>,
-                    <% end %>
-                  <% end %>
-                </div>
-                <div class="article-title">
-                  <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.categories[0].slug) %></h1>
-                </div>
-                <div class="article-summary">
-                  <%= a.summary %> 
-                </div>
-                <div class="article-share">
-                  <div class="share-button tweet-share-adjust">
-                    <% tweet_url = article_path(:id => a.slug, :category => a.categories[0].slug) %>
-                    <% tweet_text = "#{a.title} @Family_Bridge" %>
-                    <a href="//twitter.com/share?url=<%=u tweet_url %>&text=<%= tweet_text %>" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Tweet</a> &nbsp;
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="article-img-border-<%= a.categories[0].slug %>">
+                      <a href="#" class="thumbnail">
+                        <img data-src="holder.js/320x130" alt="...">
+                      </a>
+                    </div>
                   </div>
-                  <div class="share-button">
-                    <div class="fb-share-button" data-href="<%= tweet_url %>" data-type="button_count"></div>
+
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="article-title">
+                      <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.categories[0].slug) %></h1>
+                    </div>
+                    <div class="article-category">
+                      <% len = a.categories.size %>
+                      <% a.categories.each_with_index do |c, index| %>
+                        <div class="<%= c.slug %>">
+                          <% if index == len-1 %>
+                            <%= link_to c.name, "#{c.slug}" %>
+                          <% else %>
+                            <%= link_to c.name, "#{c.slug}" %>,
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class="article-date-label">
+                      ARTICLE // <%= l a.created_at, format: :long %>
+                    </div>                   
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <% if aindex != alen-1 %>
+          <hr class="sidebar-hr">
+          <% end %>
         <% end %>
       </div>
     </div>
 
-    <div class="col-xs-12 col-md-4 side-bar">
+    <div class="col-xs-12 col-md-4">
       <div class="row">
         <div class="col-xs-12">
-          <div class="recent-box">
+          <div class="sidebar">
             <!-- Recent articles -->
-            <h3>RECENT ARTICLES</h3>
-            <% len = @recent_articles.size %>
+            <h3 class="uppercase">Get Started</h3>
+            <hr class="sidebar-hr">
             <% @recent_articles.each_with_index do |r, index| %>
               <div class="article-link">
                 <%= link_to r.title, article_path(:id => r.slug, :category => r.categories[0].slug) %>
               </div>
-              <% if index != len-1 %>
-                <hr class="sidebar-hr">
-              <% end %>
             <% end %>
-            <div class="article-more-link">
-              <%= link_to "more articles", recent_content_index_path %>
-            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="sidebar">
+            <h3 class="uppercase">Stay Updated</h3>
+            <hr class="sidebar-hr">
+            <%= form_tag do %>
+              <div class="form-group">
+                <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
+              </div>
+              <%= submit_tag("SUBSCRIBE", class: "btn-fb-subscribe", id: "notify-me") %>
+            <% end %>
           </div>
         </div>
       </div>   
@@ -73,47 +104,43 @@
   </div> <!-- row for first part of content includes two columns -->
 
   <div class="highlight-article-box">
+    <hr class="sidebar-hr">
     <div class="row">
       <!-- Bottom article -->
+      <div class="col-xs-12 col-md-4">
+        <div class="article-img-border-<%= @highlight.categories[0].slug %>">
+          <a href="#" class="thumbnail">
+            <img data-src="holder.js/320x130" alt="placeholder image">
+          </a>
+        </div>
+      </div>
       <div class="col-xs-12 col-md-8">
-        <div class="article-category">
-          <% len = @highlight.categories.size %>
-          <% @highlight.categories.each_with_index do |c, index| %>
-            <% if index == len-1 %>
-              <%= link_to c.name, "#{c.slug}" %>
-            <% else %>
-              <%= link_to c.name, "#{c.slug}" %>,
-            <% end %>
-          <% end %>
-        </div>   
         <div class="article-title">
           <h1><%= link_to @highlight.title, article_path(:id => @highlight.slug, :category => @highlight.categories[0].slug) %></h1>
         </div>
-        <div class="article-summary">
-          <%= @highlight.summary %> 
-        </div>
-        <div class="article-share">
-          <div class="share-button tweet-share-adjust">
-            <% tweet_url = article_path(:id => @highlight.slug, :category => @highlight.categories[0].slug) %>
-            <% tweet_body = truncate(@highlight.title, length:50) %>
-            <% tweet_text = "#{tweet_body} @Family_Bridge" %>
-            <a href="https://twitter.com/share?url=<%=u tweet_url %>&text=<%= tweet_text %>" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Tweet</a>
-          </div>
-          <div class="share-button">
-            <div class="fb-share-button" data-href="<%= tweet_url %>" data-type="button_count"></div>
-          </div>
-        </div>
+        <div class="article-category">
+          <% len = @highlight.categories.size %>
+          <% @highlight.categories.each_with_index do |c, index| %>
+            <div class="<%= c.slug %>">
+              <% if index == len-1 %>
+                <%= link_to c.name, "#{c.slug}" %>
+              <% else %>
+                <%= link_to c.name, "#{c.slug}" %>,
+              <% end %>
+            </div>
+          <% end %>
+        </div>   
+        <div class="article-date-label">
+          ARTICLE // <%= l @highlight.created_at, format: :long %>
+        </div>    
       </div>
-      <div class="col-xs-12 col-md-4">
-        <div class="article-pic thumbnail">
-          <img data-src="holder.js/400x200" alt="placeholder image">
-        </div>
-      </div>
+
     </div>
   </div>
 
 </div>
 
-
-<%= render "content/footer" %>
+<%= content_for :custom_footer do %>
+  <%= render "content/footer" %>
+<% end %>
 

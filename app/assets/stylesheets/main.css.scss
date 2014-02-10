@@ -33,5 +33,19 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   background-color: white;
   font-size: 16px;
-  color: #b1b1b1;
+  color: #747171;
+}
+
+.navbar-default .navbar-nav {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  li > a {
+    color: #747171;
+  }
+}
+
+.navbar-default {
+  background-color: #ffffff;
+  box-shadow: 0 4px 2px -2px #eeeeee;
 }

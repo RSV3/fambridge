@@ -1,3 +1,4 @@
+<% if Rails.env.staging? || Rails.env.production? %>
 fb_root = null
 fb_events_bound = false
 
@@ -49,3 +50,5 @@ initializeFacebookSDK = ->
     status    : true
     cookie    : true
     xfbml     : true
+
+<% end %>
