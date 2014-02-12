@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$financial-matters-color: #31967d; 
+$elder-law-color: #f19d11;
+$care-decisions-color: #2c99a9; 
+$blog-color: #e82c0c;
 
 #content-upper-margin {
   padding-top: 72px;
@@ -63,20 +67,42 @@
   }
 }
 
+.financial-matters {
+  color: $financial-matters-color;
+}
+
+.care-decisions {
+  color: $care-decisions-color;
+}
+
+.elder-law {
+  color: $elder-law-color;    
+}
+
+.blog {
+  color: $blog-color;
+}
+
 .article-img-border-financial-matters {
-  border-left-color: #31967d;
+  border-left-color: $financial-matters-color;
   border-left-style: solid;
   border-left-width: 10px;
 }
 
 .article-img-border-care-decisions {
-  border-left-color: #2c99a9;
+  border-left-color: $care-decisions-color;
   border-left-style: solid;
   border-left-width: 10px;
 }
 
 .article-img-border-elder-law {
-  border-left-color: #f19d11;
+  border-left-color: $elder-law-color;
+  border-left-style: solid;
+  border-left-width: 10px;
+}
+
+.article-img-border-blog {
+  border-left-color: $blog-color;
   border-left-style: solid;
   border-left-width: 10px;
 }
@@ -93,36 +119,31 @@
   font-weight: 800;
   text-transform: uppercase;
   .financial-matters {
-    color: #31967d;    
+    color: $financial-matters-color;    
     a {
-      color: #31967d;    
+      color: $financial-matters-color;    
     }   
   }
   .care-decisions {
-    color: #2c99a9;
+    color: $care-decisions-color;
     a {
-      color: #2c99a9;    
+      color: $care-decisions-color;    
     }
   }
   .elder-law {
-    color: #f19d11;    
+    color: $elder-law-color;    
     a {
-      color: #f19d11;
+      color: $elder-law-color;
+    }
+  }
+  .blog {
+    color: $blog-color;
+    a {
+      color: $blog-color;
     }
   }
 }
 
-.financial-matters {
-  color: #31967d;
-}
-
-.care-decisions {
-  color: #2c99a9;
-}
-
-.elder-law {
-  color: #f19d11;    
-}
 
 .article-summary {
   font-family: 'Source Sans Pro', sans-serif;
@@ -222,13 +243,16 @@
   font-size: 12px;
   font-weight: 300; 
   .elder-law {
-    color: #f19d11;
+    color: $elder-law-color;
   }
   .financial-matters {
-    color: #31967d;
+    color: $financial-matters-color;
   }
   .care-decisions {
-    color: #2c99a9;
+    color: $care-decisions-color;
+  }
+  .blog {
+    color: $blog-color;
   }
 }
 
@@ -249,17 +273,21 @@
   font-size: 17px;
   font-weight: 800;
   color: #ffffff;
-  .financial-matters {
+  .header-financial-matters {
     padding-left: 10px;
-    background-color: #31967d;    
+    background-color: $financial-matters-color;    
   }
-  .care-decisions {
+  .header-care-decisions {
     padding-left: 10px;
-    background-color: #2c99a9;
+    background-color: $care-decisions-color;
   }
-  .elder-law {
+  .header-elder-law {
     padding-left: 10px;
-    background-color: #f19d11;    
+    background-color: $elder-law-color;    
+  }
+  .header-blog {
+    padding-left: 10px;
+    background-color: $blog-color;
   }
 }
 
@@ -293,17 +321,22 @@
   .financial-matters {
     font-size: 13px;
     font-weight: 800;
-    font-color: #31967d;
+    color: $financial-matters-color;
   }
   .elder-law {
     font-size: 13px;
     font-weight: 800;
-    font-color: #f19d11;
+    color: $elder-law-color;
   }
   .care-decisions {
     font-size: 13px;
     font-weight: 800;
-    font-color: #2c99a9;
+    color: $care-decisions-color;
+  }
+  .blog {
+    font-size: 13px;
+    font-weight: 800;   
+    color: $blog-color;
   }
   .article-type-author {
     font-size: 14px;
@@ -336,8 +369,6 @@
     margin-bottom: 10px;
   }
   .related-article {
-    float: left;
-    margin-right: 15px;
     .related-article-title {
       font-size: 17px;
       font-weight: 600;
@@ -345,7 +376,6 @@
     }
   }
   .related-article-last {
-    float: left;
     .related-article-title {
       font-size: 17px;
       font-weight: 600;

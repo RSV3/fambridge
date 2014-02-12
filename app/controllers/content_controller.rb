@@ -49,8 +49,6 @@ class ContentController < ApplicationController
   def category
     # show articles in a particular category
     @articles = Content.includes(:categories).where(categories: { slug: params[:slug] })
-    @highlight = @articles[-1]
-    @articles = @articles[0..-2]
 
     @recent_articles = Content.where(recent: true)
     @category = Category.find_by_slug(params[:slug])
