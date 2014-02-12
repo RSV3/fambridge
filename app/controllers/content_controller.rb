@@ -19,6 +19,27 @@ class ContentController < ApplicationController
     render :layout => "custom_application"
   end
 
+  def subscribe
+
+    if params.has_key?(:name)
+      first_name = first_name lead_user_params[:name]
+      last_name = last_name lead_user_params[:name]
+    else
+      first_name = lead_user_params[:email] 
+      last_name = ""
+    end
+
+    lead = LeadUser.new(first_name: first_name, last_name: last_name, email: lead_user_params[:email],
+                  referrer: request.referrer)
+    if lead.save
+      flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
+    else
+      flash[:danger] = "Email is not valid or you have already registered!"
+    end
+    redirect_to request.referrer
+
+  end
+
   def show 
     @article = Content.find_by_slug(params[:id])
     @category_slug = @article.categories[0].slug
@@ -31,18 +52,6 @@ class ContentController < ApplicationController
       else
         not_found
       end
-    elsif request.post?
-      first_name = first_name lead_user_params[:name]
-      last_name = last_name lead_user_params[:name]
-
-      lead = LeadUser.new(first_name: first_name, last_name: last_name, email: lead_user_params[:email],
-                    referrer: request.referrer)
-      if lead.save
-        flash.now[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
-      else
-        flash.now[:danger] = "Email is not valid or you have already registered!"
-      end
-      render "content/#{params[:category]}/#{@article.slug}", :layout => "content_article"
     end
   end
 

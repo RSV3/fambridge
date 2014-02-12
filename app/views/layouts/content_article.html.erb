@@ -156,14 +156,16 @@
                 <% end %>
               </div>              
 
-              <% flash.each do |key, value| %>
-                <div class="alert alert-<%= key %>"><%= value %></div>
-              <% end %> 
 
               <div class="sidebar">
                 <h3 class="uppercase">Stay Updated</h3>
                 <hr class="sidebar-hr">
-                <%= form_tag({:action => "show", :controller => "content"}, {:id => "email-submit-form"}) do %>
+
+                <% flash.each do |key, value| %>
+                  <div class="alert alert-<%= key %>"><%= value %></div>
+                <% end %> 
+
+                <%= form_tag({:action => "subscribe", :controller => "content"}, {:id => "email-submit-form"}) do %>
                   <div class="form-group">
                     <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
                   </div>
