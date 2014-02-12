@@ -97,11 +97,11 @@ caregiving_across_countries:
   title: "Caregiving Across Countries"
   summary: "There were whirlwind visits once or twice a year from my father's brother and his family.  They would come into town and, for three days, every need that my grandparent's had was answered immediately."
   slug: "caregiving-across-countries"
-  recent: true
-  categories: care_decisions
+  categories: blog 
 
 approach_funding_care:
   title: "How to Approach Your Family about Funding Care"
   summary: "Discussing money with family is difficult at any age. Many parents try to instill good money habits in their children when young but once adulthood hits these subjects rarely come up as part of a proactive, forward-thinking discussion."
   slug: "approach-family-funding-care"
   categories: care_decisions
+
