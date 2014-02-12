@@ -1,4 +1,4 @@
-<% provide(:title, @content.title) %>
+<% provide(:title, @article.title) %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +13,10 @@
     }
   </style>
 
-  <meta property="og:title" content="<%= @content.title %>" />
+  <meta property="og:title" content="<%= @article.title %>" />
   <meta property="og:site_name" content="Family Bridge" />
   <meta property="og:url" content="<%= request.original_url %>" />
-  <meta property="og:description" content="<%= @content.summary %>" />
+  <meta property="og:description" content="<%= @article.summary %>" />
 </head>
 <body>
 
@@ -28,51 +28,153 @@
   <% end %>
 
   <!-- For content site -->
-  <div id="content-upper-margin">
+  <div id="article-page-upper-margin">
   </div>
   <div class="container">
     <%= render "content/header" %>
   
-    <div class="fb-content-container">
       <div class="row">
         <div class="col-xs-12 col-md-8">
-          <%= yield %>
-          <div class="article-share">
-            <div class="share-button tweet-share-adjust">
-              <a href="//twitter.com/share?text=<%= @content.title %> @Family_Bridge" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Tweet</a>
-            </div>
-            <div class="share-button">
-              <div class="fb-share-button" data-href="<%= request.original_url %>" data-type="button_count"></div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-xs-12 col-md-4 side-bar">
           <div class="row">
             <div class="col-xs-12">
+              <div class="article-page-header">
+                <h1><%= @article.title %></h1>
+                <div class="<%= @category_slug %> uppercase">
+                  <%= @article.categories[0].name %>
+                </div>
+                <div class="article-type-author">
+                  ARTICLE // <%= l @article.created_at, format: :long %>
+                </div>
+              </div>
+
+              <div class="article-img-border-<%= @category_slug %>">
+                <a href="#" class="thumbnail">
+                  <img data-src="holder.js/590x270" alt="placeholder image">
+                </a>            
+              </div>
+
+              <div class="article-body">
+                <%= yield %>
+              </div>
+
+              <div class="article-closing-phrase">
+                Have your own advice? <a class="<%= @category_slug %>" href="mailto:">Email</a> the Family Bridge team or leave a coment below.
+              </div>
+              <div class="article-share">
+                <div class="share-button tweet-share-adjust">
+                  <a href="//twitter.com/share?text=<%= @article.title %> @Family_Bridge" class="twitter-share-button" data-related="Family_Bridge:Get Updates on Family Bridge" data-lang="en" data-count="none">Tweet</a>
+                </div>
+                <div class="share-button">
+                  <div class="fb-share-button" data-href="<%= request.original_url %>" data-type="button_count"></div>
+                </div>
+              </div>
+            </div> <!-- col-xs-12 -->
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="related-articles">
+                <div class="heading uppercase">
+                  Related Articles
+                </div>
+                <div class="related-article">
+                  <div class="article-img-border-<%= @category_slug %>">
+                  <a href="#" class="thumbnail">
+                    <img data-src="holder.js/175x80" alt="placeholder image">
+                  </a>      
+                  </div>
+                  <div class="related-article-title">
+                    In Defense of Assisted Living
+                  </div>
+                </div>
+                <div class="related-article">
+                  <div class="article-img-border-<%= @category_slug %>">
+                    <a href="#" class="thumbnail">
+                      <img data-src="holder.js/175x80" alt="placeholder image">
+                    </a>      
+                  </div>
+                  <div class="related-article-title">
+                    In Defense of Assisted Living
+                  </div>
+                </div>
+                <div class="related-article-last">
+                  <div class="article-img-border-<%= @category_slug %>">
+                    <a href="#" class="thumbnail">
+                      <img data-src="holder.js/175x80" alt="placeholder image">
+                    </a>      
+                  </div>
+                  <div class="related-article-title">
+                    In Defense of Assisted Living
+                  </div>
+                </div>
+              </div>
+            </div> <!-- col-xs-12 second row -->
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 app-choice-vertical-space-10">
+              <hr>
+            </div>
+          </div>
+
+          <!-- Add disqus plugin -->
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'familybridge'; // required: replace example with your forum shortname
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="sidebar">
+                <!-- Recent articles -->
+                <h3 class="uppercase">Get Started</h3>
+                <hr class="sidebar-hr">
+                <% @recent_articles.each_with_index do |r, index| %>
+                  <div class="article-link">
+                    <%= link_to r.title, article_path(:id => r.slug, :category => r.categories[0].slug) %>
+                  </div>
+                <% end %>
+              </div>              
 
               <% flash.each do |key, value| %>
                 <div class="alert alert-<%= key %>"><%= value %></div>
               <% end %> 
 
-              <div class="content-form-label">
-                Are you interested in further updates?
+              <div class="sidebar">
+                <h3 class="uppercase">Stay Updated</h3>
+                <hr class="sidebar-hr">
+                <%= form_tag({:action => "show", :controller => "content"}, {:id => "email-submit-form"}) do %>
+                  <div class="form-group">
+                    <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
+                  </div>
+                  <%= submit_tag("SUBSCRIBE", class: "btn-fb-subscribe", id: "notify-me") %>
+                <% end %>
               </div>
-              <%= form_tag({:action => "show", :controller => "content"}, {:id => "email-submit-form"}) do %>
-                <div class="form-group">
-                  <%= text_field_tag :name, nil, class: "form-control", placeholder: "Your Name" %>
-                </div>
-                <div class="form-group">
-                  <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
-                </div>
-                <%= submit_tag("Notify me!", class: "btn btn-lg btn-primary", id: "notify-me") %>
-              <% end %>
             </div>
+
           </div>   
         </div>
       </div> <!-- row for first part of content includes two columns -->
-
-    </div>
 
     <%= debug(params) if Rails.env.development? %>
   </div>

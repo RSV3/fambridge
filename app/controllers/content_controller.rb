@@ -20,13 +20,14 @@ class ContentController < ApplicationController
   end
 
   def show 
-    c = Content.find_by_slug(params[:id])
-    @content = c
+    @article = Content.find_by_slug(params[:id])
+    @category_slug = @article.categories[0].slug
+    @recent_articles = Content.where(recent: true)
 
     if request.get?
       # show particular article page
-      if c
-        render "content/#{params[:category]}/#{c.slug}", :layout => "content_article"
+      if @article 
+        render "content/#{params[:category]}/#{@article.slug}", :layout => "content_article"
       else
         not_found
       end
@@ -41,7 +42,7 @@ class ContentController < ApplicationController
       else
         flash.now[:danger] = "Email is not valid or you have already registered!"
       end
-      render "content/#{params[:category]}/#{c.slug}", :layout => "content_article"
+      render "content/#{params[:category]}/#{@article.slug}", :layout => "content_article"
     end
   end
 
