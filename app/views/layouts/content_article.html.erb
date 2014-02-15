@@ -48,9 +48,9 @@
               </div>
 
               <div class="article-img-border-<%= @category_slug %>">
-                <a href="#" class="thumbnail">
-                  <img data-src="holder.js/590x270" alt="placeholder image">
-                </a>            
+                <%= link_to article_path(:id => @article.slug, :category => @article.main_category.slug) do %>
+                  <%= image_tag "content/#{@article.slug}-article-main.jpg" %>
+                <% end %>
               </div>
 
               <div class="article-body">

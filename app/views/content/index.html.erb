@@ -8,12 +8,20 @@
 
 <div class="fb-content-container">
   <div class="row">
-    <div class="jumbotron">
-      <div class="jumbotron-title">
-        <%= link_to @headline.title, article_path(:id => @headline.slug, :category => @headline.main_category.slug) %>
-      </div>
-      <div class="article-type-label">
-        ARTICLE // by <%= @headline.author %> 
+    <div class="banner-image">
+      <%= image_tag "content/#{@headline.slug}-homepage-main.jpg" %>
+      <div class="banner-text-container">
+        <div class="category-header">
+          <div class="header-<%= @headline.main_category.slug %> uppercase">
+            <%= @headline.main_category.name %>
+          </div>
+        </div>
+        <h2>
+          <%= link_to @headline.title, article_path(:id => @headline.slug, :category => @headline.main_category.slug) %>
+        </h2>
+        <div class="article-type-label">
+          ARTICLE // by <%= @headline.author %> 
+        </div>
       </div>
     </div>
   </div>
@@ -29,15 +37,15 @@
               <!-- main article -->
               <div class="article-box">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-6">
+                  <div class="col-xs-12 col-sm-7 col-md-8 col-lg-6">
                     <div class="article-img-border-<%= a.main_category.slug %>">
-                      <a href="#" class="thumbnail">
-                        <img data-src="holder.js/320x130" alt="placeholder image">
-                      </a>
+                      <%= link_to article_path(:id => a.slug, :category => a.main_category.slug) do %>
+                        <%= image_tag "content/#{a.slug}-homepage-article.jpg" %>
+                      <% end %>
                     </div>
                   </div>
 
-                  <div class="col-xs-12 col-sm-6">
+                  <div class="col-xs-12 col-sm-5 col-md-4 col-lg-6">
                     <div class="article-title">
                       <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.main_category.slug) %></h1>
                     </div>
@@ -95,14 +103,14 @@
     <hr class="sidebar-hr">
     <div class="row">
       <!-- Bottom article -->
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4">
         <div class="article-img-border-<%= @bottom.main_category.slug %>">
-          <a href="#" class="thumbnail">
-            <img data-src="holder.js/320x130" alt="placeholder image">
-          </a>
+          <%= link_to article_path(:id => @bottom.slug, :category => @bottom.main_category.slug) do %>
+            <%= image_tag "content/#{@bottom.slug}-homepage-article.jpg" %>
+          <% end %>
         </div>
       </div>
-      <div class="col-xs-12 col-md-8">
+      <div class="col-xs-12 col-sm-5 col-md-7 col-lg-8">
         <div class="article-title">
           <h1><%= link_to @bottom.title, article_path(:id => @bottom.slug, :category => @bottom.main_category.slug) %></h1>
         </div>

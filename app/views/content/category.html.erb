@@ -26,9 +26,9 @@
             <!-- main article -->
             <div class="category-article-box">
               <div class="article-img-border-<%= a.main_category.slug %>">
-                <a href="#" class="thumbnail">
-                  <img data-src="holder.js/285x130" alt="placeholder image">
-                </a>
+                <%= link_to article_path(:id => a.slug, :category => a.main_category.slug) do %>
+                  <%= image_tag "content/#{a.slug}-category-article.jpg" %>
+                <% end %>
               </div>
               <div class="category-article-title">
                 <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.main_category.slug) %></h1>
@@ -46,9 +46,9 @@
             <!-- main article -->
             <div class="category-article-box">
               <div class="article-img-border-<%= a.main_category.slug %>">
-                <a href="#" class="thumbnail">
-                  <img data-src="holder.js/285x130" alt="placeholder image">
-                </a>
+                <%= link_to article_path(:id => a.slug, :category => a.main_category.slug) do %>
+                  <%= image_tag "content/#{a.slug}-category-article.jpg" %>
+                <% end %>
               </div>
               <div class="category-article-title">
                 <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.main_category.slug) %></h1>
