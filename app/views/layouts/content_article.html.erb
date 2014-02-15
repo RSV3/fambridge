@@ -16,7 +16,6 @@
   <meta property="og:title" content="<%= @article.title %>" />
   <meta property="og:site_name" content="Family Bridge" />
   <meta property="og:url" content="<%= request.original_url %>" />
-  <meta property="og:description" content="<%= @article.summary %>" />
 </head>
 <body>
 
@@ -41,10 +40,10 @@
               <div class="article-page-header">
                 <h1><%= @article.title %></h1>
                 <div class="<%= @category_slug %> uppercase">
-                  <%= @article.categories[0].name %>
+                  <%= @article.main_category.name %>
                 </div>
                 <div class="article-type-author">
-                  ARTICLE // <%= l @article.created_at, format: :long %>
+                  ARTICLE // by <%= @article.author %>
                 </div>
               </div>
 
@@ -145,16 +144,18 @@
         <div class="col-xs-12 col-md-4">
           <div class="row">
             <div class="col-xs-12">
+              <% if !@recent_articles.nil? %>
               <div class="sidebar">
                 <!-- Recent articles -->
                 <h3 class="uppercase">Get Started</h3>
                 <hr class="sidebar-hr">
                 <% @recent_articles.each_with_index do |r, index| %>
                   <div class="article-link">
-                    <%= link_to r.title, article_path(:id => r.slug, :category => r.categories[0].slug) %>
+                    <%= link_to r, "#" %>
                   </div>
                 <% end %>
-              </div>              
+              </div>
+              <% end %>
 
 
               <div class="sidebar">

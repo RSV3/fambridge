@@ -10,10 +10,10 @@
   <div class="row">
     <div class="jumbotron">
       <div class="jumbotron-title">
-        Three Ways a Geriatric Care Manager Can Help You Survive Long-Distance Caregiving"
+        <%= link_to @headline.title, article_path(:id => @headline.slug, :category => @headline.main_category.slug) %>
       </div>
       <div class="article-type-label">
-        ARTICLE // February 5, 2014
+        ARTICLE // by <%= @headline.author %> 
       </div>
     </div>
   </div>
@@ -30,31 +30,24 @@
               <div class="article-box">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6">
-                    <div class="article-img-border-<%= a.categories[0].slug %>">
+                    <div class="article-img-border-<%= a.main_category.slug %>">
                       <a href="#" class="thumbnail">
-                        <img data-src="holder.js/320x130" alt="...">
+                        <img data-src="holder.js/320x130" alt="placeholder image">
                       </a>
                     </div>
                   </div>
 
                   <div class="col-xs-12 col-sm-6">
                     <div class="article-title">
-                      <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.categories[0].slug) %></h1>
+                      <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.main_category.slug) %></h1>
                     </div>
                     <div class="article-category">
-                      <% len = a.categories.size %>
-                      <% a.categories.each_with_index do |c, index| %>
-                        <div class="<%= c.slug %>">
-                          <% if index == len-1 %>
-                            <%= link_to c.name, "#{c.slug}" %>
-                          <% else %>
-                            <%= link_to c.name, "#{c.slug}" %>,
-                          <% end %>
-                        </div>
-                      <% end %>
+                      <div class="<%= a.main_category.slug %>">
+                        <%= link_to a.main_category.name, "#{a.main_category.slug}" %>
+                      </div>
                     </div>
                     <div class="article-type-label">
-                      ARTICLE // <%= l a.created_at, format: :long %>
+                      ARTICLE // by <%= a.author %>
                     </div>                   
                   </div>
                 </div>
@@ -77,7 +70,7 @@
             <hr class="sidebar-hr">
             <% @recent_articles.each_with_index do |r, index| %>
               <div class="article-link">
-                <%= link_to r.title, article_path(:id => r.slug, :category => r.categories[0].slug) %>
+                <%= link_to r, "#" %>
               </div>
             <% end %>
           </div>
@@ -98,12 +91,12 @@
     </div>
   </div> <!-- row for first part of content includes two columns -->
 
-  <div class="highlight-article-box">
+  <div class="bottom-article-box">
     <hr class="sidebar-hr">
     <div class="row">
       <!-- Bottom article -->
       <div class="col-xs-12 col-md-4">
-        <div class="article-img-border-<%= @highlight.categories[0].slug %>">
+        <div class="article-img-border-<%= @bottom.main_category.slug %>">
           <a href="#" class="thumbnail">
             <img data-src="holder.js/320x130" alt="placeholder image">
           </a>
@@ -111,22 +104,15 @@
       </div>
       <div class="col-xs-12 col-md-8">
         <div class="article-title">
-          <h1><%= link_to @highlight.title, article_path(:id => @highlight.slug, :category => @highlight.categories[0].slug) %></h1>
+          <h1><%= link_to @bottom.title, article_path(:id => @bottom.slug, :category => @bottom.main_category.slug) %></h1>
         </div>
         <div class="article-category">
-          <% len = @highlight.categories.size %>
-          <% @highlight.categories.each_with_index do |c, index| %>
-            <div class="<%= c.slug %>">
-              <% if index == len-1 %>
-                <%= link_to c.name, "#{c.slug}" %>
-              <% else %>
-                <%= link_to c.name, "#{c.slug}" %>,
-              <% end %>
-            </div>
-          <% end %>
+          <div class="<%= @bottom.main_category.slug %>">
+            <%= link_to @bottom.main_category.name, "#{@bottom.main_category.slug}" %>
+          </div>
         </div>   
         <div class="article-type-label">
-          ARTICLE // <%= l @highlight.created_at, format: :long %>
+          ARTICLE // by <%= @bottom.author %>
         </div>    
       </div>
 

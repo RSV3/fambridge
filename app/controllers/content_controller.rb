@@ -6,15 +6,19 @@ class ContentController < ApplicationController
   def index
     # landing page defaults to elder-law content for now 
     default_slug = params[:slug]
-    if default_slug
-      @articles = Content.includes(:categories).where(categories: { slug: default_slug })
-    else
-      @articles = Content.includes(:categories).where(categories: { slug: "elder-law" })
+    if !default_slug
+      default_slug = "elder-law"
     end
-    @highlight = @articles[-1]
+    @articles = Content.where(homepage: true).order(:homepage_order)
+    @tagline = "Caregiving Made Simple"
+
+    @headline = Content.where(homepage_highlight: true)[0]
+    @bottom = @articles[-1]
     @articles = @articles[0..-2]
 
-    @recent_articles = Content.where(recent: true)
+    @recent_articles = ["Choosing the Right Care",
+        "How to Pay for Care",
+        "Legal Documents You Need"] 
 
     render :layout => "custom_application"
   end
@@ -42,8 +46,31 @@ class ContentController < ApplicationController
 
   def show 
     @article = Content.find_by_slug(params[:id])
-    @category_slug = @article.categories[0].slug
-    @recent_articles = Content.where(recent: true)
+
+    @category_slug = @article.main_category.slug
+
+    if @category_slug == "elder-law"
+      @recent_articles = ["Guide to the Legal Documents You Need to Act on Your Parent’s Behalf",
+          "Making Powers of Attorney, Advance Directives, & Wills",
+          "Is a Trust Right for You?",
+          "Estate Planning Basics"]
+      @tagline = "Legal issues simplified for caregivers and their families"
+    elsif @category_slug == "financial-matters"
+      @recent_articles = ["Understanding the Costs of Care",
+          "How to Pay for Care",
+          "What does Medicare/Medicaid Cover?",
+          "Where to find benefits and other savings"] 
+      @tagline = "Financial matters simplified for caregivers and their families"
+    elsif @category_slug == "care-decisions"
+      @recent_articles = ["What are the different types of care?",
+          "Tips for Choosing the Right Care",
+          "How to Age at Home",
+          "Communication Basics"] 
+      @tagline = "Care Decisions simplified for caregivers and their families"
+    else
+      @recent_articles = nil
+      @tagline = "Caregiver stories and comic relief!"
+    end
 
     if request.get?
       # show particular article page
@@ -57,16 +84,35 @@ class ContentController < ApplicationController
 
   def category
     # show articles in a particular category
-    @articles = Content.includes(:categories).where(categories: { slug: params[:slug] })
+    @category_slug = params[:slug]
+    @articles = Content.joins(:main_category).where(categories: {slug: @category_slug})
 
-    @recent_articles = Content.where(recent: true)
-    @category = Category.find_by_slug(params[:slug])
+    if @category_slug == "elder-law"
+      @recent_articles = ["Guide to the Legal Documents You Need to Act on Your Parent’s Behalf",
+          "Making Powers of Attorney, Advance Directives, & Wills",
+          "Is a Trust Right for You?",
+          "Estate Planning Basics"]
+      @tagline = "Legal issues simplified for caregivers and their families"
+    elsif @category_slug == "financial-matters"
+      @recent_articles = ["Understanding the Costs of Care",
+          "How to Pay for Care",
+          "What does Medicare/Medicaid Cover?",
+          "Where to find benefits and other savings"] 
+      @tagline = "Financial matters simplified for caregivers and their families"
+    elsif @category_slug == "care-decisions"
+      @recent_articles = ["What are the different types of care?",
+          "Tips for Choosing the Right Care",
+          "How to Age at Home",
+          "Communication Basics"] 
+      @tagline = "Care Decisions simplified for caregivers and their families"
+    else
+      @recent_articles = nil
+      @tagline = "Caregiver stories and comic relief!"
+    end
+
+
+    @category = Category.find_by_slug(@category_slug)
     render :layout => "custom_application"
-  end
-
-  def recent
-    # show articles ordered by recency
-    @articles = Content.order(created_at: :desc )
   end
 
   private

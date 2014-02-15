@@ -12,7 +12,12 @@
         <%= link_to "FB", content_index_path, class: "navbar-brand" %>
       </span>
       <span class="hidden-xs hidden-sm">
-        <%= link_to "FAMILY BRIDGE", content_index_path, class: "navbar-brand" %>
+        <%= link_to(content_index_path, class: "navbar-brand") do %>
+        FAMILY BRIDGE
+        <div class="tagline">
+          <%= @tagline %> 
+        </div> 
+        <% end %>
       </span>
       </div>
       <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">

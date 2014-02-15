@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127223109) do
+ActiveRecord::Schema.define(version: 20140214205020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,16 +40,14 @@ ActiveRecord::Schema.define(version: 20140127223109) do
   create_table "categories", force: true do |t|
     t.string   "name"
     t.string   "slug"
+    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name", using: :btree
-
-  create_table "categories_contents", force: true do |t|
-    t.integer "category_id"
-    t.integer "content_id"
-  end
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+  add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "writer_id"
@@ -61,16 +59,23 @@ ActiveRecord::Schema.define(version: 20140127223109) do
 
   create_table "contents", force: true do |t|
     t.string   "title"
-    t.text     "summary"
     t.string   "slug"
-    t.string   "url"
-    t.boolean  "recent",     default: false
-    t.boolean  "important",  default: false
+    t.string   "content_type"
+    t.string   "author"
+    t.integer  "main_category_id"
+    t.integer  "sub_category_id"
+    t.boolean  "homepage",           default: false
+    t.integer  "homepage_order"
+    t.boolean  "homepage_highlight", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "contents", ["author"], name: "index_contents_on_author", using: :btree
+  add_index "contents", ["content_type"], name: "index_contents_on_content_type", using: :btree
+  add_index "contents", ["main_category_id"], name: "index_contents_on_main_category_id", using: :btree
   add_index "contents", ["slug"], name: "index_contents_on_slug", using: :btree
+  add_index "contents", ["sub_category_id"], name: "index_contents_on_sub_category_id", using: :btree
 
   create_table "feeds", force: true do |t|
     t.string   "title"

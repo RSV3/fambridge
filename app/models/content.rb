@@ -1,3 +1,4 @@
 class Content < ActiveRecord::Base
-  has_and_belongs_to_many :categories
+  belongs_to :main_category, class_name: "Category"
+  belongs_to :sub_category, class_name: "Category"
 end

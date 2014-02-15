@@ -13,3 +13,43 @@ elder_law:
 blog:
   name: "Blog"
   slug: "blog"
+
+powers_of_attorney:
+  name: "Powers of Attorney"
+  slug: "powers-of-attorney"
+  parent_category: elder_law
+
+cost_of_care:
+  name: "Cost of Care"
+  slug: "cost-of-care"
+  parent_category: financial_matters
+
+paying_for_care:
+  name: "Paying for Care"
+  slug: "paying-for-care"
+  parent_category: financial_matters
+
+finding_savings:
+  name: "Finding Savings"
+  slug: "finding-savings"
+  parent_category: financial_matters
+
+finding_choosing_care:
+  name: "Finding and Choosing Care"
+  slug: "finding-choosing-care"
+  parent_category: care_decisions
+
+communication:
+  name: "Communication"
+  slug: "communication"
+  parent_category: care_decisions
+
+caregiver_stories:
+  name: "Caregiver Stories"
+  slug: "caregiver-stories"
+  parent_category: blog
+
+comic_relief:
+  name: "Comic Relief"
+  slug: "comic-relief"
+  parent_category: blog

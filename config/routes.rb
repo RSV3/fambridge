@@ -29,15 +29,11 @@ Fambridge::Application.routes.draw do
 
   match '/will/notify', to: 'micro#lead_saved', via: 'post', as: :lead_saved
 
-  resources :content do
-    collection do
-      get :recent, as: :recent
-    end
-  end
+  resources :content
 
   # display articles
   get '/content/category/:slug', to: 'content#category', constraints: { slug: /[a-z0-9\-]+/ }, as: :category
-  match '/content/:category/:id', to: 'content#show', constraints: { id: /[a-z0-9\-]+/ }, as: :article, via: [:get, :post]
+  match '/content/:category/:id', to: 'content#show', constraints: { id: /[a-zA-Z0-9\-]+/ }, as: :article, via: [:get, :post]
   post '/content/subscribe', to: 'content#subscribe'
 
   resources :users

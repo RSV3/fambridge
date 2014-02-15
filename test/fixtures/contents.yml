@@ -1,106 +1,193 @@
-guide_to_legal_documents:
-  title: "A Guide to the Legal Documents You Need to Act on Your Parent's Behalf"
-  summary: "Caregiving can quickly become a complicated task when your responsibilities grow from daily care to taking on legal, financial, and healthcare issues. This guide will help you save time by giving you the most important legal information you need to know as a caregiver."
-  slug: "guide-to-legal-documents"
-  categories: elder_law
+#Elder Care Articles - - - - - - - - - - - - - - - - - - 
 
-places_to_make_poa:
-  title: "5 Places to Make Your Own Power of Attorney"
-  summary: "You can find free forms on your state government website (if not online, they will certainly have one in the local government office), local senior centers, hospitals, your physician, or other local aging agencies."
-  slug: "5-places-to-make-poa"
-  url: "http://www.nolo.com/legal-encyclopedia/how-write-living-will.html"
-  categories: elder_law
+#Powers of Attorney
 
-how_to_poa:
-  title: "How Do You Get a Power of Attorney?"
-  summary: "Creating a POA is relatively simple. In fact the hardest part may be deciding who the agent should be and thinking about one’s end of life care. "
-  slug: "how-to-get-poa"
-  categories: elder_law
+poa_basics:
+  title: "The Basics: Power of Attorney"
+  slug: "poa-basics"
+  content_type: "article"
+  author: "Kate Hitchner"
+  main_category: elder_law
+  sub_category: powers_of_attorney 
 
-basic_info_poa:
-  title: "Basic Information about Power of Attorney"
-  summary: "A Power of Attorney(POA) is a legal document that authorizes a selected person (“agent”) to act on the behalf another person(“ principal“).  The principal decides under what circumstances the POA will take effect and the specific areas which the agent has the authority to make a decision."
-  slug: "basic-information-about-poa"
-  categories: elder_law
+how_to_get_a_poa:
+  title: "How to Get a Power of Attorney?"
+  slug: "how-to-get-a-poa"
+  content_type: "article"
+  author: "Kate Hitchner"
+  main_category: elder_law
+  sub_category: powers_of_attorney 
 
-important_documents:
-  title: "List of Important Documents to Gather as a Caregiver"
-  summary: "The DPOA, Advanced Directive, and the Will are the most important documents to have on hand but here is a list of all the other documents"
-  slug: "list-of-important-documents-caregiver"
-  recent: true
-  categories: elder_law
+5_places_to_poa:
+  title: "5 Places to Make Your Own Power of Attorney or Living Will Online"
+  slug: "5-places-to-poa"
+  content_type: "article"
+  author: "Kate Hitchner"
+  main_category: elder_law
+  sub_category: powers_of_attorney 
+  homepage: true
+  homepage_order: 3
 
-conversation_your_aging_parent:
-  title: "How do you have a conversation with your aging parent about getting a Durable Power Of Attorney?"
-  summary: "This conversation can be a very difficult conversation for many families, both between siblings and between parents and their adult children. For aging parents, this conversation can signify a loss of independence(whether this is true or not) or admitting a weakness. Between siblings, it can bring up many petty relationship issues of the past or even current financial situations--always a touchy subject."
-  slug: "conversation-with-parents-about-dpoa"
-  categories: elder_law
-
-legal_guardian_work:
+how_does_legal_guardian_work:
   title: "How Does Legal Guardianship Work?"
-  summary: "In an ideal world, families would prepare for the inevitable needs that come with age, such as determining who will make medical and financial decisions when a loved one becomes incapacitated. But we live in the real world, where the urge to delay thinking about an unpleasant topic is strong." 
   slug: "how-does-legal-guardian-work"
-  categories: elder_law
+  content_type: "article"
+  author: "Liesel Pollvogt"
+  main_category: elder_law
+  sub_category: powers_of_attorney 
 
-taxes_money_go_further:
-  title: "How to Deduct Caregiving Expenses on your Taxes"
-  summary: "Many people procrastinate on their taxes.  Admit it! You have done it too! But as a caregiver, tax write-offs can be an underutilized method of recouping your care costs over the course of the year.  Every case is different, but, by exploring some of the insights below and consulting a certified tax advisor, you may discover potential savings and look forward to your next tax day!"
-  slug: "deduct-caregiving-expenses-taxes"
-  categories: financial_matters
 
-financial_questions_living_facility:
-  title: "Financial Questions to Ask When Considering an Assisted Living Facility"
-  summary: "Here’s the scene:  You, saint-like child and caregiver of lovable but stubborn mom, are trying to figure out the best way to bring up the conversation of maybe, just maybe, leaving the house and moving to an assisted living facility.  Mom, who has been living in the same home for 40 years, wants no part of any conversation that involves her leaving that home."
-  slug: "considering-assisted-living-facility"
-  recent: true
-  categories: financial_matters
 
-financial_gurus:
-  title: "5 Personal Finance Gurus to Follow On Twitter"
-  summary: "Jane is a personal finance writer who frequently contributes to CBS Moneywatch and AARP. She’s an expert in more than just finance and you’ll often find her commenting on public policy ranging from healthcare to social security."
-  url: "http://carecents.co/2013/11/15/5-personal-finance-gurus-to-follow-on-twitter/"
-  slug: "personal-finance-gurus-twitter"
-  categories: financial_matters
+#Financial Matters - - - - - - - - - - - - - - - - - - - - -
 
-quit_job:
+#Cost of Care
+
+choosing_between_work_and_caregiving:
   title: "Choosing Between Work and Caregiving"
-  summary: "Who in their right minds survives working two full time jobs? According to research done by Metlife, the answer is...(drum roll)... you and 15.9 million other caregivers who are working full time while caring for their aging parents"
-  url: "http://carecents.co/2013/09/24/choosing-between-work-and-caregiving/"
-  slug: "quit-job-care-aging-parents"
-  recent: true 
-  categories: financial_matters
+  slug: "choosing-between-work-and-caregiving"
+  content_type: "article"
+  author: "Kate Hitchner"
+  main_category: financial_matters
+  sub_category: cost_of_care
+  homepage: true
+  homepage_order: 6
 
-irrational_caregiving:
-  title: "Irrational Caregiving"
-  summary: "As a caregiver you are obligated to always act in your loved one’s best interests. But sometimes that’s not as clear-cut as it seems."
-  url: "http://carecents.co/2013/11/14/irrational-caregiving/"
-  slug: "irrational-caregiving"
-  recent: true
-  important: false
-  categories: blog 
+#Paying for Care
 
-longdistance_caregiving:
-  title: "3 ways a Geriatric Care Manager Can Help You Survive Long-distance Caregiving"
-  summary: "My adventure in long-distance caregiving began after my mom’s traumatic brain injury in 2008. My parents lived in Pennsylvania, far from myself and my two sisters. My father was in the later stages of early onset dementia and had been cared for by my mother."
-  slug: "long-distance-caregiving"
-  categories: blog 
 
-defense_assisted:
-  title: "In Defense of Assisted Living"
-  summary: "I didn’t know my grandparents very well until they could no longer drive, until they needed the assistance of a retirement community"
-  url: "http://carecents.co/2013/09/13/in-defense-of-assisted-living/"
-  slug: "defense-of-assisted-living"
-  categories: blog 
+deducting_caregiving_expenses:
+  title: "How to Deduct Caregiving Expenses on your Taxes"
+  slug: "deducting-caregiving-expenses"
+  content_type: "article"
+  author: "Sonia Chokshi"
+  main_category: financial_matters
+  sub_category: paying_for_care
+  homepage: true
+  homepage_order: 4
+
+#Finding Savings
+
+5_personal_finance_gurus:
+  title: "5 Personal Finance Gurus to Follow on Twitter"
+  slug: "5-personal-finance-gurus"
+  content_type: "article"
+  author: "Kate Hitchner"
+  main_category: financial_matters
+  sub_category: finding_savings
+  homepage: true
+  homepage_order: 7
+
+10_financial_questions_assisted_living:
+  title: "10 Financial Questions to Ask when Considering an Assisted Living Facility"
+  slug: "10-financial-questions-assisted-living"
+  content_type: "article"
+  author: "Kate Hitchner"
+  main_category: financial_matters
+  sub_category: finding_savings
+  homepage: true
+  homepage_order: 1
+
+
+#Care Decisions - -- - - - - - - - - - - - - - - - -  -
+
+#Finding and Choosing Care
+
+3_ways_GCM_help:
+  title: "3 Ways a Geriatric Care Manager can help you Survive Long-Distance Caregiving"
+  slug: "3-ways-GCM-help"
+  content_type: "article"
+  author: "Liesel Pollvogt"
+  main_category: care_decisions
+  sub_category: finding_choosing_care
+  homepage_highlight: true 
+
+#Aging at Home
+
+
+#Communication
+
+how_to_have_conversations_funding:
+  title: "How to Have Conversations with your Family about Funding Care"
+  slug: "how-to-have-conversations-funding"
+  content_type: "article"
+  author: "Gemma Sole"
+  main_category: care_decisions
+  sub_category: communication
+
+how_to_have_conversations_poa:
+  title: "How to Have Conversations with your Aging Parent about getting a Durable Power of Attorney"
+  slug: "how-to-have-conversations-poa"
+  content_type: "article"
+  author: "Kate Hitchner"
+  main_category: care_decisions
+  sub_category: communication
+
+#Blog - - - - - - - - - - - - - - -  - - - - - - - - - - 
+
+#Caregiver Stories
 
 caregiving_across_countries:
   title: "Caregiving Across Countries"
-  summary: "There were whirlwind visits once or twice a year from my father's brother and his family.  They would come into town and, for three days, every need that my grandparent's had was answered immediately."
   slug: "caregiving-across-countries"
-  categories: blog 
+  content_type: "article"
+  author: "David Rabinowitz"
+  main_category: blog
+  sub_category: caregiver_stories
 
-approach_funding_care:
-  title: "How to Approach Your Family about Funding Care"
-  summary: "Discussing money with family is difficult at any age. Many parents try to instill good money habits in their children when young but once adulthood hits these subjects rarely come up as part of a proactive, forward-thinking discussion."
-  slug: "approach-family-funding-care"
-  categories: care_decisions
+irrational_caregiving:
+  title: "Irrational Caregiving"
+  slug: "irrational-caregiving"
+  content_type: "article"
+  author: "Liesel Pollvogt"
+  main_category: blog
+  sub_category: caregiver_stories
+  homepage: true
+  homepage_order: 2
+
+in_defense_of_assisted_living:
+  title: "In Defense of Assisted Living"
+  slug: "in-defense-of-assisted-living"
+  content_type: "article"
+  author: "David Rabinowitz"
+  main_category: blog
+  sub_category: caregiver_stories
+  homepage: true
+  homepage_order: 5
+
+7_ways_to_prepare_caregiving:
+  title: "7 Ways to Prepare for the Caregiving Race!"
+  slug: "7-ways-to-prepare-caregiving"
+  content_type: "article"
+  author: "Gemma Sole"
+  main_category: blog
+  sub_category: caregiver_stories
+
+why_we_should_care_caregivers:
+  title: "Why We should Care for Caregivers!"
+  slug: "why-we-should-care-caregivers"
+  content_type: "article"
+  author: "Gemma Sole"
+  main_category: blog
+  sub_category: caregiver_stories
+
+#Comic relief
+
+mom_has_a_boyfriend:
+  title: "What to do when your Mom tells you she has a Boyfriend at her Nursing Home"
+  slug: "mom-has-a-boyfriend"
+  content_type: "article"
+  author: "Adam Weisman"
+  main_category: blog
+  sub_category: comic_relief 
+
+
+
+
+
+
+
+
+
+
+
 
