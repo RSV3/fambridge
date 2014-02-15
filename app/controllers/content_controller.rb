@@ -49,6 +49,9 @@ class ContentController < ApplicationController
 
     @category_slug = @article.main_category.slug
 
+    ids_to_exclude = [@article.id]
+    @related_articles = Content.joins(:main_category).where(categories: {slug: @category_slug}).where.not(id: ids_to_exclude).limit(3)
+
     if @category_slug == "elder-law"
       @recent_articles = ["Guide to the Legal Documents You Need to Act on Your Parent’s Behalf",
           "Making Powers of Attorney, Advance Directives, & Wills",

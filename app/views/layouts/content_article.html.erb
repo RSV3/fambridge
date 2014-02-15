@@ -83,36 +83,18 @@
                 <div class="heading uppercase">
                   Related Articles
                 </div>
-                <div class="related-article col-xs-4">
-                  <div class="article-img-border-<%= @category_slug %>">
-                  <a href="#" class="thumbnail">
-                    <img data-src="holder.js/175x75" alt="placeholder image">
-                  </a>      
+                <% @related_articles.each do |recent| %>
+                  <div class="related-article col-xs-4">
+                    <%= link_to article_path(:id => recent.slug, :category => recent.main_category.slug) do %>
+                      <div class="article-img-border-<%= recent.main_category.slug %>">
+                        <%= image_tag "content/#{recent.slug}-related-article.jpg" %>
+                      </div>
+                      <div class="related-article-title">
+                        <%= recent.title %> 
+                      </div>
+                    <% end %>
                   </div>
-                  <div class="related-article-title">
-                    In Defense of Assisted Living
-                  </div>
-                </div>
-                <div class="related-article col-xs-4">
-                  <div class="article-img-border-<%= @category_slug %>">
-                    <a href="#" class="thumbnail">
-                      <img data-src="holder.js/175x75" alt="placeholder image">
-                    </a>      
-                  </div>
-                  <div class="related-article-title">
-                    In Defense of Assisted Living
-                  </div>
-                </div>
-                <div class="related-article-last col-xs-4">
-                  <div class="article-img-border-<%= @category_slug %>">
-                    <a href="#" class="thumbnail">
-                      <img data-src="holder.js/175x75" alt="placeholder image">
-                    </a>      
-                  </div>
-                  <div class="related-article-title">
-                    In Defense of Assisted Living
-                  </div>
-                </div>
+                <% end %>
               </div>
             </div> <!-- col-xs-12 second row -->
           </div>
