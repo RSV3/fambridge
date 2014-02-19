@@ -55,7 +55,6 @@ class ContentController < ApplicationController
 
   def show 
     @article = Content.find_by_slug(params[:id])
-
     @category_slug = @article.main_category.slug
 
     ids_to_exclude = [@article.id]
@@ -111,21 +110,25 @@ class ContentController < ApplicationController
           "Is a Trust Right for You?",
           "Estate Planning Basics"]
       @tagline = "Legal issues simplified for caregivers and their families"
+      @page_title = "Elder Law"
     elsif @category_slug == "financial-matters"
       @recent_articles = ["Understanding the Costs of Care",
           "How to Pay for Care",
           "What does Medicare/Medicaid Cover?",
           "Where to find benefits and other savings"] 
       @tagline = "Financial matters simplified for caregivers and their families"
+      @page_title = "Financial Matters"
     elsif @category_slug == "care-decisions"
       @recent_articles = ["What are the different types of care?",
           "Tips for Choosing the Right Care",
           "How to Age at Home",
           "Communication Basics"] 
       @tagline = "Care Decisions simplified for caregivers and their families"
+      @page_title = "Care Decisions"
     else
       @recent_articles = nil
       @tagline = "Caregiver stories and comic relief!"
+      @page_title = "Caregiver Blog"
     end
 
     # to log subscriber on segment.io, customer.io
@@ -135,6 +138,11 @@ class ContentController < ApplicationController
     end
 
     @category = Category.find_by_slug(@category_slug)
+    render :layout => "custom_application"
+  end
+
+  def about
+    @page_title = "About Us"
     render :layout => "custom_application"
   end
 

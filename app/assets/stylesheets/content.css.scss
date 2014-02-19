@@ -88,9 +88,9 @@ $title-color: #434140;
         color: $title-color;
       }
       a:hover {
-      text-decoration: none;
-      color: #aaa9a9;
-  }
+        text-decoration: none;
+        color: #aaa9a9;
+      }
     }
 
     .article-type-label {
@@ -342,6 +342,9 @@ $title-color: #434140;
   font-weight: 800;
   text-align: right;
   margin-bottom: 25px;
+  a {
+    color: #747171; 
+  }
 }
 
 .footer-subcategory {

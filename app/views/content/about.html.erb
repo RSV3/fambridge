@@ -1,0 +1,34 @@
+<%= content_for :custom_upper_margin do %>
+  <div id="content-upper-margin">
+  </div>
+<% end %>
+
+<% provide(:title, @page_title) %>
+<%= render "content/header" %>
+
+<h1>Caregiving is complicated.  We’re here to make it simpler.</h1>
+
+<p>
+In the United States there are approximately 65.7 million unpaid caregivers and 30 million of them are taking care of their aging parents. 
+</p>
+
+<p>
+Our goal is to help some of those people get a handle on a complex process and reclaim a little bit of their time and their life.  
+</p>
+
+<p>
+This website is the first step toward creating a larger ecosystem and a product that will help caregivers alleviate stress and savor more terrific moments with their loved ones.
+</p>
+
+<p>
+We’d love to hear your feedback.  Please reach out at xyz email address.
+</p>
+
+<p>
+~ the family bridge team
+</p>
+
+
+<%= content_for :custom_footer do %>
+  <%= render "content/footer" %>
+<% end %>

@@ -7,7 +7,7 @@ Fambridge::Application.routes.draw do
 
   match '/start', to: 'main#index', via: 'get'
   match '/home', to: 'main#home', via: 'get'
-  match '/about', to: 'main#about', via: 'get'
+  match '/about', to: 'content#about', via: 'get', as: :about
   match '/privacy', to: 'main#privacy', via: 'get'
   match '/contact', to: 'main#contact', via: 'get'
   match '/help', to: 'main#help', via: 'get'
