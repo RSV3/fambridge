@@ -8,7 +8,7 @@ $care-decisions-color: #2c99a9;
 $blog-color: #e82c0c;
 
 $main-yellow-color: #f3c816;
-$title-color: #747171;
+$title-color: #434140;
 
 #content-upper-margin {
   padding-top: 72px;
@@ -35,7 +35,7 @@ $title-color: #747171;
     background-color: #ffffff;
     position: absolute;
     top: 200px;
-    width: 595px;
+    width: 650px;
 
     .category-header {
       font-size: 15px;
@@ -74,12 +74,19 @@ $title-color: #747171;
     }
 
     h2 {
-      font-size: 29px;
+      font-size: 33px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 800;
+      line-height: 37px;
       margin-top: 10px;
       padding-left: 20px;
       a {
         color: $title-color;
       }
+      a:hover {
+      text-decoration: none;
+      color: #aaa9a9;
+  }
     }
 
     .article-type-label {
@@ -137,12 +144,18 @@ $title-color: #747171;
 }
 
 .article-title > h1 {
-  font-size: 23px;
-  font-weight: 800;
-  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 23px;
+  margin-top: 0px;
   margin-bottom: 15px;
   a {
     color: #747171;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #aaa9a9;
   }
 }
 
@@ -379,10 +392,16 @@ $title-color: #747171;
 }
 
 .category-article-title > h1 {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 23px;
   a {
     color: #434140;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #aaa9a9;
   }
 }
 
@@ -402,6 +421,7 @@ $title-color: #747171;
   h1 {
     margin-top: 0px;
     font-size: 38px;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 800;
     color: #434140;
   }
@@ -441,10 +461,12 @@ $title-color: #747171;
   .article-section-header {
     font-size: 20px;
     font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
   }
   .article-list-item-header {
     font-size: 16px;
     font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 }
 
@@ -457,9 +479,10 @@ $title-color: #747171;
   }
   .related-article {
     .related-article-title {
-      font-size: 17px;
+      font-size: 14px;
       font-weight: 600;
       color: #434140;
+      line-height: 16px;
     }
   }
   .related-article-last {
