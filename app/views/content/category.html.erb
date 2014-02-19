@@ -96,6 +96,7 @@
                   created: '<%= @subscriber.created_at %>'
                 });
               </script>
+            <% end %>
           <% end %> 
 
           <%= form_tag({:action => "subscribe", :controller => "content"}, {:id => "email-submit-form"}) do %>
