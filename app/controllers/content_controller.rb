@@ -20,6 +20,12 @@ class ContentController < ApplicationController
         "How to Pay for Care",
         "Legal Documents You Need"] 
 
+    # to log subscriber on segment.io, customer.io
+    if session.has_key?(:lead_id)
+      @subscriber = LeadUser.find_by_id(session[:lead_id])
+      session.delete(:lead_id)
+    end
+
     render :layout => "custom_application"
   end
 
@@ -29,7 +35,7 @@ class ContentController < ApplicationController
       first_name = first_name lead_user_params[:name]
       last_name = last_name lead_user_params[:name]
     else
-      first_name = lead_user_params[:email] 
+      first_name = lead_user_params[:email].split(/@/)[0] 
       last_name = ""
     end
 
@@ -37,9 +43,12 @@ class ContentController < ApplicationController
                   referrer: request.referrer)
     if lead.save
       flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
+      # save lead.id to session so that it can be used to log in segment.io
+      session[:lead_id] = lead.id
     else
       flash[:danger] = "Email is not valid or you have already registered!"
     end
+
     redirect_to request.referrer
 
   end
@@ -73,6 +82,12 @@ class ContentController < ApplicationController
     else
       @recent_articles = nil
       @tagline = "Caregiver stories and comic relief!"
+    end
+
+    # to log subscriber on segment.io, customer.io
+    if session.has_key?(:lead_id)
+      @subscriber = LeadUser.find_by_id(session[:lead_id])
+      session.delete(:lead_id)
     end
 
     if request.get?
@@ -113,6 +128,11 @@ class ContentController < ApplicationController
       @tagline = "Caregiver stories and comic relief!"
     end
 
+    # to log subscriber on segment.io, customer.io
+    if session.has_key?(:lead_id)
+      @subscriber = LeadUser.find_by_id(session[:lead_id])
+      session.delete(:lead_id)
+    end
 
     @category = Category.find_by_slug(@category_slug)
     render :layout => "custom_application"
