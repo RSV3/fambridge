@@ -146,6 +146,18 @@
 
                 <% flash.each do |key, value| %>
                   <div class="alert alert-<%= key %>"><%= value %></div>
+
+                  <% if @subscriber && !Rails.env.development? %>
+                    <script type="text/javascript">
+                      analytics.identify(<%= @subscriber.id %>, {
+                        email: '<%= @subscriber.email %>',
+                        firstName: '<%= @subscriber.first_name %>',
+                        subscriptionPage: 'ArticlePage',
+                        pageSlug: '<%= @article.slug %>',
+                        created: '<%= @subscriber.created_at %>'
+                      });
+                    </script>
+                  <% end %>
                 <% end %> 
 
                 <%= form_tag({:action => "subscribe", :controller => "content"}, {:id => "email-submit-form"}) do %>
