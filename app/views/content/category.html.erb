@@ -92,7 +92,8 @@
                   email: '<%= @subscriber.email %>',
                   firstName: '<%= @subscriber.first_name %>',
                   subscriptionPage: 'CategoryPage',
-                  pageSlug: '<%= @category.slug %>'
+                  pageSlug: '<%= @category.slug %>',
+                  created: '<%= @subscriber.created_at %>'
                 });
               </script>
           <% end %> 

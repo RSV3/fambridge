@@ -96,7 +96,8 @@
                     email: '<%= @subscriber.email %>',
                     firstName: '<%= @subscriber.first_name %>',
                     subscriptionPage: 'ContentHome',
-                    pageSlug: 'content-home'
+                    pageSlug: 'content-home',
+                    created: '<%= @subscriber.created_at %>'
                   });
                 </script>
               <% end %>
