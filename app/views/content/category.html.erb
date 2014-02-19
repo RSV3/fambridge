@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="category-header">
-          <div class="header-<%= @category.slug %>">
+          <div class="header-<%= @category.slug %> uppercase">
             <%= @category.name %>
           </div>
         </div>
@@ -70,7 +70,6 @@
         <div class="sidebar">
           <!-- Recent articles -->
           <h3 class="uppercase">Get Started</h3>
-          <hr class="sidebar-hr">
           <% @recent_articles.each_with_index do |r, index| %>
             <div class="article-link">
               <%= link_to r, "#" %>
@@ -82,7 +81,6 @@
       <div class="col-xs-12">
         <div class="sidebar">
           <h3 class="uppercase">Stay Updated</h3>
-          <hr class="sidebar-hr">
 
           <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>"><%= value %></div>

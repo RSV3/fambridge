@@ -43,6 +43,10 @@ $title-color: #434140;
       color: #ffffff;
       width: 200px;
 
+      a {
+        color: #ffffff;
+      }
+
       .header-financial-matters {
         padding-top: 3px;
         padding-bottom: 3px;
@@ -255,6 +259,7 @@ $title-color: #434140;
 
 .article-closing-phrase {
   margin-top: 20px;
+  font-size: 18px;
   font-weight: 300;
 }
 
@@ -278,7 +283,7 @@ $title-color: #434140;
    font-weight: 800;
    font-size: 18px;
    color: $main-yellow-color;
-   margin-top: 0px;
+   margin-bottom: 20px;
   }
 }
 
@@ -326,10 +331,8 @@ $title-color: #434140;
 }
 
 .footer-container {
-  margin-top: 55px;
+  margin-top: 25px;
   background-color: #f5f5f6;
-  height: 140px;
-  max-height: 140px;
   padding-top: 35px;
   min-width: 1100px;
 }
@@ -337,6 +340,8 @@ $title-color: #434140;
 .footer-category-header {
   font-size: 15px;
   font-weight: 800;
+  text-align: right;
+  margin-bottom: 25px;
 }
 
 .footer-subcategory {
@@ -454,9 +459,14 @@ $title-color: #434140;
 
 .article-body {
   margin-top: 30px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   color: #434140;
+  line-height: 1.8em;
+
+  ul {
+    line-height: 2em;
+  }
 
   .article-section-header {
     font-size: 20px;
@@ -464,7 +474,7 @@ $title-color: #434140;
     font-family: 'Source Sans Pro', sans-serif;
   }
   .article-list-item-header {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     font-family: 'Source Sans Pro', sans-serif;
   }
@@ -479,9 +489,10 @@ $title-color: #434140;
   }
   .related-article {
     .related-article-title {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       color: #434140;
+      margin-top: 10px;
       line-height: 16px;
     }
   }
