@@ -13,8 +13,8 @@ class ContentController < ApplicationController
     @tagline = "Caregiving Made Simple"
 
     @headline = Content.where(homepage_highlight: true)[0]
-    @bottom = @articles[-1]
-    @articles = @articles[0..-2]
+    @bottom_articles = @articles[2..-1]
+    @articles = @articles[0..1]
 
     @recent_articles = ["Choosing the Right Care",
         "How to Pay for Care",

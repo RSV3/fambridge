@@ -326,7 +326,7 @@ $title-color: #434140;
   a:active { color: $main-yellow-color; }
 }
 
-.highlight-article-box {
+.bottom-article-box {
   padding: 25px 0px 25px 0px;
 }
 
@@ -381,6 +381,8 @@ $title-color: #434140;
   font-size: 17px;
   font-weight: 800;
   color: #ffffff;
+  margin-right: -5px;
+  
   .header-financial-matters {
     padding-left: 10px;
     background-color: $financial-matters-color;    
@@ -490,21 +492,19 @@ $title-color: #434140;
     color: $main-yellow-color;
     margin-bottom: 10px;
   }
-  .related-article {
-    .related-article-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: #434140;
-      margin-top: 10px;
-      line-height: 16px;
+  .related-articles-container {
+
+    margin-left: -15px;
+    .related-article {
+      .related-article-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #434140;
+        margin-top: 10px;
+        line-height: 16px;
+      }
     }
   }
-  .related-article-last {
-    .related-article-title {
-      font-size: 17px;
-      font-weight: 600;
-      color: #434140;
-    }    
-  }
+
 }
 
