@@ -143,6 +143,8 @@ class ContentController < ApplicationController
 
   def about
     @page_title = "About Us"
+    @tagline = "Caregiving Made Simple"
+
     render :layout => "custom_application"
   end
 

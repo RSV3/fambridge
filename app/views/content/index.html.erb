@@ -37,7 +37,7 @@
               <!-- main article -->
               <div class="article-box">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-7 col-md-8">
+                  <div class="col-xs-12 col-sm-6 col-md-7">
                     <div class="article-img-border-<%= a.main_category.slug %>">
                       <%= link_to article_path(:id => a.slug, :category => a.main_category.slug) do %>
                         <%= image_tag "content/#{a.slug}-homepage-article.jpg" %>
@@ -45,7 +45,7 @@
                     </div>
                   </div>
 
-                  <div class="col-xs-12 col-sm-5 col-md-4">
+                  <div class="col-xs-12 col-sm-6 col-md-5">
                     <div class="article-title">
                       <h1><%= link_to a.title, article_path(:id => a.slug, :category => a.main_category.slug) %></h1>
                     </div>
@@ -113,34 +113,34 @@
     </div>
   </div> <!-- row for first part of content includes two columns -->
 
-    <% @bottom_articles.each do |bottom| %>
+  <% @bottom_articles.each do |bottom| %>
     <hr class="sidebar-hr">
     <div class="bottom-article-box">
-    <div class="row">
-      <!-- Bottom article -->
-      <div class="col-xs-12 col-sm-7 col-md-5">
-        <div class="article-img-border-<%= bottom.main_category.slug %>">
-          <%= link_to article_path(:id => bottom.slug, :category => bottom.main_category.slug) do %>
-            <%= image_tag "content/#{bottom.slug}-homepage-article.jpg" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-5 col-md-7">
-        <div class="article-title">
-          <h1><%= link_to bottom.title, article_path(:id => bottom.slug, :category => bottom.main_category.slug) %></h1>
-        </div>
-        <div class="article-category">
-          <div class="<%= bottom.main_category.slug %>">
-            <%= link_to bottom.main_category.name, "#{bottom.main_category.slug}" %>
+      <div class="row">
+        <!-- Bottom article -->
+        <div class="col-xs-12 col-sm-6 col-md-5">
+          <div class="article-img-border-<%= bottom.main_category.slug %>">
+            <%= link_to article_path(:id => bottom.slug, :category => bottom.main_category.slug) do %>
+              <%= image_tag "content/#{bottom.slug}-homepage-article.jpg" %>
+            <% end %>
           </div>
-        </div>   
-        <div class="article-type-label">
-          ARTICLE // by <%= bottom.author %>
-        </div>    
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-7 bottom-article-metadata">
+          <div class="article-title">
+            <h1><%= link_to bottom.title, article_path(:id => bottom.slug, :category => bottom.main_category.slug) %></h1>
+          </div>
+          <div class="article-category">
+            <div class="<%= bottom.main_category.slug %>">
+              <%= link_to bottom.main_category.name, "#{bottom.main_category.slug}" %>
+            </div>
+          </div>   
+          <div class="article-type-label">
+            ARTICLE // by <%= bottom.author %>
+          </div>    
+        </div>
       </div>
     </div>
-    </div>
-    <% end %>
+  <% end %>
 
 </div>
 
