@@ -33,7 +33,7 @@
     <%= render "content/header" %>
   
       <div class="row">
-        <div class="col-xs-12 col-md-8">
+        <div id="article-content-box" class="col-xs-12 col-md-8">
 
           <div class="row">
             <div class="col-xs-12">
@@ -133,11 +133,8 @@
                 <!-- Recent articles -->
                 <h3 class="uppercase">Get Started</h3>
 
-                <% @recent_articles.each_with_index do |r, index| %>
-                  <div class="article-link">
-                    <%= link_to r, "#" %>
-                  </div>
-                <% end %>
+                <%= render "content/sidebar" %>
+
               </div>
               <% end %>
 

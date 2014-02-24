@@ -5,7 +5,7 @@
 $financial-matters-color: #31967d; 
 $elder-law-color: #f19d11;
 $care-decisions-color: #2c99a9; 
-$blog-color: #e82c0c;
+$blog-color: #a2609b;
 
 $main-yellow-color: #f3c816;
 $title-color: #434140;
@@ -15,11 +15,19 @@ $title-color: #434140;
 }
 
 #category-page-upper-margin {
-  padding-top: 130px;
+  padding-top: 100px;
 }
 
 #article-page-upper-margin {
-  padding-top: 127px;
+  padding-top: 100px;
+}
+
+#content-box {
+  padding-top: 20px;
+}
+
+#article-content-box {
+  padding-top: 15px;
 }
 
 .uppercase {
@@ -124,12 +132,12 @@ $title-color: #434140;
 
 .tagline {
   font-weight: 300;
-  color: #bab9b9;
-  font-size: 11px;
+  color: #747171;
+  font-size: 14px;
+  margin-left: 57px;
 }
 
 .fb-content-container {
-  margin: 0px 40px 0px 40px;
 }
 
 .main-articles-container {
@@ -290,12 +298,37 @@ $title-color: #434140;
   border-left: 1px solid #aeb1b8;
   margin-bottom: 30px;
   padding: 0px 17px 17px 17px;
+
   h3 {
    font-family: 'Source Sans Pro', sans-serif;
    font-weight: 800;
    font-size: 18px;
    color: $main-yellow-color;
    margin-bottom: 20px;
+  }
+
+  .sidebar-item {
+    margin-bottom: 10px;
+  }
+
+  .sidebar-item-image {
+    margin-top: 5px;
+  }
+
+  .sidebar-item-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #434140;
+    a {
+      color: #434140;
+    }
+  }
+
+  .sidebar-item-summary {
+    font-weight: 300;
+    font-size: 14px; 
+    color: #747171;
+    padding-bottom: 10px;
   }
 }
 
@@ -313,15 +346,6 @@ $title-color: #434140;
   font-weight: 800;
   border-color: $main-yellow-color;
   padding: 0px 5px;
-}
-
-.sidebar .article-link {
-  font-weight: 300;
-  font-size: 14px; 
-  a {
-    color: #747171;
-  }
-  padding-bottom: 10px;
 }
 
 .subscribe-button {
@@ -386,29 +410,44 @@ $title-color: #434140;
   padding-top: 20px;
 }
 
+.header-financial-matters {
+  padding-right: 10px;
+  margin-right: -5px;
+  padding-left: 10px;
+  background-color: $financial-matters-color;    
+}
+.header-care-decisions {
+  padding-right: 10px;
+  margin-right: -5px;
+  padding-left: 10px;
+  background-color: $care-decisions-color;
+}
+.header-elder-law {
+  padding-right: 10px;
+  margin-right: -5px;
+  padding-left: 10px;
+  background-color: $elder-law-color;    
+}
+.header-blog {
+  padding-right: 10px;
+  margin-right: -5px;
+  padding-left: 10px;
+  background-color: $blog-color;
+}
+
 /* category page */
 .category-header {
   font-size: 17px;
   font-weight: 800;
   color: #ffffff;
   margin-right: -5px;
+}
 
-  .header-financial-matters {
-    padding-left: 10px;
-    background-color: $financial-matters-color;    
-  }
-  .header-care-decisions {
-    padding-left: 10px;
-    background-color: $care-decisions-color;
-  }
-  .header-elder-law {
-    padding-left: 10px;
-    background-color: $elder-law-color;    
-  }
-  .header-blog {
-    padding-left: 10px;
-    background-color: $blog-color;
-  }
+.category-tagline {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300; 
+  text-align: right;
 }
 
 .category-article-title > h1 {

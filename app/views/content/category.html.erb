@@ -7,12 +7,19 @@
 <%= render "content/header" %>
 
 <div class="row">
-  <div class="col-xs-12 col-md-8">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="category-header">
-          <div class="header-<%= @category.slug %> uppercase">
-            <%= @category.name %>
+  <div id="content-box" class="col-xs-12 col-md-8">
+    <div class="header-<%= @category.slug %>">
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="category-header">
+            <div class="uppercase">
+              <%= @category.name %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-8 pull-right">
+          <div class="category-tagline">
+            <%= @tagline %>
           </div>
         </div>
       </div>
@@ -66,17 +73,11 @@
   <div class="col-xs-12 col-md-4">
     <div class="row">
       <div class="col-xs-12">
-        <% if !@recent_articles.nil? %>
         <div class="sidebar">
           <!-- Recent articles -->
           <h3 class="uppercase">Get Started</h3>
-          <% @recent_articles.each_with_index do |r, index| %>
-            <div class="article-link">
-              <%= link_to r, "#" %>
-            </div>
-          <% end %>
+          <%= render "content/sidebar" %>
         </div>
-        <% end %>
       </div>
       <div class="col-xs-12">
         <div class="sidebar">

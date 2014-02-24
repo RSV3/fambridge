@@ -59,7 +59,7 @@
                     </div>                   
                   </div>
                 </div>
-              </div>
+              </div> <!-- article-box -->
             </div>
           </div>
           <% if aindex != alen-1 %>
@@ -75,11 +75,7 @@
           <div class="sidebar">
             <!-- Recent articles -->
             <h3 class="uppercase">Get Started</h3>
-            <% @recent_articles.each_with_index do |r, index| %>
-              <div class="article-link">
-                <%= link_to r, "#" %>
-              </div>
-            <% end %>
+            <%= render "content/sidebar" %>
           </div>
         </div>
         <div class="col-xs-12">

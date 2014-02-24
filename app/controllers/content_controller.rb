@@ -10,11 +10,10 @@ class ContentController < ApplicationController
       default_slug = "elder-law"
     end
     @articles = Content.where(homepage: true).order(:homepage_order)
-    @tagline = "Caregiving Made Simple"
 
     @headline = Content.where(homepage_highlight: true)[0]
-    @bottom_articles = @articles[2..-1]
-    @articles = @articles[0..1]
+    @bottom_articles = @articles[4..-1]
+    @articles = @articles[0..3]
 
     @recent_articles = ["Choosing the Right Care",
         "How to Pay for Care",
