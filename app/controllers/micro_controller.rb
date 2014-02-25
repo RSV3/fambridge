@@ -65,7 +65,8 @@ class MicroController < ApplicationController
         if @lead_user.save
           flash.now[:success] = "You can now download the guide.  You will also be the first to be notified when we have exciting news from Family Bridge!" 
         else
-          flash.now[:danger] = " You seem to have already registered!  You can now download the guide."
+          @lead_user.id = 'lead user already saved'
+          flash.now[:danger] = "You seem to have already registered!  You can now download the guide."
         end
       else
         flash[:danger] = "Email is not valid or you have already registered!"
