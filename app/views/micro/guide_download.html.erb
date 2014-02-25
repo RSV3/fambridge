@@ -62,7 +62,7 @@
 
       <div class="row">
         <div class="col-xs-12 text-center">
-          <p><%= link_to "Click to Download", guide_download_path({:access => @access}), class: "uppercase download-button-large" %></p>
+          <p><%= link_to "Click to Download", guide_download_path({:access => @access}), class: "uppercase download-button-large", id: "guide-download-link" %></p>
         </div>
       </div>
 
@@ -99,6 +99,13 @@
           created_at: $.now(),
           subscriptionPlan: 'Elder law guide',
           pageSlug: 'legal-guide-download'
+        });
+
+        $('#guide-download-link').click( function() {
+          analytics.track('Download Legal Guide', {
+            category: 'Email Wall',
+            label: 'legal'
+          });
         });
       });
     </script>
