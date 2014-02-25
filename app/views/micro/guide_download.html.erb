@@ -88,15 +88,18 @@
   <%= render "micro/footer" %>
 
 
-  <% if Rails.env.staging? or Rails.env.production? %>
+  <% if @lead_user && (Rails.env.staging? || Rails.env.production?) %>
     <script type="text/javascript">
-      analytics.identify( <%= @lead_user.id %>, {
-        email: <%= @lead_user.email %>,
-        first_name: <%= @lead_user.first_name %>,
-        last_name: <%= @lead_user.last_name %>,
-        created_at: $.now(),
-        plan_name: 'elder law',
-        page_location: 'download'
+      $document.ready( function() {
+        analytics.identify( <%= @lead_user.id %>, {
+          email: '<%= @lead_user.email %>',
+          firstName: '<%= @lead_user.first_name %>',
+          lastName: '<%= @lead_user.last_name %>',
+          zipcode: '<%= @lead_user.zipcode %>',
+          created_at: $.now(),
+          subscriptionPlan: 'Elder law guide',
+          pageSlug: 'legal-guide-download'
+        });
       });
     </script>
   <% end %>
