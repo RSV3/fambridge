@@ -4,6 +4,7 @@ class ContentController < ApplicationController
   include UsersHelper
 
   def index
+    @page_title = "Family Bridge Homepage"
     # landing page defaults to elder-law content for now 
     default_slug = params[:slug]
     if !default_slug
