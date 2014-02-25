@@ -8,7 +8,7 @@ describe "FeedPages" do
 
   describe "feed creation" do
 
-    before { visit root_path }
+    before { visit start_path }
 
     describe "with invalid information" do
 
@@ -35,7 +35,7 @@ describe "FeedPages" do
     before { FactoryGirl.create(:feed, author: user) }
 
     describe "as correct user" do
-      before { visit root_path }
+      before { visit start_path }
 
       it "should delete a feed" do
         expect { click_link "delete" }.to change(Feed, :count).by(-1)

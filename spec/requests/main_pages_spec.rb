@@ -12,7 +12,7 @@ describe "MainPages" do
       FactoryGirl.create(:feed, author: user, content: "Lorem ipsum")
       FactoryGirl.create(:feed, author: user, content: "Dolor sit amet")
       sign_in user
-      visit root_path
+      visit home_path
     end
 
     it "should render the user's feed" do
