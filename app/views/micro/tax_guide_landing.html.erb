@@ -125,20 +125,4 @@
 
   <%= render "micro/footer" %>
 
-  <% if Rails.env.staging? or Rails.env.production? %>
-    <script type="text/javascript">
-      $("#email-submit-form").submit( function( event ) ) {
-        analytics.identify($("#contact-email").val(), {
-          email: $("#contact-email").val(),
-          first_name: $("#contact-name").val(),
-          zipcode: $("contact-zipcode").val(),
-          created_at: $.now(),
-          plan_name: 'elder law',
-          page_location: 'form-submitted'
-        });
-        return;
-      }
-    </script>
-  <% end %>
-
 <% end %>
