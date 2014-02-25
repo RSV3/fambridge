@@ -136,6 +136,15 @@ $download-header-color: #93bfc3;
 $guide-title-color: #898888;
 $subtitle-color: #bab9b9;
 
+@media (min-width: 960px) {
+  .email-wall-container {
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 0px;    
+  }
+}
 
 #email-wall-logo {
   font-size: 48px;
@@ -175,7 +184,7 @@ $subtitle-color: #bab9b9;
 }
 
 #guide-description {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 25px;
   margin-bottom: 20px;
@@ -190,8 +199,11 @@ $subtitle-color: #bab9b9;
 }
 
 #preview-image {
-  float: right;
-  margin: 10px;
+  margin-top: 10px;
+}
+
+.shift-left {
+  margin-left: -20px;
 }
 
 .download-form-header {
