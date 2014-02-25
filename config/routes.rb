@@ -25,7 +25,7 @@ Fambridge::Application.routes.draw do
   match '/interest/assisted', to: 'micro#launching_soon', via: 'get'
 
   get '/guide-to-elder-law-tax', to: 'micro#tax_guide_landing', via: 'get', as: :tax_guide_landing
-  post '/download/:access', to: 'micro#guide_download', constraints: { access: /[a-z0-9]{64}/ }, as: :guide_download
+  match '/download/:access', to: 'micro#guide_download', constraints: { access: /[a-z0-9]{64}/ }, as: :guide_download, via: [:get, :post]
 
   match '/will/notify', to: 'micro#lead_saved', via: 'post', as: :lead_saved
 

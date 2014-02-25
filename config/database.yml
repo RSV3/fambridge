@@ -17,12 +17,12 @@
 development:
   adapter: postgresql
   encoding: unicode
-  host: ec2-54-235-156-5.compute-1.amazonaws.com
+  host: ec2-23-23-183-5.compute-1.amazonaws.com
   port: 5432
-  database: d4g1m5dcmn52kp
+  database: d82042qhdof7nr
   pool: 5
-  username: gkzxslyzmmxgwd   
-  password: 6WaIWSggAeHTPguRBC9buJ3UwG
+  username: ewefkpdgeilshr   
+  password: EwVB1vVIbk2muHdEiDlt4vPRkS
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have

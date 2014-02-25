@@ -84,6 +84,10 @@
   margin-bottom: 50px;
 }
 
+.app-choice-vertical-space-30 {
+  margin-bottom: 30px;
+}
+
 .app-choice-vertical-space-10 {
   margin-bottom: 10px;
 }
@@ -121,4 +125,129 @@ ul
 {
     list-style-type: none;
     margin-right: 20px;
+}
+
+/* for the legal guide email wall */
+$main-yellow-color: #f3c816;
+$tagline-color: #aaa8a8;
+$freeguide-bg-color: #f0e091;
+$download-form-bg-color: #f7f6f6;
+$download-header-color: #93bfc3;
+$guide-title-color: #898888;
+$subtitle-color: #bab9b9;
+
+
+#email-wall-logo {
+  font-size: 48px;
+  font-weight: 800;
+  color: $main-yellow-color;  
+  margin-bottom: 0px;
+}
+
+#email-wall-tagline {
+  font-size: 20px;
+  font-weight: 300;
+  color: $tagline-color;
+  margin-left: 180px;
+  margin-top: -10px;
+}
+
+.free-guide-highlight {
+  color: #ffffff;
+  font-size: 29px;
+  font-weight: 700;
+  background-color: $freeguide-bg-color; 
+  padding: 5px 25px 5px 25px;
+}
+
+.free-guide-title {
+  margin-left: 10px;
+  color: $guide-title-color; 
+  font-weight: 800;
+  font-size: 28px;
+}
+
+#guide-subtitle {
+  color: $subtitle-color;
+  font-weight: 500;
+  font-size: 27px;
+  margin-bottom: 30px
+}
+
+#guide-description {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 25px;
+  margin-bottom: 20px;
+  .first-line {
+    font-weight: 500;
+  }
+  ul
+  {
+      list-style-type: square;
+      margin-right: 0px;
+  }
+}
+
+#preview-image {
+  float: right;
+  margin: 10px;
+}
+
+.download-form-header {
+  color: $download-header-color;
+  font-weight: 800;
+  font-size: 18px;
+  text-align: center;
+}
+
+.download-hr {
+  margin: 5px 20px 20px 20px;
+  border-color: $subtitle-color; 
+}
+
+.download-form-box {
+  background-color: $download-form-bg-color;
+  padding: 20px 20px 50px 20px;
+}
+
+.download-button {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: $download-header-color;
+}
+
+.click-to-download {
+  font-size: 27px;
+  font-weight: 300;
+  color: $subtitle-color;
+}
+
+.download-button-large {
+  padding: 10px 60px;
+  font-size: 33px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: $download-header-color;
+}
+
+.learn-more-about {
+  margin-top: 20px;
+  font-size: 19px;
+  font-weight: 300;
+  color: $subtitle-color;
+}
+
+.fb-logo-small {
+  color: $main-yellow-color;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+footer h5 {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #747171;
 }

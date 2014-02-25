@@ -2,34 +2,103 @@
 
 <% provide(:title, @page_title) %>
 
-<%= render "micro/landing_header" %>
-
 <!-- downloaded confirmation -->
-<div id="content">
-</div>
-<div class="container">
-  <div class="jumbotron">
-    <h1>Click the download button</h1>
-    <p>To download the guide</p>
 
-    <p><a class="btn btn-primary btn-lg">Download</a></p>
+  <div id="content">
   </div>
-</div>
+  <div class="container">
+    <div class="elder-law-background">
+      <div class="row">
+        <div class="col-xs-12">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %> 
+        </div>       
+      </div>
 
-<%= render "micro/footer" %>
+      <div class="row">
+        <!-- main title header -->
+        <div class="col-xs-12">
+          <div class="text-center">
+            <h1 id="email-wall-logo" class="uppercase">Family Bridge</h1>
+            <div id="email-wall-tagline">Caregiving made simple</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="app-choice-vertical-space-50">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- subrow -->
+        <div class="text-center">
+        <h4><span class="free-guide-highlight">Free Guide</span> <span class="free-guide-title">Getting Started: Legal Basics for Caregivers</span></h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="app-choice-vertical-space-10">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <%= image_tag "content/arrow_down.png" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="app-choice-vertical-space-30">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <p><%= link_to "Click to Download", guide_download_path({:access => @access}), class: "uppercase download-button-large" %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <div class="learn-more-about">
+            Learn more about
+          </div>
+          <%= link_to "Family Bridge", content_index_path, class: "uppercase fb-logo-small" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="app-choice-vertical-space-50">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-<% if Rails.env.staging? or Rails.env.production? %>
-<script type="text/javascript">
-  analytics.identify( <%= @lead_user.id %>, {
-    email: <%= @lead_user.email %>,
-    first_name: <%= @lead_user.first_name %>,
-    last_name: <%= @lead_user.last_name %>,
-    created_at: $.now(),
-    plan_name: 'elder law',
-    page_location: 'download'
-  });
-</script>
-<% end %>
+  <%= render "micro/footer" %>
+
+
+  <% if Rails.env.staging? or Rails.env.production? %>
+    <script type="text/javascript">
+      analytics.identify( <%= @lead_user.id %>, {
+        email: <%= @lead_user.email %>,
+        first_name: <%= @lead_user.first_name %>,
+        last_name: <%= @lead_user.last_name %>,
+        created_at: $.now(),
+        plan_name: 'elder law',
+        page_location: 'download'
+      });
+    </script>
+  <% end %>
 
 <% end %>

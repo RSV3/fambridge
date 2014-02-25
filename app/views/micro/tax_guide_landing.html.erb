@@ -1,96 +1,139 @@
 <% content_for :micro_body do %>
 
-<% provide(:title, @page_title) %>
+  <% provide(:title, @page_title) %>
 
-<%= render "micro/landing_header" %>
-
-<div id="content">
-</div>
-<div class="container">
-  <div class="elder-law-background">
-    <div class="row">
-      <!-- main title header -->
-      <div class="text-center">
-        <h1>Help Yourself with this Step-by-Step Guide to Caring for Your Loved Ones</h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <!-- subrow -->
-      <div class="text-center">
-      <h4>Learn how to manage your taxes as you finance your parents</h>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="app-choice-vertical-space-50">
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-8">
-        <p>
-        Wondering how to handle the legal issues associated with caregiving?  Looking for tips that could help you save money now and avoid trouble down the road?
-        </p>
-
-        <p>
-        Caregiving and legal issues are both compiex!  But, with the help in this guide you will be able to:
-        </p>
-
-        <ul>
-        <li>Understand the basic legal documents you need</li>
-        <li>Use resources to create the documents for free</li>
-        <li>Understand when you will need to use each document</li>
-        <li>Explain to your family and loved ones’ the importance of having power’s of attorney in place</li>
-        <li>Find ways to avert dangerous situations in the future</li>
-        </ul>
-        <p>
-        Start understanding the legal landscape, communicate with family, and prepare for the best possible future for your loved ones.
-        </p>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="row">
+  <div id="content">
+  </div>
+  <div class="container">
+    <div class="elder-law-background">
+      <div class="row">
+        <!-- main title header -->
         <div class="col-xs-12">
-          <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>"><%= value %></div>
-          <% end %> 
+          <div class="text-center">
+            <h1 id="email-wall-logo" class="uppercase">Family Bridge</h1>
+            <div id="email-wall-tagline">Caregiving made simple</div>
+          </div>
         </div>
-        </div>
-        <div class="row">
+      </div>
+
+      <div class="row">
         <div class="col-xs-12">
-          <%= form_tag guide_download_path({:access => @access}), {:id => "email-submit-form"} do %>
-            <div class="form-group">
-              <%= text_field_tag :name, nil, id: "contact-name", class: "form-control", placeholder: "Your Name" %>
-            </div>
-            <div class="form-group">
-              <%= text_field_tag :email, nil, id: "contact-email", class: "form-control", placeholder: "Your Email" %>
-            </div>
-            <%= submit_tag("Download", class: "btn btn-lg btn-primary", id: "notify-me") %>
-          <% end %>
+          <div class="app-choice-vertical-space-50">
+          </div>
         </div>
+      </div>
+
+      <div class="row">
+        <!-- subrow -->
+        <div class="text-center">
+        <h4><span class="free-guide-highlight">Free Guide</span> <span class="free-guide-title">Getting Started: Legal Basics for Caregivers</span></h4>
         </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="app-choice-vertical-space-50">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-8">
+          <div class="row">
+            <div class="col-xs-12" id="guide-subtitle">
+            Step-by-Step Guide to Caring for Your Loved Ones
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12" id="guide-description">
+              <div id="preview-image">
+                <%= image_tag "content/legal-document-preview.png" %>
+              </div>
+              <p>
+              <span class="first-line">Wondering how to handle the legal issues associated with caregiving?</span>  Looking for tips that could help you save money now and avoid trouble down the road?
+              </p>
+
+              <p>
+              Caregiving and legal issues are both complex!  But, with the help of this guide you will be able to:
+              </p>
+
+              <ul>
+              <li>Understand the basic legal documents you need</li>
+              <li>Use resources to create the documents for free</li>
+              <li>Understand when you will need to use each document</li>
+              <li>Explain to your family and loved ones’ the importance of having power of attorney in place</li>
+              <li>Find ways to avert dangerous situations in the future</li>
+              </ul>
+              <p>
+              Start understanding the legal landscape, communicate with family, and prepare for the best possible future for your loved ones.
+              </p>
+            </div>
+          </div>        
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="download-form-box">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="download-form-header uppercase">Download this guide</div>
+                <hr class="download-hr">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <% flash.each do |key, value| %>
+                  <div class="alert alert-<%= key %>"><%= value %></div>
+                <% end %> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <%= form_tag guide_download_path({:access => @access}), {:id => "email-submit-form"} do %>
+                  <div class="form-group">
+                    <%= text_field_tag :name, nil, id: "contact-name", class: "form-control", placeholder: "Your Name" %>
+                  </div>
+                  <div class="form-group">
+                    <%= text_field_tag :email, nil, id: "contact-email", class: "form-control", placeholder: "Your Email" %>
+                  </div>
+                  <div class="form-group">
+                    <%= text_field_tag :zipcode, nil, id: "contact-zipcode", class: "form-control", placeholder: "Zip Code" %>
+                  </div>
+                  <%= submit_tag("DOWNLOAD", class: "btn download-button", id: "download-legal-guide") %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="app-choice-vertical-space-50">
       </div>
     </div>
   </div>
-</div>
 
-<%= render "micro/footer" %>
+  <%= render "micro/footer" %>
 
-<% if Rails.env.staging? or Rails.env.production? %>
-<script type="text/javascript">
-  $("#email-submit-form").submit( function( event ) ) {
-    analytics.identify($("#contact-email").val(), {
-      email: $("#contact-email").val(),
-      first_name: $("#contact-name").val(),
-      created_at: $.now(),
-      plan_name: 'elder law',
-      page_location: 'form-submitted'
-    });
-    return;
-  }
-</script>
-<% end %>
+  <% if Rails.env.staging? or Rails.env.production? %>
+    <script type="text/javascript">
+      $("#email-submit-form").submit( function( event ) ) {
+        analytics.identify($("#contact-email").val(), {
+          email: $("#contact-email").val(),
+          first_name: $("#contact-name").val(),
+          zipcode: $("contact-zipcode").val(),
+          created_at: $.now(),
+          plan_name: 'elder law',
+          page_location: 'form-submitted'
+        });
+        return;
+      }
+    </script>
+  <% end %>
 
 <% end %>
