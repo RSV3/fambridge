@@ -2,13 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$financial-matters-color: #31967d; 
-$elder-law-color: #f19d11;
-$care-decisions-color: #2c99a9; 
-$blog-color: #a2609b;
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900);
 
-$main-yellow-color: #f3c816;
-$title-color: #434140;
+@import "bootstrap";
+
+
+
+@import "font-awesome";
+
+@import "variables";
 
 #content-upper-margin {
   padding-top: 72px;
@@ -556,4 +558,5 @@ $title-color: #434140;
   }
 
 }
+
 

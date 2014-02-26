@@ -2,17 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "bootstrap";
-@import "font-awesome";
 
-$grayMediumLight: #eaeaea;
-$grayLighter: #e0e0e0;
+@import "variables";
 
-@mixin box-sizing {
-  -moz-box-sizing: border-box;  
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 .debug_dump {
   clear: both;
@@ -28,36 +20,3 @@ $grayLighter: #e0e0e0;
   @extend .has-error;
 }
 
-// overrides bootstrap body - for content site
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  background-color: white;
-  font-size: 16px;
-  color: #747171;
-}
-
-@media (min-width: 960px) {
-  .container {
-    width: 970px;
-  }
-}
-
-.navbar-default .navbar-nav {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  li > a {
-    color: #747171;
-  }
-}
-
-.navbar-default {
-  background-color: #ffffff;
-  box-shadow: 0 4px 2px -2px #eeeeee;
-}
-
-@media (min-width: 992px) {
-  ul.nav {
-    margin-top: 10px;
-  }
-}

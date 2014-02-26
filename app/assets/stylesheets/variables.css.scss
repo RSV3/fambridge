@@ -1,0 +1,21 @@
+$grayMediumLight: #eaeaea;
+$grayLighter: #e0e0e0;
+
+/* used by content.css */
+$financial-matters-color: #31967d; 
+$elder-law-color: #f19d11;
+$care-decisions-color: #2c99a9; 
+$blog-color: #a2609b;
+
+$main-yellow-color: #f3c816;
+$title-color: #434140;
+
+@mixin box-sizing {
+  -moz-box-sizing: border-box;  
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+
+
