@@ -63,8 +63,10 @@ window.analytics.page();
 $(document).on('ready page:change', function() {
   //console.log('page loaded');
   analytics.page();
-  analytics.trackForm($('#email-submit-form'), 'Signed Up', {category: "User Acquisition", 
+  analytics.trackForm($('#content-email-submit-form'), 'Signed Up', {category: "Content User Acquisition", 
                                                             label: "article page"});
+  analytics.trackForm($('#guide-email-submit-form'), 'Signed Up', {category: "Guide User Acquisition", 
+                                                            label: "guide download page"});
 });
 
 <% end %>

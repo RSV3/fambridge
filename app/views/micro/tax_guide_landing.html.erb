@@ -94,7 +94,7 @@
             </div>
             <div class="row">
               <div class="col-xs-12">
-                <%= form_tag guide_download_path({:access => @access}), {:id => "email-submit-form"} do %>
+                <%= form_tag guide_download_path({:access => @access}), {:id => "guide-email-submit-form"} do %>
                   <div class="form-group">
                     <%= text_field_tag :name, nil, id: "contact-name", class: "form-control", placeholder: "Your Name" %>
                   </div>

@@ -97,11 +97,11 @@
               <% end %>
             <% end %> 
 
-            <%= form_tag({:action => "subscribe", :controller => "content"}, {:id => "email-submit-form"}) do %>
+            <%= form_tag({:action => "subscribe", :controller => "content"}, {:id => "content-email-submit-form"}) do %>
               <div class="form-group">
                 <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
               </div>
-              <%= submit_tag("SUBSCRIBE", class: "btn-fb-subscribe", id: "notify-me") %>
+              <%= submit_tag("SUBSCRIBE", class: "btn-fb-subscribe", id: "home-notify-me") %>
             <% end %>
           </div>
         </div>

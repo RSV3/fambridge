@@ -22,7 +22,7 @@
 
   <div id="fb-root"></div>
 
-  <% if not Rails.env.development? %>
+  <% if !Rails.env.development? %>
   <!-- twitter js -->
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   <% end %>
@@ -159,11 +159,11 @@
                   <% end %>
                 <% end %> 
 
-                <%= form_tag({:action => "subscribe", :controller => "content"}, {:id => "email-submit-form"}) do %>
+                <%= form_tag({:action => "subscribe", :controller => "content"}, {:id => "article-email-submit-form"}) do %>
                   <div class="form-group">
                     <%= text_field_tag :email, nil, class: "form-control", placeholder: "Your Email" %>
                   </div>
-                  <%= submit_tag("SUBSCRIBE", class: "btn-fb-subscribe", id: "notify-me") %>
+                  <%= submit_tag("SUBSCRIBE", class: "btn-fb-subscribe", id: "article-notify-me") %>
                 <% end %>
               </div>
             </div>
