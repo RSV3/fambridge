@@ -63,10 +63,14 @@ window.analytics.page();
 $(document).on('ready page:change', function() {
   //console.log('page loaded');
   analytics.page();
-  analytics.trackForm($('#content-email-submit-form'), 'Signed Up', {category: "Content User Acquisition", 
-                                                            label: "article page"});
-  analytics.trackForm($('#guide-email-submit-form'), 'Signed Up', {category: "Guide User Acquisition", 
-                                                            label: "guide download page"});
+  analytics.trackForm($('#content-email-submit-form'), 'Signed Up', {category: "Content Site", 
+                                                            label: "content home page"});
+  analytics.trackForm($('#category-email-submit-form'), 'Signed Up', {category: "Content Site", 
+                                                            label: "content category page"});
+  analytics.trackForm($('#article-email-submit-form'), 'Signed Up', {category: "Content Site", 
+                                                            label: "content article page"});
+  analytics.trackForm($('#guide-email-submit-form'), 'Signed Up', {category: "Email Wall", 
+                                                            label: "guide landing page"});
 });
 
 <% end %>
