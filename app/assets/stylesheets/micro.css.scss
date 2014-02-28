@@ -147,6 +147,7 @@ $subtitle-color: #bab9b9;
 }
 
 #email-wall-logo {
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 48px;
   font-weight: 800;
   color: $main-yellow-color;  
@@ -157,11 +158,12 @@ $subtitle-color: #bab9b9;
   font-size: 20px;
   font-weight: 300;
   color: $tagline-color;
-  margin-left: 180px;
+  margin-left: 130px;
   margin-top: -10px;
 }
 
 .free-guide-highlight {
+  font-family: 'Source Sans Pro', sans-serif;
   color: #ffffff;
   font-size: 29px;
   font-weight: 700;
@@ -170,6 +172,7 @@ $subtitle-color: #bab9b9;
 }
 
 .free-guide-title {
+  font-family: 'Source Sans Pro', sans-serif;
   margin-left: 10px;
   color: $guide-title-color; 
   font-weight: 800;
