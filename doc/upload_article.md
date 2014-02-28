@@ -14,22 +14,29 @@ In order to create a new article
     - -article-main.jpg
     - -related-article.jpg
 
-4. Update the database by loading the fixture
+4. If you need to add images in the body of the article, add a folder under `app/assets/images/content` that is named after the article slug.  Add all the images in that directory.
+  - In the article view you can add the image with the following tag
+
+```
+    <%= image_tag "content/<slug-name>/<image-file-name>" %>
+```
+
+5. Update the database by loading the fixture
   - Note: you need to be in terminal in the fambridge project directory
 
 ```
     $ rake db:fixtures:load
 ```
 
-5. Run the web server to test locally.
+6. Run the web server to test locally.
 
 ```
     $ rails s
 ```    
 
-6. Enter http://localhost:3000 on your browser which will load the content main page.  
+7. Enter http://localhost:3000 on your browser which will load the content main page.  
 
-7. If the page shows PG (postgres database connection) error, you need to `ctrl-c` on the terminal and restart `rails s`
+8. If the page shows PG (postgres database connection) error, you need to `ctrl-c` on the terminal and restart `rails s`
 
 Git Remote Setup
 ================
