@@ -93,7 +93,7 @@ You need to synchronize the changes which consists of series of git commands.  I
     $ git status
 ```
 
-7. Run commit to commit your changes to your local repository (on your machine)
+7. Run commit to commit your changes to your local repository (on your machine).  Make sure to add `--skip-ci` at the end of commit message if you do not want to run a continuous integration job.  Most of the time content changes shouldn't require continuous integration job.
 
 ```
     $ commit -m "new you know you are caregiver if article added --skip-ci"
