@@ -88,7 +88,7 @@
   <%= render "micro/footer" %>
 
 
-  <% if @lead_user && (Rails.env.staging? || Rails.env.production?) %>
+  <% if !@lead_user.nil? && (Rails.env.staging? || Rails.env.production?) %>
     <script type="text/javascript">
       $(function() {
         analytics.identify( <%= @lead_user.id %>, {

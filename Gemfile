@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 
-ruby '2.1.0'
+ruby '2.1.1'
 
 group :development, :test do
   gem 'rspec-rails', '>= 2.14.0'
@@ -63,6 +63,7 @@ gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'magnific-popup-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'

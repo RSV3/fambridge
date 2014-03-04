@@ -26,27 +26,66 @@ class ContentController < ApplicationController
   end
 
   def subscribe
+    if !lead_user_params[:email].empty?
+      @first_name = first_name lead_user_params[:name]
+      @last_name = last_name lead_user_params[:name]
 
-    if params.has_key?(:name)
-      first_name = first_name lead_user_params[:name]
-      last_name = last_name lead_user_params[:name]
+      lead = LeadUser.new(first_name: @first_name, last_name: @last_name, 
+                    email: lead_user_params[:email],
+                    referrer: request.referrer)
+      if lead.save
+        flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!"
+        # so that popup email form does not popup again
+        session[:lead_id] = lead.id
+        session[:email_submitted] = true
+      else
+        lead = LeadUser.find_by_email(lead_user_params[:email])
+        if lead.nil?
+          flash[:danger] = "Email is not valid please resubscribe." 
+        else
+          flash[:danger] = "You seem to have already registered!"
+          # so that popup email form does not popup again
+          session[:lead_id] = lead.id       
+          session[:email_submitted] = true
+        end
+      end
     else
-      first_name = lead_user_params[:email].split(/@/)[0] 
-      last_name = ""
+      flash[:danger] = "Email is not valid please resubscribe."
     end
+    redirect_to request.referrer
+  end
 
-    lead = LeadUser.new(first_name: first_name, last_name: last_name, email: lead_user_params[:email],
-                  referrer: request.referrer)
-    if lead.save
-      flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!" 
-      # save lead.id to session so that it can be used to log in segment.io
-      session[:lead_id] = lead.id
+  def popup_subscribe
+    if !lead_user_params[:email].empty?
+      @first_name = first_name lead_user_params[:name]
+      @last_name = last_name lead_user_params[:name]
+      @zipcode = lead_user_params[:zipcode]
+
+      lead = LeadUser.new(first_name: @first_name, last_name: @last_name, 
+                    email: lead_user_params[:email],
+                    zipcode: lead_user_params[:zipcode],
+                    referrer: request.referrer)
+      if lead.save
+        flash[:success] = "Thank you for your interest.  You will be the first to be notified when we have exciting news from Family Bridge!"
+        # so that popup email form does not popup again
+        session[:lead_id] = lead.id
+        session[:email_submitted] = true
+      else
+        lead = LeadUser.find_by_email(lead_user_params[:email])
+        if lead.nil?
+          flash[:danger] = "Email is not valid please resubscribe." 
+        else
+          flash[:danger] = "You seem to have already registered!"
+          # so that popup email form does not popup again
+          session[:lead_id] = lead.id       
+          session[:email_submitted] = true
+        end
+      end
     else
-      flash[:danger] = "Email is not valid or you have already registered!"
+      flash[:danger] = "Email is not valid please resubscribe."
     end
 
     redirect_to request.referrer
-
   end
 
   def show 
@@ -120,6 +159,6 @@ class ContentController < ApplicationController
 
   private
     def lead_user_params
-      params.permit(:name, :email)
+      params.permit(:name, :email, :zipcode)
     end
 end

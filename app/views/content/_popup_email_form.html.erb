@@ -1,0 +1,60 @@
+<a class="popup-with-form" style="display:none;" href="#popup-email-submit-form">Open form</a>
+<!-- form itself -->
+
+<%= form_tag({:action => "popup_subscribe", :controller => "content"}, {:id => "popup-email-submit-form", :class => "email-popup mfp-hide"}) do %>
+  <h1 class="uppercase" id="popup-fb-logo">Family Bridge</h1>
+  <div id="popup-fb-logo-tagline">Caregiving made simple</div>
+  <hr>
+  <div id="popup-fb-headline">Stay updated with the latest caregiver resources!</div>
+
+            
+  <fieldset style="border:0;">
+    <div class="form-group">
+      <%= text_field_tag :name, nil, id: "first-name", class: "form-control", placeholder: "First Name" %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :email, nil, class: "form-control", placeholder: "Email" %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :zipcode, nil, class: "form-control", placeholder: "Zip Code" %>
+    </div> 
+
+    <%= submit_tag("Sign Up", class: "uppercase", id: "popup-notify-me") %>
+  </fieldset>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  <% if !session.has_key?(:email_submitted) %>
+    $('.popup-with-form').magnificPopup({
+      type: 'inline',
+      items: { 
+        src: '#popup-email-submit-form',
+      },
+      preloader: false,
+      focus: '#first-name',
+      closeOnBgClick: false,
+      closeBtnInside: true,
+
+      callbacks: {
+        beforeOpen: function() {
+          if ($(window).width() < 700) {
+            this.st.focus = false;
+          } else {
+            this.st.focus = '#first-name';
+          }
+        },
+
+      }
+    }, 0);
+
+    // only set this timeout if the user has not registered before
+    setTimeout( function() {
+      $('.popup-with-form').click();
+      //$('#popup-form').magnificPopup('open');
+    } , 5000);
+  <% end %>
+
+});
+</script>

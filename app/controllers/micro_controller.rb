@@ -64,12 +64,21 @@ class MicroController < ApplicationController
                       referrer: request.referrer)
         if @lead_user.save
           flash.now[:success] = "You can now download the guide.  You will also be the first to be notified when we have exciting news from Family Bridge!" 
+          # so that popup email form does not popup again
+          session[:email_submitted] = true
         else
           @lead_user = LeadUser.find_by_email(lead_user_params[:email])
-          flash.now[:danger] = "You seem to have already registered!  You can now download the guide."
+          if @lead_user.nil?
+            flash[:danger] = "Email is not valid please re-register!"
+            redirect_to tax_guide_landing_path
+          else
+            flash.now[:danger] = "You seem to have already registered!  You can now download the guide."
+            # so that popup email form does not popup again
+            session[:email_submitted] = true
+          end
         end
       else
-        flash[:danger] = "Email is not valid or you have already registered!"
+        flash[:danger] = "Email is not valid please re-register!"
         redirect_to tax_guide_landing_path
       end
     else

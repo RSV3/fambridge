@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render "layouts/google_fonts_load" %>
   <!-- For main general web site -->
   <%= yield :custom_upper_margin %>
   
@@ -20,7 +21,6 @@
 
   <%= yield :custom_footer %>
 
-  <%= render "layouts/google_fonts_load" %>
-
+  <%= render "content/popup_email_form" %>
 </body>
 </html>

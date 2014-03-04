@@ -32,6 +32,7 @@ Fambridge::Application.routes.draw do
   resources :content
 
   # display articles
+  post '/content/popup/subscribe', to: 'content#popup_subscribe'
   get '/content/category/:slug', to: 'content#category', constraints: { slug: /[a-z0-9\-]+/ }, as: :category
   match '/content/:category/:id', to: 'content#show', constraints: { id: /[a-zA-Z0-9\-]+/ }, as: :article, via: [:get, :post]
   post '/content/subscribe', to: 'content#subscribe'

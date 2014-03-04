@@ -14,6 +14,8 @@
 </head>
 <body>
 
+  <%= render "layouts/google_fonts_load" %>
+  
   <div id="fb-root"></div>
 
   <% if !Rails.env.development? %>
@@ -168,7 +170,7 @@
   </div>
 
   <%= render "content/footer" %>
-  <%= render "layouts/google_fonts_load" %>
 
+  <%= render "content/popup_email_form" %>
 </body>
 </html>

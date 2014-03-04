@@ -6,10 +6,9 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
-  <link href=''>
-
 </head>
 <body>
+  <%= render "layouts/google_fonts_load" %>
   <!-- For main general web site -->
   <div id="content">
   </div>
@@ -27,6 +26,5 @@
 
   <%= yield :custom_footer %>
 
-  <%= render "layouts/google_fonts_load" %>
 </body>
 </html>

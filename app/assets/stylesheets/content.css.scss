@@ -131,7 +131,7 @@
 
 .tagline {
   font-weight: 300;
-  color: #747171;
+  color: $tagline-color;
   font-size: 14px;
   margin-left: 57px;
 }
@@ -161,7 +161,7 @@
 
 
 .article-type-label {
-  color: #747171;
+  color: $tagline-color;
   font-size: 14px;
   font-weight: 300;
 }
@@ -174,11 +174,11 @@
   margin-top: 0px;
   margin-bottom: 15px;
   a {
-    color: #747171;
+    color: $tagline-color;
   }
   a:hover {
     text-decoration: none;
-    color: #aaa9a9;
+    color: $tagline-hover-color;
   }
 }
 
@@ -228,7 +228,7 @@
   font-size: 29px;
   font-weight: 800;
   a {
-    color: #747171;
+    color: $tagline-color;
   }
 }
 
@@ -326,7 +326,7 @@
   .sidebar-item-summary {
     font-weight: 300;
     font-size: 14px; 
-    color: #747171;
+    color: $tagline-color;
     padding-bottom: 10px;
   }
 }
@@ -365,7 +365,7 @@
 
 .footer-container {
   margin-top: 25px;
-  background-color: #f5f5f6;
+  background-color: $gray-background;
   padding-top: 35px;
   min-width: 1100px;
 }
@@ -376,7 +376,7 @@
   text-align: right;
   margin-bottom: 25px;
   a {
-    color: #747171; 
+    color: $tagline-color; 
   }
 }
 
@@ -557,4 +557,52 @@
 
 }
 
+/* for email popup */
 
+.email-popup {
+  position: relative;
+  background: $gray-background;
+  padding: 40px;
+  width: auto;
+  max-width: 335px;
+  margin: 20px auto;
+}
+
+#popup-email-submit-form {
+  hr {
+    margin: 10px 23px 23px 20px;
+    border-top: 1px solid $tagline-hover-color;
+  }
+}
+
+#popup-fb-logo {
+  font-weight: 800;
+  font-size: 26px;
+  color: $main-yellow-color;
+  text-align: center;
+  margin-bottom: -5px;
+}
+
+#popup-fb-logo-tagline {
+  font-weight: 300; 
+  font-size: 12px;
+  color: $tagline-color;
+  margin-left: 87px;
+  text-align: center;
+}
+
+#popup-fb-headline {
+  font-size: 16px;
+  font-weight: 300;
+  color: $care-decisions-color;
+  text-align: center;
+  margin: 0px 23px 43px 20px;
+}
+
+#popup-notify-me {
+  background-color: $main-yellow-color;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  border-color: $main-yellow-color;
+}

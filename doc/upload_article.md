@@ -17,26 +17,46 @@ In order to create a new article
 4. If you need to add images in the body of the article, add a folder under `app/assets/images/content` that is named after the article slug.  Add all the images in that directory.
   - In the article view you can add the image with the following tag
 
-```
+  ```
     <%= image_tag "content/<slug-name>/<image-file-name>" %>
-```
+  ```
 
 5. Update the database by loading the fixture
   - Note: you need to be in terminal in the fambridge project directory
 
-```
+  ```
     $ rake db:fixtures:load
-```
+  ```
 
 6. Run the web server to test locally.
 
-```
+  ```
     $ rails s
-```    
+  ```    
 
 7. Enter http://localhost:3000 on your browser which will load the content main page.  
 
-8. If the page shows PG (postgres database connection) error, you need to `ctrl-c` on the terminal and restart `rails s`
+8. If the page shows `PG::ConnectionBad: PQconsumeInput()` (postgres database connection) error, you need to `ctrl-c` on the terminal and restart `rails s`
+
+Update Rails and Ruby
+=====================
+
+1. Update rvm and install new Ruby version.  Replace 2.1.1 with the current version you want to install. 
+
+  ```
+  $ rvm update get stable
+  ```
+
+  ```
+  $ rvm install ruby-2.1.1
+  ```
+
+  ```
+  $ rvm use 2.1.1
+  ```
+
+2. Update Gemfile to reflect new Ruby version
+
 
 Git Remote Setup
 ================
@@ -63,47 +83,47 @@ You need to synchronize the changes which consists of series of git commands.  I
 
 1. Pull latest from github
 
-```
+  ```
     $ git pull origin develop
-```
+  ```
 
 2. Make changes you want to make
 
 3. See what files have changed so that you can commit
 
-```
+  ```
     $ git status
-```
+  ```
 
 4. If any file has been deleted you have to run
 
-```
+  ```
     $ git add -u
-```
+  ```
 
 5. If files have been added or edited, add all files in current directory using the following command
 
-```
+  ```
     $ git add .
-```
+  ```
 
 6. If you run `git status` you can see all of the files that are ready to be committed.  
   
-```
+  ```
     $ git status
-```
+  ```
 
 7. Run commit to commit your changes to your local repository (on your machine).  Make sure to add `--skip-ci` at the end of commit message if you do not want to run a continuous integration job.  Most of the time content changes shouldn't require continuous integration job.
 
-```
+  ```
     $ commit -m "new you know you are caregiver if article added --skip-ci"
-```
+  ```
 
 8. Push your changes to github so others can incorporate your changes (assuming you are pushing to the develop branch)
 
-```
+  ```
     $ git push origin develop
-```
+  ```
 
 
 Deploying to server
@@ -111,13 +131,13 @@ Deploying to server
 
 1. Push your changes to staging server (git remote `staging` must be setup ahead of time).  You are pushing your local develop branch to master branch on heroku staging server.
 
-```
+  ```
     $ git push staging develop:master
-```
+  ```
 
 2. Push your changes to production server (git remote `live` must be setup ahead of time). You are pushing your local `develop` branch to master branch on heroku production server.
 
-```
+  ```
     $ git push live develop:master
-```
+  ```
 
