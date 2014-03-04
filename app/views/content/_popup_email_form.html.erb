@@ -2,11 +2,11 @@
 <!-- form itself -->
 
 <%= form_tag({:action => "popup_subscribe", :controller => "content"}, {:id => "popup-email-submit-form", :class => "email-popup mfp-hide"}) do %>
+
   <h1 class="uppercase" id="popup-fb-logo">Family Bridge</h1>
   <div id="popup-fb-logo-tagline">Caregiving made simple</div>
   <hr>
   <div id="popup-fb-headline">Stay updated with the latest caregiver resources!</div>
-
             
   <fieldset style="border:0;">
     <div class="form-group">
@@ -24,14 +24,11 @@
 <% end %>
 
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready( function() {
 
   <% if !session.has_key?(:email_submitted) %>
     $('.popup-with-form').magnificPopup({
       type: 'inline',
-      items: { 
-        src: '#popup-email-submit-form',
-      },
       preloader: false,
       focus: '#first-name',
       closeOnBgClick: false,
@@ -44,10 +41,14 @@ $(document).ready(function() {
           } else {
             this.st.focus = '#first-name';
           }
+          console.log("Opening a new popup");
         },
-
+        close: function() {
+          console.log("Popup closed and reset");
+          //this.close();
+        }
       }
-    }, 0);
+    });
 
     // only set this timeout if the user has not registered before
     setTimeout( function() {
