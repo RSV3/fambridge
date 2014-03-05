@@ -4,7 +4,7 @@ class ContentController < ApplicationController
   include UsersHelper
 
   def index
-    @page_title = "Family Bridge Homepage"
+    @page_title = "Caregiving Made Simple"
     # landing page defaults to elder-law content for now 
     default_slug = params[:slug]
     if !default_slug
@@ -13,8 +13,9 @@ class ContentController < ApplicationController
     @articles = Content.where(homepage: true).order(:homepage_order)
 
     @headline = Content.where(homepage_highlight: true)[0]
-    @bottom_articles = @articles[4..-1]
-    @articles = @articles[0..3]
+    #@bottom_articles = @articles[4..-1]
+    #@articles = @articles[0..3]
+    @bottom_articles = []
 
     # to log subscriber on segment.io, customer.io
     if session.has_key?(:lead_id)
