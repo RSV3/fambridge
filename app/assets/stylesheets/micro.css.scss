@@ -3,7 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container {
-  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: auto;
+  }
 }
 
 .top-menu-item {
