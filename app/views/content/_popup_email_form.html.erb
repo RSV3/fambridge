@@ -44,8 +44,10 @@ $(document).ready( function() {
           console.log("Opening a new popup");
         },
         close: function() {
-          console.log("Popup closed and reset");
-          //this.close();
+          // send ajax command
+          $.ajax({
+            url: "/content/popup/closed"
+          });    
         }
       }
     });
