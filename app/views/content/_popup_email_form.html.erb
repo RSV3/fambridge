@@ -45,7 +45,14 @@ $(document).ready(function() {
             this.st.focus = '#first-name';
           }
         },
-
+        close: function() {
+          // send ajax command
+          $.ajax({
+            url: "/content/popup/closed/"
+          }).done(function (html) {
+            console.log(html);
+          });     
+        }
       }
     }, 0);
 

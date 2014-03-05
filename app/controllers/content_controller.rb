@@ -25,6 +25,10 @@ class ContentController < ApplicationController
     render :layout => "custom_application"
   end
 
+  def popup_closed
+    session[:email_submitted] = true
+  end
+
   def subscribe
     if !lead_user_params[:email].empty?
       @first_name = first_name lead_user_params[:name]
