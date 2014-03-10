@@ -141,8 +141,7 @@ irrational_caregiving:
   author: "Liesel Pollvogt"
   main_category: blog
   sub_category: caregiver_stories
-  homepage: true
-  homepage_order: 2
+
 
 in_defense_of_assisted_living:
   title: "In Defense of Assisted Living"
@@ -179,6 +178,8 @@ mom_has_a_boyfriend:
   author: "Adam Weisman"
   main_category: blog
   sub_category: comic_relief 
+  homepage: true
+  homepage_order: 2
 
 you_know_you_are_caregiver_if:
   title: "You know You're a Caregiver If..."
